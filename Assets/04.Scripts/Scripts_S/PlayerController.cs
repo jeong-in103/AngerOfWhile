@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //Componet
+    public Movement movement; // Player Move Interface UI 
+
+    //Variable
+    public float moveSpeed; // Player Move Speed
+
+
+    private void FixedUpdate()
     {
-        
+        Move();
     }
 
-    // Update is called once per frame
-    void Update()
+    // @S Player ¿Ãµø 
+    private void Move()
     {
-        
+        if (movement.LeftMove())
+        {
+            transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+        }
+        else if (movement.RightMove())
+        {
+            transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+        }
     }
 }
