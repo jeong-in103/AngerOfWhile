@@ -7,8 +7,9 @@ public class TestObstacle : MonoBehaviour
     public Ship ship;
 
     private float lifeTime;
-    private float deadTime = 3f;
+    private float deadTime = 10f;
 
+    public float acceleration = 7f;
     public Vector3 destination;
     void Start()
     {
@@ -24,6 +25,6 @@ public class TestObstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.position = Vector3.Lerp(transform.position, destination, Time.smoothDeltaTime * ship.MoveSpeed *0.5f);
+        transform.position = Vector3.MoveTowards(transform.position, destination, Time.smoothDeltaTime * ship.MoveSpeed * acceleration);
     }
 }

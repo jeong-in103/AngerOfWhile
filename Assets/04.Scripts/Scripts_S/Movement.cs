@@ -6,26 +6,32 @@ using UnityEngine.EventSystems;
 public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     // Variable
-    private Vector2 startPoint;
-    private Vector2 moveDirect;
+    private Vector3 directPos;
     // Property 
     [HideInInspector]
-    public Vector2 MoveDirect { get { return moveDirect; } }
+    public Vector3 DirectPos { get { return directPos; } }
+    Ray ray;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        startPoint = eventData.position;
+        directPos = GetDirectPos(eventData.position);
     }
+    
 
     public void OnDrag(PointerEventData eventData)
     {
-        moveDirect = eventData.position - startPoint;
-        moveDirect = moveDirect.normalized;
+        directPos = GetDirectPos(eventData.position);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        startPoint = Vector2.zero;
-        moveDirect = Vector2.zero;
+        directPos = Vector3.zero;
+    }
+
+    private Vector3 GetDirectPos(Vector2 eventDataPos)
+    {
+        ray = Camera.main.ScreenPointToRay(eventDataPos);
+        directPos = ray.GetPoint(Camera.main.transform.position.y);
+        return directPos;
     }
 }

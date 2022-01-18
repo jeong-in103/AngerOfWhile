@@ -11,6 +11,14 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed; // Player Move Speed
     public int hp = 3; //Player HP
 
+    float startPosY;
+    float startPosZ;
+
+    private void Start()
+    {
+        startPosY = transform.position.y;
+        startPosZ = transform.position.z;
+    }
     private void Update()
     {
         LimitMove();
@@ -24,16 +32,10 @@ public class PlayerController : MonoBehaviour
     // @S Player 이동 
     private void Move()
     {
-        if (movement.MoveDirect != Vector2.zero)
+        if (movement.DirectPos != Vector3.zero)
         {
-            if (movement.MoveDirect.x > 0f)
-            {
-                transform.position += Vector3.right * Time.deltaTime * moveSpeed;
-            }
-            else if (movement.MoveDirect.x < 0f)
-            {
-                transform.position += Vector3.left * Time.deltaTime * moveSpeed;
-            }
+            Vector3 move = new Vector3(movement.DirectPos.x, startPosY, startPosZ);
+            transform.position = Vector3.Slerp(transform.position, move, Time.smoothDeltaTime * moveSpeed);
         }
     }
     // @S : 개발 PC용 움직임
