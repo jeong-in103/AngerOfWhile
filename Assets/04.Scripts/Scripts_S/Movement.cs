@@ -1,47 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-    [SerializeField]
-    private bool left;
-    [SerializeField]
-    private bool right;
+    // Variable
+    private Vector2 startPoint;
+    private Vector2 moveDirect;
+    // Property 
+    [HideInInspector]
+    public Vector2 MoveDirect { get { return moveDirect; } }
 
-    #region Left Right UI Event Trigger 
-    public void LeftDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        left = true;
-        right = false;
+        startPoint = eventData.position;
     }
 
-    public void RightDown()
+    public void OnDrag(PointerEventData eventData)
     {
-        right = true;
-        left = false;
+        moveDirect = eventData.position - startPoint;
+        moveDirect = moveDirect.normalized;
     }
 
-    public void LeftUp()
+    public void OnPointerUp(PointerEventData eventData)
     {
-        left = false;
+        startPoint = Vector2.zero;
+        moveDirect = Vector2.zero;
     }
-
-    public void RightUp()
-    {
-        right = false;
-    }
-    #endregion
-
-    #region  Player Move Check Bool Return Method
-    public bool LeftMove()
-    {
-        return left;
-    }
-
-    public bool RightMove()
-    {
-        return right;
-    }
-    #endregion
 }

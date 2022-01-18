@@ -1,32 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //Componet
-    public Movement movement; // Player Move Interface UI 
+    // Componet
+    public Movement movement; //Player Move Script
 
-    //Variable
+    // Variable
     public float moveSpeed; // Player Move Speed
+    public int hp = 3; //Player HP
 
-
+    private void Update()
+    {
+        LimitMove();
+    }
     private void FixedUpdate()
     {
         Move();
+        PCMove();
     }
 
     // @S Player 이동 
     private void Move()
     {
-        if (movement.LeftMove())
+        if (movement.MoveDirect != Vector2.zero)
         {
-            transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+            if (movement.MoveDirect.x > 0f)
+            {
+                transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+            }
+            else if (movement.MoveDirect.x < 0f)
+            {
+                transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+            }
         }
-        else if (movement.RightMove())
+    }
+    // @S : 개발 PC용 움직임
+    private void PCMove()
+    {
+        float x = Input.GetAxis("Horizontal");
+
+        if (x > 0f)
         {
             transform.position += Vector3.right * Time.deltaTime * moveSpeed;
         }
+        else if (x < 0f)
+        {
+            transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+        }
+    }
+    // @S : Player가 카메라 화면밖으로 나가지 않도록
+    private void LimitMove()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (pos.x < 0.1f) pos.x = 0.1f;
+        if (pos.x > 0.9f) pos.x = 0.9f;
+
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 }
