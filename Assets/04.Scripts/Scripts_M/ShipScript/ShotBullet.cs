@@ -14,7 +14,7 @@ public class ShotBullet : ShipAttack
 
     protected override void ResetSpawnTime()
     {
-        MaxSpawnTime = Random.Range(0.5f, 1.5f);
+        MaxSpawnTime = 2f;
     }
 
     protected override void Attack()
