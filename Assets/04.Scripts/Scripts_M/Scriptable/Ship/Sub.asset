@@ -15,3 +15,6 @@ MonoBehaviour:
   type: 1
   moveSpeed: 0.8
   angerGauge: 10
+  score: 200
+  leaveObject: {fileID: 0}
+  bulletObject: {fileID: 0}
