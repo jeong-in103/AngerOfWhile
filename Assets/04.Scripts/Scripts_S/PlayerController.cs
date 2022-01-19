@@ -7,13 +7,19 @@ public class PlayerController : MonoBehaviour
     // Componet
     public Movement movement; //Player Move Script
 
+    private Animator animator;
+
     // Variable
     public float moveSpeed; // Player Move Speed
     public int hp = 3; //Player HP
 
-    float startPosY;
-    float startPosZ;
+    private float startPosY;
+    private float startPosZ;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
         startPosY = transform.position.y;
@@ -22,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         LimitMove();
+
+        PCAttack();
     }
     private void FixedUpdate()
     {
@@ -29,6 +37,7 @@ public class PlayerController : MonoBehaviour
         PCMove();
     }
 
+    #region Player Move
     // @S Player ¿Ãµø 
     private void Move()
     {
@@ -62,4 +71,16 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
+    #endregion
+
+    #region Attack
+    private void PCAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
+    #endregion
+
 }

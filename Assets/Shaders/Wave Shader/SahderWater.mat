@@ -34,7 +34,7 @@ Material:
     m_Floats:
     - Vector1_036ecf83bbac4a729f8e02aeb1a394b0: 0.3
     - Vector1_1AE1D4CB: 0.03
-    - Vector1_1E58CA3C: 0.7
+    - Vector1_1E58CA3C: 0.2
     - Vector1_24DAD7F: 0.1
     - Vector1_39047021: 0.23
     - Vector1_39222957: 0
@@ -46,7 +46,7 @@ Material:
     - Vector1_5190E028: 0
     - Vector1_5232C9B8: 0.1
     - Vector1_5EB91206: 0.24
-    - Vector1_6DA97D7: 35
+    - Vector1_6DA97D7: 0
     - Vector1_722CB011: 0.028
     - Vector1_7FB5584F: 0
     - Vector1_8BF7F1BF: 1
