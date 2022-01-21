@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestObstacle : MonoBehaviour
 {
-    public Ship ship;
+    public Enemy ship;
 
     private float lifeTime;
     private float deadTime = 10f;

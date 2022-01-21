@@ -6,9 +6,10 @@ public class ObjectWall : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy" || other.tag == "Item")
+        if(other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            string ID = other.GetComponent<EnemyCtrl>().GetShipType();
+            ObjectPool.ReturnObject(other.gameObject, ID);
         }
     }
 }
