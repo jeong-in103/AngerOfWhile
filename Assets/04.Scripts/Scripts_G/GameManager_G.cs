@@ -16,9 +16,7 @@ public class GameManager_G : MonoBehaviour
     [SerializeField]
     private float pastMeter = 0;
 
-    //[SerializeField]
-    //private int time;
-
+    
     // Start is called before the first frame update
 
     void Start()
@@ -50,7 +48,7 @@ public class GameManager_G : MonoBehaviour
 
     private void MeterUpdate() //G:미터기 업데이트 추후 수정
     {
-        meter += Time.deltaTime / 20;
+        meter += Time.deltaTime / 30;
         meterText.text = meter.ToString("F2") + "m";
        
         ScoreUpdate();
