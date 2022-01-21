@@ -15,7 +15,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int type = 0;
     [SerializeField]
-    private int randBefore = 0;
+     int randBefore = 0;
+   
 
     public float timer = 0f;
     public bool isSpawn = false;
@@ -27,33 +28,30 @@ public class SpawnManager : MonoBehaviour
         CreatePosition();
     }
 
-    
+
 
     void CreatePosition() //G:적이 생성될 위치값
     {
-       
-       
-       float viewPosZ = -25f;
-       float gapX = 1f / 7f;
-       float viewPosX = 0f;
-        
-       for (int i = 0; i < enemyPosition.Length; i++)
+
+        float viewPosZ = -25f;
+        float gapX = 1f / 7f;
+        float viewPosX = 0f;
+
+        for (int i = 0; i < enemyPosition.Length; i++)
         {
-            
+
             viewPosX = gapX + gapX * i;
 
             Vector3 viewPos = new Vector3(viewPosX, 0, viewPosZ);
 
             Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
             worldPos.y = -0.2f;
-            worldPos.z = 20f;
-            
-            enemyPosition[i] = worldPos;
-            
            
-        }
-    }
 
+            enemyPosition[i] = worldPos;
+        }
+
+    }
     #region 레벨에 따른 스폰
     void StartSpawn() //G: 적 스폰 시작
     {
@@ -61,37 +59,46 @@ public class SpawnManager : MonoBehaviour
         if (isSpawn == true)
         {
 
-            TypeSpawn(0); //Ship 출현
-            if (timer >= 40) // 스폰 딜레이 변경 
+            TypeSpawn(0); //Ship 출현 (Lv.1)
+
+            if (timer >= 40) // 스폰 딜레이 변경 (Lv.2)
             {
                 spawnDelay[0] = 3f;
               
             }
-            if (timer >= 60) //Sub_a 출현
+            if (timer >= 60) //Sub_a 출현 (Lv.3)
             {   spawnDelay[0] = 5f;
                 TypeSpawn(1);
             }
             
-            if (timer >=90) //Mot 출현
+            if (timer >=90) //Mot 출현 (Lv.4)
             {
                 spawnDelay[0] = 5f;
                 spawnDelay[1] = 5f;
                 TypeSpawn(2);
             }
-             if (timer >= 150) // Hunt 출현
+             if (timer >= 150) // Hunt 출현 (Lv.5)
             {
                 spawnDelay[0] = 7f;
                 spawnDelay[1] = 10f;
                 spawnDelay[2] = 15f;
                 TypeSpawn(3);
             }
-            if (timer >= 180) // Naval 출현
+            if (timer >= 180) // Naval 출현 (Lv.6)
             {
                 spawnDelay[0] = 6f;
                 spawnDelay[1] = 9f;
                 spawnDelay[2] = 12f;
                 spawnDelay[3] = 19f;
                 TypeSpawn(4);
+            }
+            if (timer >= 250) // (Lv.7)
+            {
+                spawnDelay[0] = 10f;
+                spawnDelay[1] = 7f;
+                spawnDelay[2] = 12f;
+                spawnDelay[3] = 17f;
+                spawnDelay[4] = 20f;
             }
         }
     }
@@ -108,17 +115,20 @@ public class SpawnManager : MonoBehaviour
             if (randBefore != rand)
             {
                 Instantiate(enemies[type], enemyPosition[rand], Quaternion.identity);
+                randBefore = rand;
             }
-            else if(rand <5)
+            else if(rand < 5)
             {
                 Instantiate(enemies[type], enemyPosition[rand+1], Quaternion.identity);
+                randBefore = rand+1;
             }
-            else if (rand == 5)
+            else if ( rand == 5)
             {
-                Instantiate(enemies[type], enemyPosition[0], Quaternion.identity);
+                Instantiate(enemies[type], enemyPosition[rand-1], Quaternion.identity);
+                randBefore = rand-1;
             }
             spawnTimer[type] = 0f;
-            randBefore = rand;
+            
         }
         spawnTimer[type] += Time.deltaTime;
         
