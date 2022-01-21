@@ -715,8 +715,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1150267907}
+  skin: {fileID: 0}
   moveSpeed: 8
-  hp: 3
+  time: 0
 --- !u!95 &341241559
 Animator:
   serializedVersion: 3
@@ -1015,7 +1016,7 @@ MonoBehaviour:
   - {fileID: 2850008748513546575, guid: 1f40368c8a43cda42a68c19246327ed3, type: 3}
   - {fileID: 1268448512848450842, guid: bd3793fa305ca0c468aca3b9fe943253, type: 3}
   - {fileID: 2975464955512506372, guid: fd811069f488ab747a7c68ac2b467fc7, type: 3}
-  - {fileID: 4316289956915820746, guid: b920245ccb924484a8be453e99020864, type: 3}
+  - {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
   spawnTimer:
   - 3.5
   - 6
@@ -1030,7 +1031,7 @@ MonoBehaviour:
   - 22
   type: 0
   randBefore: 0
-  timer: 150
+  timer: 0
   isSpawn: 1
 --- !u!1001 &1645664987
 PrefabInstance:
