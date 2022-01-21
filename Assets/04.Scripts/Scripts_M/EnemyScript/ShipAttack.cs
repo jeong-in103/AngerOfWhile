@@ -4,7 +4,7 @@ using UnityEngine;
 
 // 배 공격 베이스 스크립트
 
-public abstract class ShipAttack : ShipData
+public abstract class ShipAttack : EnemyData
 {
     [SerializeField]
     protected Transform point; // 공격 오브젝트 생성 위치

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipData : MonoBehaviour
+public class EnemyData : MonoBehaviour
 {
     [SerializeField]
-    protected Ship type;
+    protected Enemy type;
 }

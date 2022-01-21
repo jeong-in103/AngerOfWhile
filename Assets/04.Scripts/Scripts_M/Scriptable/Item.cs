@@ -15,7 +15,7 @@ public class Item : ScriptableObject  // 스크립터블 오브젝트
     }
 
     [SerializeField]
-    public ItemType type; // 아이템 유형
+    private ItemType type; // 아이템 유형
     public ItemType Type { get { return type; } }
 
     [SerializeField]
