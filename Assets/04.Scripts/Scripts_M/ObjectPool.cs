@@ -6,7 +6,16 @@ public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool Instance;
 
-    [Header ("Ships Prefab")]
+    //[System.Serializable]
+    //private struct PoolData
+    //{
+    //    public string type;
+    //    public Queue<GameObject> objQueue;
+    //}
+
+    //[SerializeField]
+    //private GameObject[] objPrefab;
+
     [SerializeField]
     private GameObject shipPrefab;
     [SerializeField]
@@ -23,6 +32,21 @@ public class ObjectPool : MonoBehaviour
     private GameObject trashPrefab;
     [SerializeField]
     private GameObject bulletPrefab;
+
+    //[Header("Item Object Prefab")]
+    //[SerializeField]
+    //private GameObject Hel1Prefab;
+    //[SerializeField]
+    //private GameObject Hel2Prefab;
+    //[SerializeField]
+    //private GameObject Kit1Prefab;
+    //[SerializeField]
+    //private GameObject Kit2Prefab;
+    //[SerializeField]
+    //private GameObject ClockPrefab;
+
+    //[SerializeField]
+    //private List<PoolData> poolingObjQueue = new List<PoolData>();
 
     private Queue<GameObject> shipQueue = new Queue<GameObject>();
     private Queue<GameObject> subQueue = new Queue<GameObject>();
@@ -41,6 +65,13 @@ public class ObjectPool : MonoBehaviour
     }
 
     #region Create Object
+    //private GameObject CreateNewObj(int ID)
+    //{
+    //    GameObject newObj = Instantiate(objPrefab[ID], transform);
+    //    newObj.SetActive(false);
+    //    return newObj;
+    //}
+
     private GameObject CreateShipObject()
     {
         GameObject shipObj = Instantiate(shipPrefab, transform);
@@ -93,7 +124,22 @@ public class ObjectPool : MonoBehaviour
 
     private void Initialize(int count)
     {
-        for(int i = 0; i < count; i++)
+        //for(int i = 0; i < poolingObjQueue.Count; i++)
+        //{
+        //    for(int j = 0; j < count; j++)
+        //    {
+        //        poolingObjQueue[i].objQueue.Enqueue(CreateNewObj(i));
+        //    }
+        //    shipQueue.Enqueue(CreateShipObject());
+        //    subQueue.Enqueue(CreateShipObject());
+        //    motQueue.Enqueue(CreateShipObject());
+        //    huntQueue.Enqueue(CreateShipObject());
+        //    navalQueue.Enqueue(CreateShipObject());
+        //    trashQueue.Enqueue(CreateTrashObject());
+        //    bulletQueue.Enqueue(CreateBulletObject());
+        //}
+
+        for (int j = 0; j < count; j++)
         {
             shipQueue.Enqueue(CreateShipObject());
             subQueue.Enqueue(CreateShipObject());
@@ -106,6 +152,11 @@ public class ObjectPool : MonoBehaviour
     }
 
     #region Get Object
+    //public static GameObject GetObj(string ID)
+    //{
+    //    if(Instance.poolingObjQueue.Find(ID).)
+    //}
+
     public static GameObject GetObject(string ID)
     {
         GameObject obj;

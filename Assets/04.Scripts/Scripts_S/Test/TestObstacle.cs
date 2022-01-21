@@ -20,7 +20,7 @@ public class TestObstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.position = Vector3.MoveTowards(transform.position, destination, Time.smoothDeltaTime * ship.MoveSpeed * acceleration);
+        //transform.position = Vector3.MoveTowards(transform.position, destination, Time.smoothDeltaTime * ship.MoveSpeed * acceleration);
     }
 
 }
