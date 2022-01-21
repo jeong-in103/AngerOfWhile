@@ -11,12 +11,7 @@ public class TestObstacle : MonoBehaviour
 
     public float acceleration = 7f;
     public Vector3 destination;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         lifeTime += Time.deltaTime;
@@ -27,4 +22,5 @@ public class TestObstacle : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, destination, Time.smoothDeltaTime * ship.MoveSpeed * acceleration);
     }
+
 }

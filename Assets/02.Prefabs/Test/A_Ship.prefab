@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8510847144488493174}
   - component: {fileID: 8510847144488493173}
   - component: {fileID: -7150587731045462961}
+  - component: {fileID: 4398017996396336988}
   m_Layer: 0
   m_Name: A_Ship
   m_TagString: Untagged
@@ -109,4 +110,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 11400000, guid: 4cbce8c5917a7c848925755d26ec25e4, type: 2}
+  acceleration: 7
   destination: {x: 0, y: 0, z: 0}
+--- !u!54 &4398017996396336988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510847144488493172}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 10
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

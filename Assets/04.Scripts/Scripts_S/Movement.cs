@@ -6,15 +6,19 @@ using UnityEngine.EventSystems;
 public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     // Variable
+    private Ray ray;
+
     private Vector3 directPos;
+    private bool attack;
     // Property 
     [HideInInspector]
     public Vector3 DirectPos { get { return directPos; } }
-    Ray ray;
+    public bool Attack { get {return attack;} set { attack = value; } }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         directPos = GetDirectPos(eventData.position);
+        attack = false;
     }
     
 
@@ -26,6 +30,7 @@ public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         directPos = Vector3.zero;
+        attack = true;
     }
 
     private Vector3 GetDirectPos(Vector2 eventDataPos)
