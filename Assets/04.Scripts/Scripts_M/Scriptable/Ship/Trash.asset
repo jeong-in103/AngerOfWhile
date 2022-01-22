@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Trash
   m_EditorClassIdentifier: 
   type: TRASH
-  moveSpeed: 0
   angerGauge: 0
   score: 50
   leaveObject: {fileID: 0}

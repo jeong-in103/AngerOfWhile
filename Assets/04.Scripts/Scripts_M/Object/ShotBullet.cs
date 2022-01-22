@@ -12,6 +12,20 @@ public class ShotBullet : ShipAttack
         curSpawnTime = MaxSpawnTime;
     }
 
+    private void Update()
+    {
+        if (MaxSpawnTime <= curSpawnTime)
+        {
+            Attack();
+            ResetSpawnTime();
+            curSpawnTime = 0;
+        }
+        else
+        {
+            curSpawnTime += Time.deltaTime;
+        }
+    }
+
     protected override void ResetSpawnTime()
     {
         MaxSpawnTime = 2f;

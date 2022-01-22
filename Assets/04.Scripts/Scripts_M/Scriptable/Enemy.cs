@@ -9,10 +9,6 @@ public class Enemy : ScriptableObject  // 스크립터블 오브젝트
     private string type; // 배 유형
     public string Type { get { return type; } }
 
-    [SerializeField] 
-    private float moveSpeed; // 속도
-    public float MoveSpeed { get { return moveSpeed; } }
-
     [SerializeField]
     private float angerGauge; // 분노게이지
     public float AngerGauge { get { return angerGauge; } }

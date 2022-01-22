@@ -75,16 +75,20 @@ public class PlayerController : MonoBehaviour
     private void LimitMove()
     {
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-
-        if (pos.x < 0.1f) pos.x = 0.1f;
-        if (pos.x > 0.9f) pos.x = 0.9f;
-
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        if (pos.x < 0.1f)
+        {
+            pos.x = 0.1f;
+            transform.position = Camera.main.ViewportToWorldPoint(pos);
+        }
+        if (pos.x > 0.9f)
+        {
+            pos.x = 0.9f;
+            transform.position = Camera.main.ViewportToWorldPoint(pos);
+        }
     }
     #endregion
 
     #region Attack
-
     private void Attack()
     {
         if (movement.Attack)

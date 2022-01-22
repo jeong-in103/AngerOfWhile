@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCtrl : EnemyData
+public class ObjectCtrl : ObjectData
 {
     [SerializeField]
-    private float standardSpeed; // 기준 속도
+    private float moveSpeed; // 기준 속도
 
-    private Transform enemyTr;
+    private Transform objTr;
 
     private void Start()
     {
-        enemyTr = GetComponent<Transform>();
+        objTr = GetComponent<Transform>();
     }
 
-    public string GetShipType()
+    public string GetObjectType()
     {
         return type.Type;
     }
@@ -27,6 +27,6 @@ public class EnemyCtrl : EnemyData
     protected void ShipMoving() // 배 이동
     {
         //이동
-        enemyTr.Translate(Vector3.back * Time.deltaTime * standardSpeed * type.MoveSpeed);
+        objTr.Translate(Vector3.back * Time.deltaTime * moveSpeed);
     }
 }

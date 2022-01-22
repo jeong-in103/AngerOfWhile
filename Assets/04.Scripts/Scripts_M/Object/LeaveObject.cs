@@ -6,15 +6,31 @@ using UnityEngine;
 
 public class LeaveObject : ShipAttack
 {
+    private bool isAttack;
+
     private void Start()
     {
+        isAttack = false;
         ResetSpawnTime();
-        curSpawnTime = MaxSpawnTime;
+        curSpawnTime = 0;
+    }
+
+    private void Update()
+    {
+        if (MaxSpawnTime <= curSpawnTime && isAttack == false)
+        {
+            Attack();
+            isAttack = true;
+        }
+        else if(isAttack == false)
+        {
+            curSpawnTime += Time.deltaTime;
+        }
     }
 
     protected override void ResetSpawnTime()
     {
-        MaxSpawnTime = Random.Range(0.5f, 1.5f);
+        MaxSpawnTime = Random.Range(3f, 4f);
     }
 
     protected override void Attack()
