@@ -16,9 +16,6 @@ public class GameManager_G : MonoBehaviour
     [SerializeField]
     private float pastMeter = 0;
 
-    
-    // Start is called before the first frame update
-
     void Start()
     {
         angerSlider.value = 100; //G: 0으로 초기화 해서 시작할 것 
@@ -29,8 +26,6 @@ public class GameManager_G : MonoBehaviour
     {
         MeterUpdate();
         AngerUpdate();
-        
-
     }
 
     private void AngerUpdate()
@@ -52,7 +47,6 @@ public class GameManager_G : MonoBehaviour
         meterText.text = meter.ToString("F2") + "m";
        
         ScoreUpdate();
-
     }
 
     private void ScoreUpdate()  //G: 점수 업데이트 (미터에 따른 점수 추가 O | 아이템에 따른 점수 추가 X | 장애물에 따른 점수 감소 X)
@@ -62,7 +56,6 @@ public class GameManager_G : MonoBehaviour
             pastMeter = meter;
             score += 50;
             scoreText.text = score.ToString();
-            
         }
     }
 }

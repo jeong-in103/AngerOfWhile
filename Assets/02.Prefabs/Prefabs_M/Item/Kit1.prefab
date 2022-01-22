@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8802034907629255275}
-  m_Layer: 0
+  - component: {fileID: 3297632049621363470}
+  m_Layer: 10
   m_Name: Kit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3297632049621363470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731271858480215588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f152302bdc29c54b8f1844c731da4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 0}
+  moveSpeed: 5
 --- !u!1001 &6408033854535395651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,9 +105,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73946af4d50c5a747b11752a432badf0, type: 2}
     - target: {fileID: 919132149155446097, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_Name
       value: Kit_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_IsActive

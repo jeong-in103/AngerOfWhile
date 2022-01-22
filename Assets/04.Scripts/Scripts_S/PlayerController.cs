@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private int stemina; // Item Aid-Kit Addtional Hp
     private int helmat; // Item Helmat Defense Count
 
+    private bool dive;
     private bool attack;
 
     [Range(0f,1f)]
@@ -44,7 +45,9 @@ public class PlayerController : MonoBehaviour
         PCAttack();
 
         // 
-        TimeDelay();
+        Dive();
+
+        //TimeDelay();
     }
  
     #region Player Move
@@ -88,13 +91,22 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    private void Dive()
+    {
+        if (movement.Dive)
+        {
+            animator.SetTrigger("Dive");
+        }
+    }
     #region Attack
     private void Attack()
     {
         if (movement.Attack)
         {
             animator.SetTrigger("Attack");
+            animator.ResetTrigger("Dive");
             movement.Attack = false;
+            movement.Dive = false;
         }
     }
 

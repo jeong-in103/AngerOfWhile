@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 
-    Vector3[] enemyPosition= new Vector3[6];
+    Vector3[] enemyPosition = new Vector3[6];
 
     public GameObject[] enemies;
 
@@ -15,8 +15,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int type = 0;
     [SerializeField]
-     int randBefore = 0;
-   
+    int randBefore = 0;
+
 
     public float timer = 0f;
     public bool isSpawn = false;
@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
 
             Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
             worldPos.y = -0.2f;
-           
+
 
             enemyPosition[i] = worldPos;
         }
@@ -64,20 +64,21 @@ public class SpawnManager : MonoBehaviour
             if (timer >= 40) // 스폰 딜레이 변경 (Lv.2)
             {
                 spawnDelay[0] = 3f;
-              
+
             }
             if (timer >= 60) //Sub_a 출현 (Lv.3)
-            {   spawnDelay[0] = 5f;
+            {
+                spawnDelay[0] = 5f;
                 TypeSpawn(1);
             }
-            
-            if (timer >=90) //Mot 출현 (Lv.4)
+
+            if (timer >= 90) //Mot 출현 (Lv.4)
             {
                 spawnDelay[0] = 5f;
                 spawnDelay[1] = 5f;
                 TypeSpawn(2);
             }
-             if (timer >= 150) // Hunt 출현 (Lv.5)
+            if (timer >= 150) // Hunt 출현 (Lv.5)
             {
                 spawnDelay[0] = 7f;
                 spawnDelay[1] = 10f;
@@ -102,13 +103,13 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
-    
+
     void TypeSpawn(int type)
     {
 
         if (spawnTimer[type] > spawnDelay[type])
         {
-            
+
             int rand = Random.Range(0, enemyPosition.Length);
 
             // 포지션 연속 중복 방지
@@ -117,21 +118,21 @@ public class SpawnManager : MonoBehaviour
                 Instantiate(enemies[type], enemyPosition[rand], Quaternion.identity);
                 randBefore = rand;
             }
-            else if(rand < 5)
+            else if (rand < 5)
             {
-                Instantiate(enemies[type], enemyPosition[rand+1], Quaternion.identity);
-                randBefore = rand+1;
+                Instantiate(enemies[type], enemyPosition[rand + 1], Quaternion.identity);
+                randBefore = rand + 1;
             }
-            else if ( rand == 5)
+            else if (rand == 5)
             {
-                Instantiate(enemies[type], enemyPosition[rand-1], Quaternion.identity);
-                randBefore = rand-1;
+                Instantiate(enemies[type], enemyPosition[rand - 1], Quaternion.identity);
+                randBefore = rand - 1;
             }
             spawnTimer[type] = 0f;
-            
+
         }
         spawnTimer[type] += Time.deltaTime;
-        
+
     }
 
     #endregion

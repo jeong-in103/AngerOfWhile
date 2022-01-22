@@ -5,7 +5,6 @@ using UnityEngine;
 public class TestEnemyTool : MonoBehaviour
 {
     public Transform[] startPos;
-    public Transform[] endPos;
 
     public GameObject[] enemies;
 
@@ -35,18 +34,15 @@ public class TestEnemyTool : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            GameObject ship = EnemyCreate(0);
-            ship.GetComponent<TestObstacle>().destination = endPos[0].position;
+            EnemyCreate(0);
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            GameObject ship = EnemyCreate(1);
-            ship.GetComponent<TestObstacle>().destination = endPos[1].position;
+            EnemyCreate(1);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject ship = EnemyCreate(2);
-            ship.GetComponent<TestObstacle>().destination = endPos[2].position;
+            EnemyCreate(2);
         }
     }
 }

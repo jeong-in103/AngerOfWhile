@@ -18,7 +18,7 @@ public class ShotBullet : ShipAttack
         {
             Attack();
             ResetSpawnTime();
-            curSpawnTime = 0;
+            curSpawnTime = -100f;
         }
         else
         {

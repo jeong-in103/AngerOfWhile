@@ -10,10 +10,14 @@ public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     private Vector3 directPos;
     private bool attack;
+    private bool dive;
+
     // Property 
     [HideInInspector]
     public Vector3 DirectPos { get { return directPos; } }
     public bool Attack { get {return attack;} set { attack = value; } }
+    public bool Dive { get { return dive; } set { dive = value; } }
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,7 +34,15 @@ public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         directPos = Vector3.zero;
-        attack = true;
+        if(dive== true)
+        {
+            attack = true;
+            dive = false;
+        }
+        else
+        {
+            dive = true;
+        }
     }
 
     private Vector3 GetDirectPos(Vector2 eventDataPos)
