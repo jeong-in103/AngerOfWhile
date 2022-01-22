@@ -14,7 +14,7 @@ public class ObjectCtrl : ObjectData
         objTr = GetComponent<Transform>();
     }
 
-    public string GetObjectType()
+    public TypeID GetObjectType()
     {
         return type.Type;
     }

@@ -43,10 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3fbffc252c776443a700f3f6e75da5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrefab: {fileID: 7575090733795943707, guid: 9a858ba23c7eb85478a9463c89dcdea6, type: 3}
-  subPrefab: {fileID: 2850008748513546575, guid: 1f40368c8a43cda42a68c19246327ed3, type: 3}
-  motPrefab: {fileID: 1268448512848450842, guid: bd3793fa305ca0c468aca3b9fe943253, type: 3}
-  huntPrefab: {fileID: 2975464955512506372, guid: fd811069f488ab747a7c68ac2b467fc7, type: 3}
-  navalPrefab: {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
-  trashPrefab: {fileID: 4496493003748863147, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
-  bulletPrefab: {fileID: 330451636966643371, guid: 8d8b3a3a14467e04bad0daafc0ecbbe7, type: 3}
+  objPrefab:
+  - {fileID: 7575090733795943707, guid: 9a858ba23c7eb85478a9463c89dcdea6, type: 3}
+  - {fileID: 2850008748513546575, guid: 1f40368c8a43cda42a68c19246327ed3, type: 3}
+  - {fileID: 1268448512848450842, guid: bd3793fa305ca0c468aca3b9fe943253, type: 3}
+  - {fileID: 2975464955512506372, guid: fd811069f488ab747a7c68ac2b467fc7, type: 3}
+  - {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
+  - {fileID: 4496493003748863147, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
+  - {fileID: 330451636966643371, guid: 8d8b3a3a14467e04bad0daafc0ecbbe7, type: 3}

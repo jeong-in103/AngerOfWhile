@@ -8,6 +8,8 @@ public class ShotBullet : ShipAttack
 {
     private void Start()
     {
+        attackObjID = (int)type.BulletObject.GetComponent<ObjectCtrl>().GetObjectType();
+
         ResetSpawnTime();
         curSpawnTime = MaxSpawnTime;
     }
@@ -33,6 +35,7 @@ public class ShotBullet : ShipAttack
 
     protected override void Attack()
     {
-        Instantiate(type.BulletObject, point.position, Quaternion.identity);
+        GameObject bulletObj = ObjectPool.GetObj(attackObjID);
+        bulletObj.transform.position = point.position;
     }
 }

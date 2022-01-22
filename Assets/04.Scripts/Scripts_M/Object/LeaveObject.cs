@@ -10,7 +10,9 @@ public class LeaveObject : ShipAttack
 
     private void Start()
     {
+        attackObjID = (int)type.LeaveObject.GetComponent<ObjectCtrl>().GetObjectType();
         isAttack = false;
+
         ResetSpawnTime();
         curSpawnTime = 0;
     }
@@ -35,6 +37,7 @@ public class LeaveObject : ShipAttack
 
     protected override void Attack()
     {
-        Instantiate(type.LeaveObject, point.position, Quaternion.identity);
+        GameObject leaveObj = ObjectPool.GetObj(attackObjID);
+        leaveObj.transform.position = point.position;
     }
 }

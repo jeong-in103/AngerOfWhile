@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Enemy", menuName = "New Object/Enemy")]
-public class Enemy : ScriptableObject  // 스크립터블 오브젝트
+[CreateAssetMenu(fileName = "New Object", menuName = "New Object/Object")]
+public class Object : ScriptableObject  // 스크립터블 오브젝트
 {
     [SerializeField]
-    private string type; // 배 유형
-    public string Type { get { return type; } }
+    private TypeID type; // 배 유형
+    public TypeID Type { get { return type; } }
 
     [SerializeField]
     private float angerGauge; // 분노게이지
