@@ -5,18 +5,19 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 
-    Vector3[] enemyPosition = new Vector3[6];
+    Vector3[] enemyPosition= new Vector3[5];
 
     public GameObject[] enemies;
 
-    public float[] spawnTimer = new float[5];
-    public float[] spawnDelay = new float[5];
+    public float spawnTimer;
+    public float spawnDelay;
 
     [SerializeField]
-    private int type = 0;
-    [SerializeField]
-    int randBefore = 0;
+    private int type;
 
+   
+    [SerializeField]
+    private int level = 1; 
 
     public float timer = 0f;
     public bool isSpawn = false;
@@ -33,8 +34,8 @@ public class SpawnManager : MonoBehaviour
     void CreatePosition() //G:적이 생성될 위치값
     {
 
-        float viewPosZ = -25f;
-        float gapX = 1f / 7f;
+        float viewPosZ = -30f;
+        float gapX = 1f / 6f;
         float viewPosX = 0f;
 
         for (int i = 0; i < enemyPosition.Length; i++)
@@ -46,7 +47,7 @@ public class SpawnManager : MonoBehaviour
 
             Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
             worldPos.y = -0.2f;
-
+           
 
             enemyPosition[i] = worldPos;
         }
@@ -59,82 +60,81 @@ public class SpawnManager : MonoBehaviour
         if (isSpawn == true)
         {
 
-            TypeSpawn(0); //Ship 출현 (Lv.1)
+            LevelUpdate();
 
-            if (timer >= 40) // 스폰 딜레이 변경 (Lv.2)
+            if (timer >= 60) //Sub_a 출현 
             {
-                spawnDelay[0] = 3f;
+                level = 2;
+            }
+            
+            if (timer >=90) //Mot 출현
+            {
+                level = 3;
+            }
+             if (timer >= 150) // Hunt 출현 
+            {
+                level = 4;
+            }
+            if (timer >= 180) // Naval 출현 
+            {
+                level = 5;
 
             }
-            if (timer >= 60) //Sub_a 출현 (Lv.3)
-            {
-                spawnDelay[0] = 5f;
-                TypeSpawn(1);
-            }
-
-            if (timer >= 90) //Mot 출현 (Lv.4)
-            {
-                spawnDelay[0] = 5f;
-                spawnDelay[1] = 5f;
-                TypeSpawn(2);
-            }
-            if (timer >= 150) // Hunt 출현 (Lv.5)
-            {
-                spawnDelay[0] = 7f;
-                spawnDelay[1] = 10f;
-                spawnDelay[2] = 15f;
-                TypeSpawn(3);
-            }
-            if (timer >= 180) // Naval 출현 (Lv.6)
-            {
-                spawnDelay[0] = 6f;
-                spawnDelay[1] = 9f;
-                spawnDelay[2] = 12f;
-                spawnDelay[3] = 19f;
-                TypeSpawn(4);
-            }
-            if (timer >= 250) // (Lv.7)
-            {
-                spawnDelay[0] = 10f;
-                spawnDelay[1] = 7f;
-                spawnDelay[2] = 12f;
-                spawnDelay[3] = 17f;
-                spawnDelay[4] = 20f;
-            }
+            
         }
     }
+    
+    void LevelUpdate()
+    {
+        switch (level)
+        {
+            
+            case 1:
+                SpawnEnemy(0); //Ship 출현
+                break;
 
-    void TypeSpawn(int type)
+            case 2:
+                SpawnEnemy(1);  //Sub_a 출현
+                break;
+
+            case 3:
+                SpawnEnemy(2);  //Mot 출현          
+                break;
+
+            case 4:
+                SpawnEnemy(3);  //Hunt 출현
+                break;
+
+            case 5:
+                SpawnEnemy(4); //Naval 출현
+                spawnDelay = 2.2f; 
+                break;
+        }
+    }
+    void SpawnEnemy(int type) //Spawn 중심적부분
     {
 
-        if (spawnTimer[type] > spawnDelay[type])
+        if (spawnTimer > spawnDelay)
         {
+            
+            int randPosition = Random.Range(0, enemyPosition.Length);
+            int randType = Random.Range(0, type+1);
+            int randType2 = Random.Range(0, 2);
+            Instantiate(enemies[randType], enemyPosition[randPosition], Quaternion.identity);
+            randPosition = Random.Range(0, enemyPosition.Length);
 
-            int rand = Random.Range(0, enemyPosition.Length);
-
-            // 포지션 연속 중복 방지
-            if (randBefore != rand)
+            if (randType == 2 || randType == 4) //밸런스 조정
             {
-                Instantiate(enemies[type], enemyPosition[rand], Quaternion.identity);
-                randBefore = rand;
+                Instantiate(enemies[randType2], enemyPosition[randPosition], Quaternion.identity);
             }
-            else if (rand < 5)
-            {
-                Instantiate(enemies[type], enemyPosition[rand + 1], Quaternion.identity);
-                randBefore = rand + 1;
-            }
-            else if (rand == 5)
-            {
-                Instantiate(enemies[type], enemyPosition[rand - 1], Quaternion.identity);
-                randBefore = rand - 1;
-            }
-            spawnTimer[type] = 0f;
-
+            spawnTimer= 0f;
+            
         }
-        spawnTimer[type] += Time.deltaTime;
-
+        spawnTimer += Time.deltaTime;
+        
     }
 
+ 
     #endregion
 
 

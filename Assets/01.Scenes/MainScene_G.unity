@@ -802,21 +802,11 @@ MonoBehaviour:
   - {fileID: 1268448512848450842, guid: bd3793fa305ca0c468aca3b9fe943253, type: 3}
   - {fileID: 2975464955512506372, guid: fd811069f488ab747a7c68ac2b467fc7, type: 3}
   - {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
-  spawnTimer:
-  - 3.5
-  - 6
-  - 13
-  - 18
-  - 22
-  spawnDelay:
-  - 3.5
-  - 6
-  - 13
-  - 18
-  - 22
+  spawnTimer: 2.5
+  spawnDelay: 2.5
   type: 0
-  randBefore: 0
-  timer: 300
+  level: 1
+  timer: 0
   isSpawn: 1
 --- !u!1001 &1645664987
 PrefabInstance:
@@ -1303,7 +1293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461162418692201593, guid: 73448e8009cee484898cc8a64419da2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -58.26
+      value: -37.35
       objectReference: {fileID: 0}
     - target: {fileID: 461162418692201593, guid: 73448e8009cee484898cc8a64419da2d, type: 3}
       propertyPath: m_LocalRotation.w
