@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34887545887225e4c813c655091a5c4a, type: 3}
-  m_Name: Sub
+  m_Name: Mot
   m_EditorClassIdentifier: 
-  type: SUB
-  moveSpeed: 0.8
-  angerGauge: 10
-  score: 200
-  leaveObject: {fileID: 0}
+  type: 1
+  angerGauge: 15
+  score: 450
+  leaveObject: {fileID: 4496493003748863147, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
   bulletObject: {fileID: 0}

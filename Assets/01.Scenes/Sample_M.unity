@@ -895,9 +895,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4496493003748863147, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8474208366582699781, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8474208366582699781, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1206,7 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8285940656911182863, guid: 8d8b3a3a14467e04bad0daafc0ecbbe7, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8285940656911182863, guid: 8d8b3a3a14467e04bad0daafc0ecbbe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1357,58 +1361,6 @@ PrefabInstance:
     - target: {fileID: 8083181558068550820, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[0].type
-      value: SHIP
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[1].type
-      value: SUB
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[2].type
-      value: MOT
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[3].type
-      value: HUNT
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[4].type
-      value: NAVAL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[5].type
-      value: TRASH
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[6].type
-      value: BULLET
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[7].type
-      value: HEL1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[8].type
-      value: HEL2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[9].type
-      value: KIT1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[10].type
-      value: KIT2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550821, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: poolingObjQueue.Array.data[11].type
-      value: CLOCK
       objectReference: {fileID: 0}
     - target: {fileID: 8083181558068550822, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
       propertyPath: m_Name

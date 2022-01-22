@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de383ba481e903b4cb4a7a17cb395e84, type: 3}
-  m_Name: Lv4
+  m_Script: {fileID: 11500000, guid: 34887545887225e4c813c655091a5c4a, type: 3}
+  m_Name: Hunt
   m_EditorClassIdentifier: 
   type: 3
-  moveSpeed: 0
+  angerGauge: 20
+  score: 700
+  leaveObject: {fileID: 0}
+  bulletObject: {fileID: 0}

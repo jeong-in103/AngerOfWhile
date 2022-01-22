@@ -5,5 +5,5 @@ using UnityEngine;
 public class ObjectData : MonoBehaviour
 {
     [SerializeField]
-    protected Enemy type;
+    protected Object type;
 }
