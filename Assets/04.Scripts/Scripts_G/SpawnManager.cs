@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 
-    Vector3[] enemyPosition= new Vector3[5];
+    Vector3[] position= new Vector3[5];
 
     public GameObject[] enemies;
 
@@ -15,7 +15,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int type;
 
-   
     [SerializeField]
     private int level = 1; 
 
@@ -38,7 +37,7 @@ public class SpawnManager : MonoBehaviour
         float gapX = 1f / 6f;
         float viewPosX = 0f;
 
-        for (int i = 0; i < enemyPosition.Length; i++)
+        for (int i = 0; i < position.Length; i++)
         {
 
             viewPosX = gapX + gapX * i;
@@ -49,7 +48,7 @@ public class SpawnManager : MonoBehaviour
             worldPos.y = -0.2f;
            
 
-            enemyPosition[i] = worldPos;
+            position[i] = worldPos;
         }
 
     }
@@ -90,42 +89,43 @@ public class SpawnManager : MonoBehaviour
         {
             
             case 1:
-                SpawnEnemy(0); //Ship 출현
+                Spawn(0); //Ship 출현
                 break;
 
             case 2:
-                SpawnEnemy(1);  //Sub_a 출현
+                Spawn(1);  //Sub_a 출현
                 break;
 
             case 3:
-                SpawnEnemy(2);  //Mot 출현          
+                Spawn(2);  //Mot 출현          
                 break;
 
             case 4:
-                SpawnEnemy(3);  //Hunt 출현
+                Spawn(3);  //Hunt 출현
                 break;
 
             case 5:
-                SpawnEnemy(4); //Naval 출현
+                Spawn(4); //Naval 출현
                 spawnDelay = 2.2f; 
                 break;
         }
     }
-    void SpawnEnemy(int type) //Spawn 중심적부분
+
+    void Spawn(int type) //Spawn 중심적부분
     {
 
         if (spawnTimer > spawnDelay)
         {
             
-            int randPosition = Random.Range(0, enemyPosition.Length);
+            int randPosition = Random.Range(0, position.Length);
             int randType = Random.Range(0, type+1);
             int randType2 = Random.Range(0, 2);
-            Instantiate(enemies[randType], enemyPosition[randPosition], Quaternion.identity);
-            randPosition = Random.Range(0, enemyPosition.Length);
+            Instantiate(enemies[randType], position[randPosition], Quaternion.identity);
+            randPosition = Random.Range(0, position.Length);
 
-            if (randType == 2 || randType == 4) //밸런스 조정
+            if (randType == 2 || randType == 4) //적 밸런스 조정
             {
-                Instantiate(enemies[randType2], enemyPosition[randPosition], Quaternion.identity);
+                Instantiate(enemies[randType2], position[randPosition], Quaternion.identity);
             }
             spawnTimer= 0f;
             
