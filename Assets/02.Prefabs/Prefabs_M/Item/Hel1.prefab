@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3493243361705089639}
   - component: {fileID: -7433320675644347407}
+  - component: {fileID: 5980106973680604838}
   m_Layer: 10
   m_Name: Hel1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 0}
   moveSpeed: 5
+--- !u!65 &5980106973680604838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4215940129001474546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7983308, y: 1.5754659, z: 3.1148367}
+  m_Center: {x: 0.007193327, y: 0.28773296, z: -0.12228656}
 --- !u!1001 &3024680390361697520
 PrefabInstance:
   m_ObjectHideFlags: 0

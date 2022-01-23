@@ -8,7 +8,7 @@ public class ObjectWall : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            int ID = (int)other.GetComponent<ObjectCtrl>().GetObjectType();
+            int ID = (int)other.GetComponent<ObstacleCtrl>().GetObstacleType;
             ObjectPool.ReturnObj(other.gameObject, ID);
         }
     }

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6761317573564880204}
   - component: {fileID: -8856353564178585964}
+  - component: {fileID: 4664644512557651188}
   m_Layer: 10
   m_Name: Clock
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 0}
   moveSpeed: 5
+--- !u!65 &4664644512557651188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652452006559114227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.655682, y: 3.0236113, z: 0.61893046}
+  m_Center: {x: 0.01314044, y: 0.18396461, z: 0.0065701604}
 --- !u!1001 &1322574809790366173
 PrefabInstance:
   m_ObjectHideFlags: 0
