@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 4cdc8622e6dfc1f448c9b21243934d3e, type: 2}
   point: {fileID: 1268448512853798449}
-  attackObjID: 0
-  MaxSpawnTime: 0
+  ranMinCoolTime: 2.5
+  ranMaxCoolTime: 3
 --- !u!114 &1036589770145916562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 4cdc8622e6dfc1f448c9b21243934d3e, type: 2}
+  destroyDelay: 3
   testAttackedSwitch: 0
 --- !u!1 &1268448512853798448
 GameObject:

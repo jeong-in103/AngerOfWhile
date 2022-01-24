@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34887545887225e4c813c655091a5c4a, type: 3}
-  m_Name: Hunt
+  m_Name: Oil
   m_EditorClassIdentifier: 
-  type: 3
-  angerGauge: 20
-  score: 700
-  obstacleObject: {fileID: 396601334271349210, guid: 7e2e74303a477544cbf83d0de771b863, type: 3}
+  type: 7
+  angerGauge: 0
+  score: 0
+  obstacleObject: {fileID: 0}

@@ -12,7 +12,7 @@ public class ObstacleCtrl : ObstacleData
 
     private Transform objTr;
 
-    private void Start()
+    private void Awake()
     {
         objTr = GetComponent<Transform>();
     }
