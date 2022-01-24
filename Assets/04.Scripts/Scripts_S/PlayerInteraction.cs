@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class PlayerInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     // Variable
     private Ray ray;
-
     private Vector3 directPos;
+
     private bool attack;
     private bool dive;
 
@@ -34,13 +34,14 @@ public class Movement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         directPos = Vector3.zero;
-        if(dive== true)
+        if(dive == true)
         {
             attack = true;
             dive = false;
         }
         else
         {
+            attack = false;
             dive = true;
         }
     }

@@ -45,8 +45,8 @@ public class SpawnManager : MonoBehaviour
             Vector3 viewPos = new Vector3(viewPosX, 0, viewPosZ);
 
             Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewPos);
-            worldPos.y = -0.2f;
-           
+            //worldPos.y = -0.2f;
+            worldPos.y = -1f;
 
             position[i] = worldPos;
         }
