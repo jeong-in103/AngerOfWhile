@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public PlayerInteraction PlayerInteraction;
     public DiveBarControl diveBarControl;
     public HeartControl heartControl;
+    public ShildControl shildControl;
 
     [Header("Player Interaction Object")]
     public Material skin; //고래 스킨
@@ -29,14 +30,15 @@ public class PlayerController : MonoBehaviour
 
     public float InvincibleTime = 1f; // 무적 시간
 
-    private float blinkTime; //색 변화 지정시간
-    
+    private float blinkTime; //색 변화 시간
+
     private float startPosY;
     private float startPosZ;
 
     [SerializeField]
     private int hp; // 체력
     private int stemina; // 구급상자 추가 HP
+    [SerializeField]
     private int helmat; // 헬멧 갯수
 
     private bool damage; //피격체크
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         hp = 3;
+        stemina = 0;
 
         startPosY = transform.position.y;
         startPosZ = transform.position.z;
@@ -85,10 +88,6 @@ public class PlayerController : MonoBehaviour
                 Move(); //이동
                 LimitMove(); //이동제한
                 break;
-        }
-        if (damage)
-        {
-            DamageBlink();
         }
     }
     //초기화
@@ -186,6 +185,7 @@ public class PlayerController : MonoBehaviour
         {
             hp--;
             heartControl.ChangeHP(hp); //UI 하트 변경
+
             //죽음
             if (hp <= 0)
             {
@@ -200,10 +200,18 @@ public class PlayerController : MonoBehaviour
         else
         {
             helmat--; //방어막 깎임
-                      //방어막 깎임 효과
+            helmat = Mathf.Clamp(helmat, 0, 2);
+            if (helmat == 0)
+            {
+                shildControl.OnBroken(false); //방어막 부서짐 + 사라짐
+            }
+            else
+            {
+                shildControl.OnBroken(true); //방어막 부서짐 
+            }
         }
     }
-
+    //피격 받았을 때 고래 색깔 빨간색으로
     private void DamageBlink()
     {
         blinkTime += Time.deltaTime;
@@ -216,10 +224,8 @@ public class PlayerController : MonoBehaviour
             blinkTime = 0f;
             damage = false;
             Init(); //초기화
-            
         }
     }
-    //피격 받았을 때 고래 색깔 빨간색으로
 
     #endregion
 
@@ -269,15 +275,24 @@ public class PlayerController : MonoBehaviour
             AddStemina();
         }
     }
-
-    public void HelmatEffect()
+    //보호막 이팩트
+    public void HelmatEffect(int count)
     {
-        effects[1].gameObject.SetActive(true);
+        shildControl.gameObject.SetActive(true);
+        if (helmat == 2)
+        {
+            return;
+        }
+        else
+        {
+            helmat = count;
+        }
     }
 
+    //무적 이팩트?
     public void ClockEffect()
     {
-        effects[2].gameObject.SetActive(true);
+        effects[3].gameObject.SetActive(true);
     }
     #endregion
 }

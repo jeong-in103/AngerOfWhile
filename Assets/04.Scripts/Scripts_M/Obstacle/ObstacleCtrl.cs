@@ -25,6 +25,6 @@ public class ObstacleCtrl : ObstacleData
     protected void ShipMoving() // 배 이동
     {
         //이동
-        objTr.Translate(Vector3.back * Time.deltaTime * moveSpeed);
+        objTr.Translate(Vector3.back * Time.deltaTime * moveSpeed,Space.World);
     }
 }

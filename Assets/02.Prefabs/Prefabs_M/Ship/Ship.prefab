@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 5a2b15c488cbcad42a7eb190b6eccf9f, type: 2}
-  moveSpeed: 1
+  moveSpeed: 3
 --- !u!114 &720175574318008940
 MonoBehaviour:
   m_ObjectHideFlags: 0

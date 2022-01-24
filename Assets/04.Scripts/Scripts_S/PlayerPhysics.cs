@@ -93,11 +93,11 @@ public class PlayerPhysics : MonoBehaviour
         {
             if(other.GetComponent<ObstacleCtrl>().GetObstacleType == TypeID.HEL1)
             {
-
+                playerController.HelmatEffect(1);
             }
             else if (other.GetComponent<ObstacleCtrl>().GetObstacleType == TypeID.HEL2)
             {
-
+                playerController.HelmatEffect(2);
             }
             else if (other.GetComponent<ObstacleCtrl>().GetObstacleType == TypeID.KIT1)
             {

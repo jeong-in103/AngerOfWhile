@@ -45,6 +45,11 @@ public class ObstacleAttacked : ObstacleData
 
     public void Attacked()
     {
+        if(obstacleCtrl.GetObstacleType == TypeID.SUB)
+        {
+            return;
+        }
+
         if (obstacleAnimator != null)
         {
             obstacleAnimator.SetTrigger("Attacked");
