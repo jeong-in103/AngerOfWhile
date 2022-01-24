@@ -7,16 +7,26 @@ public class SceneChange : MonoBehaviour
 {    
     
     public GameObject start;
-    public GameObject close; 
+    public GameObject close;
+    public GameObject mainCanvas;
+    public GameObject endingCanvas;
+    public GameObject clearCanvas;
+   
 
     public void StartButton()
     {
         SceneManager.LoadScene("MainScene_G");
     }
 
+    public void RestartButton()
+    { 
+        SceneManager.LoadScene("MainScene_G");
+    }
+
     public void CloseButton()
     {
-        SceneManager.LoadScene("Start_G");
+         SceneManager.LoadScene("Start_G");
     }
+
 
 }
