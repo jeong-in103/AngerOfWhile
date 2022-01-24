@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     // Variable
     public float timeSpeed = 29f; // 정지 시간 속도
     public float moveSpeed = 8f; // 이동 속도
-    public float colorSpeed = 0.01f;
+    public float colorSpeed = 3f;
     public float InvincibleTime = 1f; // 무적 시간
 
 
