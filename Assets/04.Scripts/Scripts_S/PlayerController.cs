@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             case State.ATTACK:
                 if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
                 {
-                    StartCoroutine(Invincibility()); //무적
+                    StartCoroutine(TimeDelay()); //시간 딜레이
                 }
                 break;
             case State.DAMAGE:
@@ -66,21 +66,6 @@ public class PlayerController : MonoBehaviour
                 OnDamage(); //피격효과
                 break;
         }
-    }
-
-    IEnumerator Invincibility()
-    {
-        float slowTime = 0f;
-        while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-        {
-            slowTime = Mathf.Lerp(slowTime, 1f, Time.deltaTime * timeSpeed);
-            Time.timeScale = slowTime;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            yield return null;
-        }
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        Time.timeScale = 1.0f;
-        Init();
     }
 
     #region Player Move
@@ -204,5 +189,25 @@ public class PlayerController : MonoBehaviour
         Init(); //초기화
     }
     #endregion
+
+
+    private void Invincibility()
+    {
+
+    }
+    IEnumerator TimeDelay()
+    {
+        float slowTime = 0f;
+        while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            slowTime = Mathf.Lerp(slowTime, 1f, Time.deltaTime * timeSpeed);
+            Time.timeScale = slowTime;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            yield return null;
+        }
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        Time.timeScale = 1.0f;
+        Init();
+    }
 
 }
