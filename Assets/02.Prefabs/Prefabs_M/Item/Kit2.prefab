@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8153002163631362992}
   - component: {fileID: -9076032326925569990}
   - component: {fileID: 7346536809443627898}
+  - component: {fileID: 5372021056832221766}
   m_Layer: 10
   m_Name: Kit2
   m_TagString: Item
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619278237084677250}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.73994213, y: 0.16636571, z: -0.19826692, w: 0.6208852}
   m_LocalPosition: {x: -3.88, y: 0, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8779606094163911410}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 100, y: 30, z: 0}
 --- !u!114 &-9076032326925569990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f152302bdc29c54b8f1844c731da4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: {fileID: 0}
+  type: {fileID: 11400000, guid: 5397b6f5050fb3544bf57ce37b410ed1, type: 2}
   moveSpeed: 5
 --- !u!65 &7346536809443627898
 BoxCollider:
@@ -60,6 +61,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.5492246, y: 2.7476642, z: 1.1182629}
   m_Center: {x: -0.026280522, y: 0.22995603, z: -0.059131503}
+--- !u!114 &5372021056832221766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619278237084677250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d486a6d352597844b662b58c1c8e4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  z: 1
+  rotationSpeed: 10
 --- !u!1001 &9105667412564624665
 PrefabInstance:
   m_ObjectHideFlags: 0

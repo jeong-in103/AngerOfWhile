@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8802034907629255275}
   - component: {fileID: 3297632049621363470}
   - component: {fileID: 519968581616137855}
+  - component: {fileID: 7329104441228122628}
   m_Layer: 10
   m_Name: Kit1
   m_TagString: Item
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2731271858480215588}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.5713938, y: 0.07139385, z: -0.049990498, w: 0.816035}
   m_LocalPosition: {x: -3.94, y: 0, z: -3.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7954840984117977795}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: 10, z: 0}
 --- !u!114 &3297632049621363470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f152302bdc29c54b8f1844c731da4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: {fileID: 0}
+  type: {fileID: 11400000, guid: f16c8cdb49ef3eb4a9fb0c1ec396bf4d, type: 2}
   moveSpeed: 5
 --- !u!65 &519968581616137855
 BoxCollider:
@@ -60,6 +61,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5518942, y: 3.3126986, z: 1.722718}
   m_Center: {x: 0.052561402, y: 0.013140321, z: 0.085412115}
+--- !u!114 &7329104441228122628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731271858480215588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d486a6d352597844b662b58c1c8e4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 3
+  y: 5
+  z: 3
+  rotationSpeed: 10
 --- !u!1001 &7633597825073235240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,43 +94,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.83
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9782033
+      value: -2.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.90841603
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4670563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.112801276
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5372289
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.69319504
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -58.231
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 41.005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 88.529
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1293a48b08659bd408a961f45d74dee7, type: 3}
       propertyPath: m_Name

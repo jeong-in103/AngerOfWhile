@@ -43,21 +43,17 @@ public class ObstacleAttacked : ObstacleData
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Attacked()
     {
-        if(other.CompareTag("Player"))
+        if (obstacleAnimator != null)
         {
-            if (obstacleAnimator != null)
-            {
-                obstacleAnimator.SetTrigger("Attacked");
-            }
-            obstacleCtrl.MoveSpeed = 0f;
-            boxCollider.enabled = false; // S
-            //this.gameObject.layer = 13;
-            //점수 증가
-            //분노 게이지 증가
-            Invoke("DestroyObstacle", destroyDelay);
+            obstacleAnimator.SetTrigger("Attacked");
         }
+        obstacleCtrl.MoveSpeed = 0f;
+        boxCollider.enabled = false;
+                                     //점수 증가
+                                     //분노 게이지 증가
+        Invoke("DestroyObstacle", destroyDelay);
     }
 
     private void DestroyObstacle()

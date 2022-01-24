@@ -21,13 +21,13 @@ public class HeartControl : MonoBehaviour
             //초기 HP 3개 이외의 UI Off
             if (i == 3 || i == 4)
             {
-                //heartsParent[i].gameObject.SetActive(false);
-                //hearts[i].gameObject.SetActive(false);
+                heartsParent[i].gameObject.SetActive(false);
+                hearts[i].gameObject.SetActive(false);
             }
         }
     }
     //추가 체력
-    public void AddHP()
+    public void AddHeart()
     {
         if (!heartsParent[3].gameObject.activeSelf)
         {

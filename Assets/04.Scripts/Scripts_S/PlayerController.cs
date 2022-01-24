@@ -8,15 +8,20 @@ public class PlayerController : MonoBehaviour
     public enum State { IDLE, DIVE, ATTACK, DEAD, DAMAGE };
     public State state;
 
+    [Header("Player Interaction Script")]
     // Componet
     public PlayerInteraction PlayerInteraction;
     public DiveBarControl diveBarControl;
     public HeartControl heartControl;
 
-    public Material skin;
+    [Header("Player Interaction Object")]
+    public Material skin; //고래 스킨
+    public ParticleSystem[] effects;
 
-    private Animator animator;
+    [HideInInspector]
+    public Animator animator;
 
+    [Header("Player Detail Setting")]
     // Variable
     public float timeSpeed = 29f; // 정지 시간 속도
     public float moveSpeed = 8f; // 이동 속도
@@ -33,9 +38,8 @@ public class PlayerController : MonoBehaviour
     private int hp; // 체력
     private int stemina; // 구급상자 추가 HP
     private int helmat; // 헬멧 갯수
-    [SerializeField]
-    private bool damage;
 
+    private bool damage; //피격체크
 
     private void Awake()
     {
@@ -47,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
         startPosY = transform.position.y;
         startPosZ = transform.position.z;
+
+        Init();
     }
     private void Update()
     {
@@ -85,8 +91,21 @@ public class PlayerController : MonoBehaviour
             DamageBlink();
         }
     }
+    //초기화
+    private void Init()
+    {
+        PlayerInteraction.Dive = false;
+        PlayerInteraction.Attack = false;
 
-    #region Player Move
+        animator.ResetTrigger("Dive");
+        animator.ResetTrigger("Attack");
+
+        skin.color = Color.black;
+
+        state = State.IDLE;
+    }
+
+    #region 고래 이동
     //Player 이동 
     private void Move()
     {
@@ -115,6 +134,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Animaor Control
+    //잠수
     private void Dive()
     {
         if (PlayerInteraction.Dive)
@@ -124,35 +144,13 @@ public class PlayerController : MonoBehaviour
             state = State.DIVE;
         }
     }
-    //공격방법 (1. 기본 클릭 공격, 2. 강제공격)
-    private void AttackWay()
-    {
-        if (PlayerInteraction.Attack) //클릭 공격
-        {
-            Attack();
-        }
-        if (!diveBarControl.Diving) //강제 공격
-        {
-            Attack();
-        }
-    }
+
     //공격
     private void Attack()
     {
         animator.SetTrigger("Attack");
         diveBarControl.OffDiveBar(); // 다이브바 UI Off
         state = State.ATTACK;
-    }
-    //초기화
-    private void Init()
-    {
-        PlayerInteraction.Dive = false;
-        PlayerInteraction.Attack = false;
-
-        animator.ResetTrigger("Dive");
-        animator.ResetTrigger("Attack");
-
-        state = State.IDLE;
     }
     #endregion
 
@@ -161,19 +159,23 @@ public class PlayerController : MonoBehaviour
     {
         helmat = level;
     }
-
-    void OnRecover(int level)
+    // HP 회복
+    void HpRecover()
     {
-        if (level == 1)
-        {
-            hp++;
-        }
-        else
+        hp++;
+        hp = Mathf.Clamp(hp, 0, 3);
+        hp += stemina;
+        heartControl.ChangeHP(hp);
+    }
+    // 스테미나 추가 (하트 추가)
+    void AddStemina()
+    {
+        if (stemina != 2)
         {
             stemina++;
+            stemina = Mathf.Clamp(stemina, 0, 2);
+            heartControl.AddHeart();
         }
-        stemina = Mathf.Clamp(stemina, 0, 2);
-        hp = Mathf.Clamp(hp, 0, hp + stemina);
     }
     #endregion
 
@@ -214,13 +216,26 @@ public class PlayerController : MonoBehaviour
             blinkTime = 0f;
             damage = false;
             Init(); //초기화
-            skin.color = Color.black;
+            
         }
     }
     //피격 받았을 때 고래 색깔 빨간색으로
 
     #endregion
 
+    #region 공격시
+    //공격방법 (1. 기본 클릭 공격, 2. 강제공격)
+    private void AttackWay()
+    {
+        if (PlayerInteraction.Attack) //클릭 공격
+        {
+            Attack();
+        }
+        if (!diveBarControl.Diving) //강제 공격
+        {
+            Attack();
+        }
+    }
     IEnumerator TimeDelay()
     {
         float slowTime = 0f;
@@ -236,4 +251,33 @@ public class PlayerController : MonoBehaviour
         Init();
     }
 
+    #endregion
+
+    #region 이팩트
+    public void AidKitEffect(int num)
+    {
+        if (num == 1)
+        {
+            //체력 회복
+            effects[0].gameObject.SetActive(true);
+            HpRecover();
+        }
+        else
+        {
+            //하트 추가
+            effects[1].gameObject.SetActive(true);
+            AddStemina();
+        }
+    }
+
+    public void HelmatEffect()
+    {
+        effects[1].gameObject.SetActive(true);
+    }
+
+    public void ClockEffect()
+    {
+        effects[2].gameObject.SetActive(true);
+    }
+    #endregion
 }
