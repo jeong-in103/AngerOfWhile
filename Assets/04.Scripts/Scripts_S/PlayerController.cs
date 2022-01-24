@@ -1,33 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum State {IDLE, DIVE, ATTACK, DAMAGE};
+    public enum State { IDLE, DIVE, ATTACK, DEAD, DAMAGE };
     public State state;
 
     // Componet
     public PlayerInteraction PlayerInteraction;
     public DiveBarControl diveBarControl;
+    public HeartControl heartControl;
 
     public Material skin;
-    
+
     private Animator animator;
 
     // Variable
     public float timeSpeed = 29f; // 정지 시간 속도
     public float moveSpeed = 8f; // 이동 속도
-    public float colorSpeed = 3f;
+    public float blinkSpeed; //색 변화 속도
+
     public float InvincibleTime = 1f; // 무적 시간
 
-
+    private float blinkTime; //색 변화 지정시간
+    
     private float startPosY;
     private float startPosZ;
 
+    [SerializeField]
     private int hp; // 체력
     private int stemina; // 구급상자 추가 HP
     private int helmat; // 헬멧 갯수
+    [SerializeField]
+    private bool damage;
 
 
     private void Awake()
@@ -61,10 +68,21 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(TimeDelay()); //시간 딜레이
                 }
                 break;
-            case State.DAMAGE:
-                //무적
-                OnDamage(); //피격효과
+            case State.DEAD:
+                
                 break;
+            case State.DAMAGE:
+                if (damage)
+                {
+                    DamageBlink();
+                }
+                Move(); //이동
+                LimitMove(); //이동제한
+                break;
+        }
+        if (damage)
+        {
+            DamageBlink();
         }
     }
 
@@ -98,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     #region Animaor Control
     private void Dive()
-    {   
+    {
         if (PlayerInteraction.Dive)
         {
             animator.SetTrigger("Dive");
@@ -128,8 +146,6 @@ public class PlayerController : MonoBehaviour
     //초기화
     private void Init()
     {
-        //boxCollider.enabled = true;
-
         PlayerInteraction.Dive = false;
         PlayerInteraction.Attack = false;
 
@@ -167,34 +183,44 @@ public class PlayerController : MonoBehaviour
         if (helmat == 0)
         {
             hp--;
-            StartCoroutine(Damage());
+            heartControl.ChangeHP(hp); //UI 하트 변경
+            //죽음
+            if (hp <= 0)
+            {
+                state = State.DEAD;
+            }
+            else
+            {
+                damage = true;
+                state = State.DAMAGE;
+            }
         }
         else
         {
-            helmat--;
+            helmat--; //방어막 깎임
+                      //방어막 깎임 효과
         }
     }
 
-    //피격 받았을 때 고래 색깔 빨간색으로
-    IEnumerator Damage()
+    private void DamageBlink()
     {
-        Color targetColor = Color.red;
-        while (true)
+        blinkTime += Time.deltaTime;
+        if (blinkTime <= InvincibleTime)
         {
-            skin.color = new Color(Mathf.PingPong(Time.time * colorSpeed ,1f), 0f, 0f);
-            yield return new WaitForSeconds(1f);
-            break;
+            skin.color = new Color(Mathf.PingPong(Time.time * blinkSpeed, 1f), 0f, 0f);
         }
-        skin.color = Color.black;
-        Init(); //초기화
+        else
+        {
+            blinkTime = 0f;
+            damage = false;
+            Init(); //초기화
+            skin.color = Color.black;
+        }
     }
+    //피격 받았을 때 고래 색깔 빨간색으로
+
     #endregion
 
-
-    private void Invincibility()
-    {
-
-    }
     IEnumerator TimeDelay()
     {
         float slowTime = 0f;

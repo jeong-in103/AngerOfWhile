@@ -7,16 +7,24 @@ public class ObstacleAttacked : ObstacleData
     private Animator obstacleAnimator;
     private ObstacleCtrl obstacleCtrl;
 
+    private BoxCollider boxCollider; //S
+
     [SerializeField]
     private float destroyDelay;
 
     [SerializeField]
     private bool testAttackedSwitch = false;
 
+    private void OnEnable()
+    {
+        boxCollider.enabled = true; //S
+
+    }
     private void Awake()
     {
         obstacleAnimator = gameObject.GetComponentInChildren<Animator>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
+        boxCollider = GetComponent<BoxCollider>(); // S
     }
 
     private void Update()
@@ -44,7 +52,8 @@ public class ObstacleAttacked : ObstacleData
                 obstacleAnimator.SetTrigger("Attacked");
             }
             obstacleCtrl.MoveSpeed = 0f;
-            this.gameObject.layer = 13;
+            boxCollider.enabled = false; // S
+            //this.gameObject.layer = 13;
             //점수 증가
             //분노 게이지 증가
             Invoke("DestroyObstacle", destroyDelay);

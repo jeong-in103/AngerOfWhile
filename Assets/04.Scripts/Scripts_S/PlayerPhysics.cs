@@ -27,26 +27,31 @@ public class PlayerPhysics : MonoBehaviour
         colliderSize = boxSize / 2f;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(playerController.state == PlayerController.State.IDLE)
         {
+            boxCollider.enabled = true;
             boxCollider.center = new Vector3(boxCollider.center.x, 0.03f, boxCollider.center.z);
             //colliderPosition = transform.position + upOffset;
         }
         else if(playerController.state == PlayerController.State.DIVE)
         {
+            boxCollider.enabled = true;
             boxCollider.center = new Vector3(boxCollider.center.x, -0.05f, boxCollider.center.z);
             //colliderPosition = transform.position + downOffset;
         }
-        //BoxCollider();
+        else
+        {
+            boxCollider.enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            playerController.state = PlayerController.State.DAMAGE;
+            playerController.OnDamage();
         }
     }
 
