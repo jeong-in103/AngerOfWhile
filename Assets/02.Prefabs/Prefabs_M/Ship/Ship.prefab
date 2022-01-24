@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 5a2b15c488cbcad42a7eb190b6eccf9f, type: 2}
+  destroyDelay: 3
   testAttackedSwitch: 0
 --- !u!1001 &2197866191604280817
 PrefabInstance:

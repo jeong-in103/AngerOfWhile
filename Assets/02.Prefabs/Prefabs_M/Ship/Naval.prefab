@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 1962347472655277374}
   - component: {fileID: 1962347472655277371}
   - component: {fileID: 1962347472655277369}
-  - component: {fileID: 1962347472655277368}
+  - component: {fileID: 6822188091847853864}
   - component: {fileID: 4151914981319123658}
   m_Layer: 9
   m_Name: Naval
@@ -66,8 +66,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4139307, y: 0.913123, z: 6.1056366}
-  m_Center: {x: 0, y: 0.47253507, z: 0.027463913}
+  m_Size: {x: 1.9345827, y: 0.913123, z: 6.1056366}
+  m_Center: {x: -0.01041317, y: 0.47253507, z: 0.027463913}
 --- !u!114 &1962347472655277369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 3c3ef525e51f16941b5dd1d9000e3db1, type: 2}
   moveSpeed: 7.5
---- !u!114 &1962347472655277368
+--- !u!114 &6822188091847853864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,13 +91,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1962347472655277370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a05c8513be0e0b4a871276cb781b671, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a92186f1bb9a8a468b908e782fa1102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 3c3ef525e51f16941b5dd1d9000e3db1, type: 2}
   point: {fileID: 1962347473177966248}
-  attackObjID: 0
-  MaxSpawnTime: 0
+  ranMinCoolTime: 0
+  ranMaxCoolTime: 0
 --- !u!114 &4151914981319123658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 3c3ef525e51f16941b5dd1d9000e3db1, type: 2}
+  destroyDelay: 5
   testAttackedSwitch: 0
 --- !u!1 &1962347473177966251
 GameObject:
@@ -136,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962347473177966251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.81, z: -1.93}
+  m_LocalPosition: {x: -0.024, y: 0.78, z: -2.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1962347472655277374}

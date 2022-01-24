@@ -11,6 +11,7 @@ public enum TypeID
     NAVAL,
     TRASH,
     BULLET,
+    OIL, 
     HEL1,
     HEL2,
     KIT1,
@@ -25,7 +26,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject[] objPrefab;
 
-    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[7];
+    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[8];
 
     private void Awake()
     {

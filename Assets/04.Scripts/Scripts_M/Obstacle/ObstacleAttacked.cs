@@ -8,9 +8,12 @@ public class ObstacleAttacked : ObstacleData
     private ObstacleCtrl obstacleCtrl;
 
     [SerializeField]
+    private float destroyDelay;
+
+    [SerializeField]
     private bool testAttackedSwitch = false;
 
-    private void Start()
+    private void Awake()
     {
         obstacleAnimator = gameObject.GetComponentInChildren<Animator>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
@@ -28,7 +31,7 @@ public class ObstacleAttacked : ObstacleData
             this.gameObject.layer = 13;
             //점수 증가
             //분노 게이지 증가
-            Invoke("DestroyObstacle", 5f);
+            Invoke("DestroyObstacle", destroyDelay);
         }
     }
 
@@ -44,7 +47,7 @@ public class ObstacleAttacked : ObstacleData
             this.gameObject.layer = 13;
             //점수 증가
             //분노 게이지 증가
-            Invoke("DestroyObstacle", 5f);
+            Invoke("DestroyObstacle", destroyDelay);
         }
     }
 
