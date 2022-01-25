@@ -41,14 +41,12 @@ public class PlayerPhysics : MonoBehaviour
             boxCollider.enabled = true;
             boxCollider.center = new Vector3(0.04f, 0.03f, boxCollider.center.z);
             boxCollider.size = colliderStartSize;
-            //colliderPosition = transform.position + upOffset;
         }
         else if(playerController.state == PlayerController.State.DIVE)
         {
             boxCollider.enabled = true;
             boxCollider.center = new Vector3(0.04f, -0.05f, boxCollider.center.z);
             boxCollider.size = colliderStartSize;
-            //colliderPosition = transform.position + downOffset;
         }
         else if (playerController.state == PlayerController.State.ATTACK)
         {
@@ -60,11 +58,8 @@ public class PlayerPhysics : MonoBehaviour
             {
                 boxCollider.enabled = true;
             }
-            
             boxCollider.center = new Vector3(0.06f, 0.03f, boxCollider.center.z);
             boxCollider.size = new Vector3(0.15f, 0.03f, 0.1f);
-            //colliderPosition = transform.position + upOffset;
-            //BoxCollider();
         }
         else
         {
@@ -113,23 +108,5 @@ public class PlayerPhysics : MonoBehaviour
             }
             other.gameObject.SetActive(false);
         }
-    }
-
-    private void BoxCollider()
-    {
-        int count = Physics.OverlapBoxNonAlloc(colliderPosition, colliderSize, results, Quaternion.identity, 1 << LayerMask.NameToLayer("Enemy"), QueryTriggerInteraction.Collide);
-
-        if (count != 0)
-        {
-
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + upOffset, boxSize);
-        Gizmos.color = Color.gray;
-        Gizmos.DrawWireCube(transform.position + downOffset, boxSize);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : WhaleBase
 {
     public enum State { IDLE, DIVE, ATTACK, DEAD, DAMAGE };
     public State state;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Interaction Object")]
     public Material skin; //고래 스킨
-    public ParticleSystem[] effects;
+    public ParticleSystem[] effects; 
 
     [HideInInspector]
     public Animator animator;
@@ -30,20 +30,16 @@ public class PlayerController : MonoBehaviour
     [Header("Player Detail Setting")]
     // Variable
     public float timeSpeed = 29f; // 정지 시간 속도
-    public float moveSpeed = 8f; // 이동 속도
     public float blinkSpeed; //색 변화 속도
 
     public float InvincibleTime = 1f; // 무적 시간
-
     private float blinkTime; //색 변화 시간
 
-    private float startPosY;
-    private float startPosZ;
+    private float startPosY; // Player 초기 위치Y
+    private float startPosZ; // Player 초기 위치Z
 
-    [SerializeField]
     private int hp; // 체력
     private int stemina; // 구급상자 추가 HP
-    [SerializeField]
     private int helmat; // 헬멧 갯수
 
     private bool damage; //피격체크
@@ -57,6 +53,9 @@ public class PlayerController : MonoBehaviour
     {
         hp = 3;
         stemina = 0;
+        helmat = 0;
+
+        moveSpeed = 8f; // 이동 속도
 
         startPosY = transform.position.y;
         startPosZ = transform.position.z;

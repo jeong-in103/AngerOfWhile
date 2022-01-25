@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager_G : MonoBehaviour
 {
-    
+    public static bool newUpdate;
 
     public Slider angerSlider;
-    
 
     public Text currentMeter;
     public Text currentScore;
@@ -16,6 +15,7 @@ public class GameManager_G : MonoBehaviour
     public Text finalScore;
     public GameObject endingCanvas;
     public GameObject clearCanvas;
+    public GameObject AngerFriends;
     public float meter;
     public int score;
     public float angerValue;
@@ -35,6 +35,12 @@ public class GameManager_G : MonoBehaviour
         MeterUpdate();
         AngerUpdate();
         ScoreUpdate();
+
+        if (newUpdate)
+        {
+            MeterUpdate();
+        }
+        
     }
 
     private void AngerUpdate()
@@ -44,10 +50,12 @@ public class GameManager_G : MonoBehaviour
             angerSlider.value -= Time.deltaTime; //G:1초에 angerGauge -1 감소부분
         
            
-         if(angerSlider.value == 100)
-        { }
-                
-        
+        if(angerSlider.value == 100)
+        {
+            AngerFriends.gameObject.SetActive(true);
+            angerSlider.value = 0f;
+        }
+      
     }
 
     private void MeterUpdate() //G:미터기 업데이트 추후 수정
@@ -61,8 +69,6 @@ public class GameManager_G : MonoBehaviour
         {
             finalMeter.text = meter.ToString("F2") + "m";
         }
-
-       
     }
 
     private void ScoreUpdate()  //G: 점수 업데이트 (미터에 따른 점수 추가 O | 아이템에 따른 점수 추가 X | 장애물에 따른 점수 감소 X)
