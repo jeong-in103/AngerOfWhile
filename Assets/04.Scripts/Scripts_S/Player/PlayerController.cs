@@ -87,6 +87,7 @@ public class PlayerController : WhaleBase
                 endingCanvas.gameObject.SetActive(true);
                 break;
             case State.DAMAGE:
+                Damage();
                 if (damage)
                 {
                     DamageBlink();
@@ -157,6 +158,11 @@ public class PlayerController : WhaleBase
         diveBarControl.OffDiveBar(); // 다이브바 UI Off
         soundManager.AttackSound();
         state = State.ATTACK;
+    }
+
+    private void Damage()
+    {
+        animator.SetTrigger("Damage");
     }
     #endregion
 
