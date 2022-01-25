@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ending : MonoBehaviour
 {
+    public static Ending Instance;
+
     public GameObject mainCanvas;
     public GameObject endingCanvas;
     public GameObject uiCamera;

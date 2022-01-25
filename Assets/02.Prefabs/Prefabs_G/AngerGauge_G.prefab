@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -23}
-  m_SizeDelta: {x: 1071.3, y: 56.4}
+  m_SizeDelta: {x: 1096, y: 71.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1618354854259421507
 CanvasRenderer:
@@ -100,7 +100,7 @@ RectTransform:
   m_GameObject: {fileID: 1394996027735746136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0374, y: 1.1964, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1394996029695322202}
   m_Father: {fileID: 1394996029422912489}
@@ -108,8 +108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 7.25, y: -23.900002}
-  m_SizeDelta: {x: 217.5, y: -39.899994}
+  m_AnchoredPosition: {x: 6.8800354, y: -23.019997}
+  m_SizeDelta: {x: 283.43994, y: -17.440002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1394996029422912490
 GameObject:
@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1394996029422912489}
   - component: {fileID: 1394996029422912488}
+  - component: {fileID: 8169082415606571415}
   m_Layer: 5
   m_Name: AngerGauge_G
   m_TagString: Untagged
@@ -200,7 +201,33 @@ MonoBehaviour:
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8169082415606571415}
+        m_TargetAssemblyTypeName: SliderController, Assembly-CSharp
+        m_MethodName: FillSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8169082415606571415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394996029422912490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7b69feea24cf4ebc8f6c69dce57c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1394996029422912488}
+  fill: {fileID: 1394996029695322201}
 --- !u!1 &1394996029695322203
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,10 +294,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: d6ef41b6dfa85ba4db95b53fa18d366f, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
