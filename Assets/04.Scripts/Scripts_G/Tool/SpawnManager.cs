@@ -163,7 +163,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
             //-------------------------------------------- 난이도 5
-            if (timer >= 300f && timer <360f)
+            if (timer >= 300f && timer < 360f)
             {
                 level = 6;
                 if (timer < 301f)
@@ -172,7 +172,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
             //-------------------------------------------- 난이도 6
-            if (timer >= 360f && timer <420f)
+            if (timer >= 360f && timer < 420f)
             {
                 level = 7;
                 if (timer >= 390f && timer < 391f) //hel2 출현
@@ -195,7 +195,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
             //-------------------------------------------- 난이도 7
-            if (timer >= 420f && timer <483f)
+            if (timer >= 420f && timer < 483f)
             {
                 level = 8;
                 if (timer < 421f)
@@ -222,7 +222,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
             //-------------------------------------------- 난이도 8
-            if (timer >= 483f && timer <543f)
+            if (timer >= 483f && timer < 543f)
             {
                 level = 9;
                 if (timer < 484f)
@@ -238,7 +238,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
             //-------------------------------------------- 난이도 9
-            if (timer >= 543f && timer <600f)
+            if (timer >= 543f && timer < 600f)
             {
                 level = 10;
                 if (timer < 544f)
@@ -254,7 +254,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
             //-------------------------------------------- 난이도 10
-            if (timer >= 600f && timer <=780f)
+            if (timer >= 600f && timer <= 780f)
             {
                 level = 11;
                 if (timer < 601f)
@@ -302,7 +302,7 @@ public class SpawnManager : MonoBehaviour
                     }
                 }
             }
-           // ---------------------------------------------- ending
+            // ---------------------------------------------- ending
             if (timer > 780f)
             {
                 level = 12;
@@ -317,20 +317,20 @@ public class SpawnManager : MonoBehaviour
         {
             //------------------------------------------ 난이도 1
             case 1:
-                spawnDelay = 3.1f;
+                spawnDelay = 3.3f;
                 enemyNumber[0] = 20;
                 EnemySpawn(0); //Ship 출현
                 break;
 
             case 2:
-                spawnDelay = 3.7f;
+                spawnDelay = 3.9f;
                 enemyNumber[0] = 10;
                 enemyNumber[1] = 7;
                 EnemySpawn(1);  //Mot 출현
                 break;
             //------------------------------------------- 난이도 2  
             case 3:
-                spawnDelay = 3.1f;
+                spawnDelay = 3.3f;
                 enemyNumber[0] = 10;
                 enemyNumber[1] = 3;
                 enemyNumber[2] = 5;
@@ -338,7 +338,7 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 3
             case 4:
-                spawnDelay = 2.8f;
+                spawnDelay = 3.0f;
                 enemyNumber[0] = 10;
                 enemyNumber[1] = 6;
                 enemyNumber[2] = 5;
@@ -346,7 +346,7 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 4
             case 5:
-                spawnDelay = 3.05f;
+                spawnDelay = 3.25f;
                 enemyNumber[0] = 8;
                 enemyNumber[1] = 7;
                 enemyNumber[2] = 5;
@@ -354,7 +354,7 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 5
             case 6:
-                spawnDelay = 3.2f;
+                spawnDelay = 3.4f;
                 enemyNumber[0] = 5;
                 enemyNumber[1] = 8;
                 enemyNumber[2] = 5;
@@ -362,7 +362,7 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 6
             case 7:
-                spawnDelay = 2.6f;
+                spawnDelay = 2.8f;
                 enemyNumber[0] = 10;
                 enemyNumber[1] = 8;
                 enemyNumber[2] = 2;
@@ -371,7 +371,7 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 7
             case 8:
-                spawnDelay = 2.4f;
+                spawnDelay = 2.6f;
                 enemyNumber[0] = 10;
                 enemyNumber[1] = 8;
                 enemyNumber[2] = 5;
@@ -380,7 +380,7 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 8
             case 9:
-                spawnDelay = 2.95f;
+                spawnDelay = 3.15f;
                 enemyNumber[0] = 0;
                 enemyNumber[1] = 10;
                 enemyNumber[2] = 2;
@@ -390,23 +390,23 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 9
             case 10:
-                spawnDelay = 2.55f;
+                spawnDelay = 2.75f;
                 enemyNumber[0] = 0;
                 enemyNumber[1] = 10;
                 enemyNumber[2] = 4;
                 enemyNumber[3] = 5;
                 enemyNumber[4] = 3;
-                EnemySpawn(4); 
+                EnemySpawn(4);
                 break;
             //-------------------------------------------- 난이도 10
             case 11:
-                spawnDelay = 3.0f;
+                spawnDelay = 3.2f;
                 enemyNumber[0] = 15;
                 enemyNumber[1] = 20;
                 enemyNumber[2] = 5;
                 enemyNumber[3] = 10;
                 enemyNumber[4] = 10;
-                EnemySpawn(4); 
+                EnemySpawn(4);
                 break;
             case 12:
                 GameObject.Find("FadeOut").GetComponent<FadeOut>().StartFadeAnim();
@@ -428,20 +428,20 @@ public class SpawnManager : MonoBehaviour
                 GameObject leaveObj = ObjectPool.GetObj(randType);
                 if (randType == 1)
                 {
-                    worldPos.y = -1.76f;
+                    worldPos.y = -1.8f;
                     position[randPosition] = worldPos;
                     leaveObj.transform.position = position[randPosition];
                     worldPos.y = -1f;
                     position[randPosition] = worldPos;
                 }
                 else
-                {                    
+                {
                     leaveObj.transform.position = position[randPosition];
                 }
 
                 spawnCount[randType] += 1;
             }
-            else
+            else if(spawnCount[randType] == enemyNumber[randType])
             {
                 while (randType == randType2 || spawnCount[randType2] == enemyNumber[randType2])
                 {
@@ -450,7 +450,7 @@ public class SpawnManager : MonoBehaviour
                 GameObject leaveObj = ObjectPool.GetObj(randType2);
                 if (randType2 == 1)
                 {
-                    worldPos.y = -1.76f;
+                    worldPos.y = -1.8f;
                     position[randPosition] = worldPos;
                     leaveObj.transform.position = position[randPosition];
                     worldPos.y = -1f;
@@ -463,6 +463,8 @@ public class SpawnManager : MonoBehaviour
                 spawnCount[randType2] += 1;
                 randType = randType2;
             }
+           
+            
 
 
             spawnTimer = 0f;
@@ -500,8 +502,8 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if(level<13)
-         StartSpawn();
-        
+        if (level < 13)
+            StartSpawn();
+
     }
 }
