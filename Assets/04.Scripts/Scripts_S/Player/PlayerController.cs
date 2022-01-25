@@ -85,6 +85,7 @@ public class PlayerController : WhaleBase
                 break;
             case State.DEAD:
                 endingCanvas.gameObject.SetActive(true);
+                skin.color = Color.black;
                 break;
             case State.DAMAGE:
                 Damage();
