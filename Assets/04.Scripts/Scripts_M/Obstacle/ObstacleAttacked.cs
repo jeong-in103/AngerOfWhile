@@ -109,32 +109,32 @@ public class ObstacleAttacked : ObstacleData
     private void ScoreAndGauge()
     {
         if ((int)type.Type == 0)
-        {            
-           GameObject.Find("GameManager").GetComponent<GameManager_G>().angerSlider.value += 5;
-           GameObject.Find("GameManager").GetComponent<GameManager_G>().score += 100;
+        {
+            GameManager.angerValue += 5;
+            GameManager.score += 100;
         }
         else if ((int)type.Type == 1)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager_G>().angerSlider.value += 15;
-            GameObject.Find("GameManager").GetComponent<GameManager_G>().score += 450;
+            GameManager.angerValue += 15;
+            GameManager.score += 450;
         }
     
         else if ((int)type.Type == 2)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager_G>().angerSlider.value += 10;
-        GameObject.Find("GameManager").GetComponent<GameManager_G>().score += 200;
+            GameManager.angerValue += 10;
+            GameManager.score += 200;
         }
         
         else if ((int)type.Type == 3)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager_G>().angerSlider.value += 20;
-            GameObject.Find("GameManager").GetComponent<GameManager_G>().score += 700;
+            GameManager.angerValue += 20;
+            GameManager.score += 700;
 
         }
         else if ((int)type.Type == 4)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager_G>().angerSlider.value += 25;
-             GameObject.Find("GameManager").GetComponent<GameManager_G>().score += 1300;
+            GameManager.angerValue += 25;
+            GameManager.score += 1300;
         }
         
     }

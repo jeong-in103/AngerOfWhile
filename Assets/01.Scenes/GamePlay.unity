@@ -2549,6 +2549,7 @@ MonoBehaviour:
   finalScore: {fileID: 693133024}
   endingCanvas: {fileID: 1613428081}
   clearCanvas: {fileID: 2008455958}
+  AngerFriends: {fileID: 1848673220}
   meter: 0
   score: 0
   angerValue: 0

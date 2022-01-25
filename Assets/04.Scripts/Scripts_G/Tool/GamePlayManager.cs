@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager_G : MonoBehaviour
+public class GamePlayManager : MonoBehaviour
 {
     public static bool newUpdate;
 
@@ -17,15 +17,15 @@ public class GameManager_G : MonoBehaviour
     public GameObject clearCanvas;
     public GameObject AngerFriends;
     public float meter;
-    public int score;
-    public float angerValue;
 
     [SerializeField]
     private float pastMeter = 0;
-   
     
     void Start()
     {
+        GameManager.score = 0;
+        GameManager.angerValue = 0f;
+
         angerSlider.value = 0; //G: 0으로 초기화 해서 시작할 것 
     }
 
@@ -34,18 +34,12 @@ public class GameManager_G : MonoBehaviour
     {
         MeterUpdate();
         AngerUpdate();
-        ScoreUpdate();
-
-        if (newUpdate)
-        {
-            MeterUpdate();
-        }
-        
+        ScoreUpdate();       
     }
 
     private void AngerUpdate()
     {
-        angerValue = angerSlider.value;
+        angerSlider.value = GameManager.angerValue;
         if (angerSlider.value>0)
             angerSlider.value -= Time.deltaTime; //G:1초에 angerGauge -1 감소부분
         
@@ -77,13 +71,13 @@ public class GameManager_G : MonoBehaviour
         if (meter - pastMeter >= 1f)
         {
             pastMeter = meter;
-            score += 50;
+            GameManager.score += 50;
            
         }
-        currentScore.text = score.ToString();
+        currentScore.text = GameManager.score.ToString();
         if (endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalScore.text = score.ToString();
+            finalScore.text = GameManager.score.ToString();
         }
     }
 }
