@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
-{    
+{
     public GameObject start;
 
     public void StartButton()
@@ -13,14 +13,12 @@ public class SceneChange : MonoBehaviour
     }
 
     public void RestartButton()
-    { 
-        SceneManager.LoadScene("MainScene_G");
+    {
+        SceneManager.LoadScene("Start_G");
     }
 
     public void CloseButton()
     {
-         SceneManager.LoadScene("Start_G");
+        SceneManager.LoadScene("Start_G");
     }
-
-
 }
