@@ -8,7 +8,7 @@ public class ObstacleCtrl : ObstacleData
 
     [SerializeField]
     private float moveSpeed; // 기준 속도
-    public float MoveSpeed { set { moveSpeed = value; } }
+    public float MoveSpeed { get { return moveSpeed; } set { moveSpeed = value; } }
 
     private Transform objTr;
 

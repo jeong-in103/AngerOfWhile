@@ -23,6 +23,8 @@ public class ObstacleAttacked : ObstacleData
     [SerializeField]
     private bool testAttackedSwitch = false;
 
+    private float tempMoveSpeed;
+
     private void Awake()
     {
         obstacleAnimator = gameObject.GetComponentInChildren<Animator>();
@@ -67,7 +69,7 @@ public class ObstacleAttacked : ObstacleData
     {
         if (obstacleAnimator != null)
         {
-            obstacleAnimator.SetTrigger("Attacked");
+            obstacleAnimator.SetBool("Attacked", true);
         }
 
         if (humanEffect == true)
@@ -80,6 +82,7 @@ public class ObstacleAttacked : ObstacleData
             humansObj.SetActive(false);
         }
 
+        tempMoveSpeed = obstacleCtrl.MoveSpeed;
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
        
@@ -90,7 +93,17 @@ public class ObstacleAttacked : ObstacleData
 
     private void DestroyObstacle()
     {
+        ResettingObstacle();
         ObjectPool.ReturnObj(this.gameObject, (int)type.Type);
+    }
+
+    private void ResettingObstacle()
+    {
+        obstacleAnimator.SetBool("Attacked", false);
+        obstacleCtrl.MoveSpeed = tempMoveSpeed;
+        boxCollider.enabled = true;
+        humansObj.SetActive(true);
+        humanEffect.Reset(humanValue);
     }
 
     private void ScoreAndGauge()
