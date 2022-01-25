@@ -24,6 +24,8 @@ public class HumanExplosion : MonoBehaviour
     {
         for (int i = 0; i < value; i++)
         {
+            humanObj[i].velocity = Vector3.zero;
+            humanObj[i].gameObject.transform.localPosition = Vector3.zero;
             humanObj[i].gameObject.SetActive(true);
 
             if (humanObj[i] != null)
@@ -31,6 +33,14 @@ public class HumanExplosion : MonoBehaviour
                 humanObj[i].mass = 1.0f;
                 humanObj[i].AddExplosionForce(explosionForce, tr.position, explosionRadius, upwardsModifier);
             }
+        }
+    }
+
+    public void Reset(int value)
+    {
+        for (int i = 0; i < value; i++)
+        {
+            humanObj[i].gameObject.SetActive(false);
         }
     }
 }
