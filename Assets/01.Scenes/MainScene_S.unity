@@ -1010,6 +1010,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215892826}
   m_CullTransparentMesh: 1
+--- !u!1001 &270181961
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5372538485688902448, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9063768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.466906
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.55336
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902450, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
 --- !u!1 &320075116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1435,7 @@ MonoBehaviour:
   diveBarControl: {fileID: 78762498}
   heartControl: {fileID: 1009924626}
   shildControl: {fileID: 2021656708}
+  endingCanvas: {fileID: 0}
   skin: {fileID: 2100000, guid: d82a45643bf24a14d82af312cda4a4e6, type: 2}
   effects:
   - {fileID: 1194680023}
@@ -2055,10 +2113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: {fileID: 0}
-  close: {fileID: 0}
-  mainCanvas: {fileID: 0}
-  endingCanvas: {fileID: 0}
-  clearCanvas: {fileID: 0}
 --- !u!1 &856587635
 GameObject:
   m_ObjectHideFlags: 0
