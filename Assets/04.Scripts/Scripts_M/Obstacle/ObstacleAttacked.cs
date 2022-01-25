@@ -5,9 +5,13 @@ using UnityEngine;
 public class ObstacleAttacked : ObstacleData
 {
     private Animator obstacleAnimator;
-    private ObstacleCtrl obstacleCtrl;
+    private BoxCollider boxCollider;
 
-    private BoxCollider boxCollider; //S
+    private ObstacleCtrl obstacleCtrl;
+    private HumanExplosion humanEffect;
+
+    [SerializeField]
+    private int humanValue;
 
     [SerializeField]
     private float destroyDelay;
@@ -15,28 +19,32 @@ public class ObstacleAttacked : ObstacleData
     [SerializeField]
     private bool testAttackedSwitch = false;
 
-    private void OnEnable()
-    {
-        boxCollider.enabled = true; //S
-
-    }
     private void Awake()
     {
         obstacleAnimator = gameObject.GetComponentInChildren<Animator>();
+        boxCollider = GetComponent<BoxCollider>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
-        boxCollider = GetComponent<BoxCollider>(); // S
+        humanEffect = GetComponentInChildren<HumanExplosion>();
     }
 
     private void Update()
     {
+        //test 용 코드
         if (testAttackedSwitch == true)
         {
+            testAttackedSwitch = false;
+
             if (obstacleAnimator != null)
             {
                 obstacleAnimator.SetTrigger("Attacked");
             }
+
+            if (humanEffect == true)
+            {
+                humanEffect.ExpHuman(humanValue);
+            }
             obstacleCtrl.MoveSpeed = 0f;
-            this.gameObject.layer = 13;
+            boxCollider.enabled = false;
             //점수 증가
             //분노 게이지 증가
             Invoke("DestroyObstacle", destroyDelay);
@@ -45,19 +53,19 @@ public class ObstacleAttacked : ObstacleData
 
     public void Attacked()
     {
-        if(obstacleCtrl.GetObstacleType == TypeID.SUB)
-        {
-            return;
-        }
-
         if (obstacleAnimator != null)
         {
             obstacleAnimator.SetTrigger("Attacked");
         }
+
+        if (humanEffect == true)
+        {
+            humanEffect.ExpHuman(humanValue);
+        }
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
-                                     //점수 증가
-                                     //분노 게이지 증가
+        //점수 증가
+        //분노 게이지 증가
         Invoke("DestroyObstacle", destroyDelay);
     }
 
