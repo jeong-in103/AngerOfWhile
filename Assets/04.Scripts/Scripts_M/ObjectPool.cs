@@ -26,7 +26,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject[] objPrefab;
 
-    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[8];
+    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[13];
 
     private void Awake()
     {
