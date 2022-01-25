@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
-    public static bool newUpdate;
-
     public Slider angerSlider;
 
     public Text currentMeter;
@@ -56,12 +54,12 @@ public class GamePlayManager : MonoBehaviour
     {
         if (endingCanvas.activeSelf  == false && clearCanvas.activeSelf == false)
         {
-            meter += Time.deltaTime / 10;
-            currentMeter.text = meter.ToString("F2") + "m";
+            meter += Time.deltaTime * 0.1f;
+            currentMeter.text = meter.ToString("F2");
         }
         else if(endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalMeter.text = meter.ToString("F2") + "m";
+            finalMeter.text = meter.ToString("F2");
         }
     }
 

@@ -34,6 +34,7 @@ public class PlayerController : WhaleBase
 
     public float InvincibleTime = 1f; // 무적 시간
     private float blinkTime; //색 변화 시간
+    private float slowTime; //느려지는 시간
 
     private float startPosY; // Player 초기 위치Y
     private float startPosZ; // Player 초기 위치Z
@@ -75,10 +76,9 @@ public class PlayerController : WhaleBase
                 Move(); //이동
                 LimitMove(); //이동제한
                 AttackWay(); //공격 애니
-                soundManager.UnderWaterSound();
                 break;
             case State.ATTACK:
-                if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+                //if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
                 {
                     StartCoroutine(TimeDelay()); //시간 딜레이
                 }
@@ -148,6 +148,7 @@ public class PlayerController : WhaleBase
         {
             animator.SetTrigger("Dive");
             diveBarControl.OnDiveBar(); // 다이브바 UI On
+            soundManager.UnderWaterSound();
             state = State.DIVE;
         }
     }
@@ -158,6 +159,7 @@ public class PlayerController : WhaleBase
         animator.SetTrigger("Attack");
         diveBarControl.OffDiveBar(); // 다이브바 UI Off
         soundManager.AttackSound();
+        AttackEffect();
         state = State.ATTACK;
     }
 
@@ -193,7 +195,7 @@ public class PlayerController : WhaleBase
     public void OnDamage()
     {
         soundManager.DamageSound(); //피격 사운드
-
+        diveBarControl.OffDiveBar(); // 잠수중일경우 다이브바 UI Off
         if (helmat == 0)
         {
             if (stemina != 0)
@@ -280,7 +282,7 @@ public class PlayerController : WhaleBase
     }
     IEnumerator TimeDelay()
     {
-        float slowTime = 0f;
+        slowTime = 0f;
         while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             slowTime = Mathf.Lerp(slowTime, 1f, Time.deltaTime * timeSpeed);
@@ -290,6 +292,7 @@ public class PlayerController : WhaleBase
         }
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         Time.timeScale = 1.0f;
+        slowTime = 0f;
         Init();
     }
 
@@ -328,9 +331,14 @@ public class PlayerController : WhaleBase
     }
 
     //무적 이팩트?
-    public void ClockEffect()
+    public void AttackEffect()
     {
-        effects[3].gameObject.SetActive(true);
+        if (effects[2].gameObject.activeSelf)
+        {
+            effects[2].gameObject.SetActive(false);
+        }
+        effects[2].transform.position = transform.position + new Vector3(0f,0f,1f);
+        effects[2].gameObject.SetActive(true);
     }
     #endregion
 }

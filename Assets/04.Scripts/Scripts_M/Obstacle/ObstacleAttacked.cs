@@ -65,6 +65,10 @@ public class ObstacleAttacked : ObstacleData
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Attacked();
+    }
     public void Attacked()
     {
         if (obstacleAnimator != null)

@@ -80,10 +80,6 @@ public class PlayerPhysics : MonoBehaviour
                 enemy = other.gameObject;
                 playerController.OnDamage();
             }
-            if ((playerController.state == PlayerController.State.ATTACK))
-            {
-                other.gameObject.GetComponent<ObstacleAttacked>().Attacked();
-            }
         }else if(other.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             if(other.GetComponent<ObstacleCtrl>().GetObstacleType == TypeID.HEL1)
