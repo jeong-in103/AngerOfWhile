@@ -14,13 +14,11 @@ public class SceneChange : MonoBehaviour
 
     public void RestartButton()
     { 
-        SceneManager.LoadScene("MainScene_G");
+        SceneManager.LoadScene("Start_G");
     }
 
     public void CloseButton()
     {
          SceneManager.LoadScene("Start_G");
     }
-
-
 }

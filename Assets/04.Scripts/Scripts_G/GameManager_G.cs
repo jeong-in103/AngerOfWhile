@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager_G : MonoBehaviour
 {
+    // Manager
+    SoundManager soundManager;
+
     public Slider angerSlider;
     public Image angerFill;
     public Text meterText;
@@ -18,6 +21,9 @@ public class GameManager_G : MonoBehaviour
 
     void Start()
     {
+        soundManager = SoundManager.Instance;
+        soundManager.OnBGM(1);
+
         angerSlider.value = 100; //G: 0으로 초기화 해서 시작할 것 
     }
 

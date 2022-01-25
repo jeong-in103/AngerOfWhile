@@ -276,12 +276,8 @@ public class SpawnManager : MonoBehaviour
             spawnCount = new int[5];
             levelBefore++;
         }
-
     }
-
-
     #endregion
-
 
     void Update()
     {
