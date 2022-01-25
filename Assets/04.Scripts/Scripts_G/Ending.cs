@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ending : MonoBehaviour
 {
-
     public GameObject mainCanvas;
     public GameObject endingCanvas;
     public GameObject uiCamera;
@@ -16,14 +15,9 @@ public class Ending : MonoBehaviour
         Invoke("ActiveScore",4);
     }
 
-
     public void ActiveScore()
     {
         endingCanvas.SetActive(true);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

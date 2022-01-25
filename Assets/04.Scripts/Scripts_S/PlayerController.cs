@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public HeartControl heartControl;
     public ShildControl shildControl;
 
+    public GameObject endingCanvas;
+
     [Header("Player Interaction Object")]
     public Material skin; //고래 스킨
     public ParticleSystem[] effects;
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case State.DEAD:
-                
+                endingCanvas.gameObject.SetActive(true);
                 break;
             case State.DAMAGE:
                 if (damage)

@@ -5,17 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {    
-    
     public GameObject start;
-    public GameObject close;
-    public GameObject mainCanvas;
-    public GameObject endingCanvas;
-    public GameObject clearCanvas;
-   
 
     public void StartButton()
     {
-        SceneManager.LoadScene("MainScene_G");
+        SceneManager.LoadScene("GamePlay");
     }
 
     public void RestartButton()
