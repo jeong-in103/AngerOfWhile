@@ -955,6 +955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hel2
       objectReference: {fileID: 0}
+    - target: {fileID: 8480896123778633746, guid: 4ea3e4dd9a6dacc4a83b59da17963eb4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9132607290841400145, guid: 4ea3e4dd9a6dacc4a83b59da17963eb4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1854,6 +1858,10 @@ PrefabInstance:
     - target: {fileID: 4215940129001474546, guid: 3a6082fcbfcc5ba469ddb860401745e4, type: 3}
       propertyPath: m_Name
       value: Hel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215940129001474546, guid: 3a6082fcbfcc5ba469ddb860401745e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5698732548150606547, guid: 3a6082fcbfcc5ba469ddb860401745e4, type: 3}
       propertyPath: m_LocalPosition.x
