@@ -22,7 +22,7 @@ public class PlayerController : WhaleBase
 
     [Header("Player Interaction Object")]
     public Material skin; //고래 스킨
-    public ParticleSystem[] effects; 
+    public ParticleSystem[] effects;
 
     [HideInInspector]
     public Animator animator;
@@ -191,37 +191,60 @@ public class PlayerController : WhaleBase
     #region 피격시
     public void OnDamage()
     {
-        soundManager.DamageSound();
+        soundManager.DamageSound(); //피격 사운드
 
         if (helmat == 0)
         {
-            hp--;
-            heartControl.ChangeHP(hp); //UI 하트 변경
-
-            //죽음
-            if (hp <= 0)
+            if (stemina != 0)
             {
-                soundManager.OnBGM(2);
-                state = State.DEAD;
+                SteminaControl(); //스테미나 깎임
             }
             else
             {
-                damage = true;
-                state = State.DAMAGE;
+                HpControl(); //체력 깎임 or 죽음
             }
         }
         else
         {
-            helmat--; //방어막 깎임
-            helmat = Mathf.Clamp(helmat, 0, 2);
-            if (helmat == 0)
-            {
-                shildControl.OnBroken(false); //방어막 부서짐 + 사라짐
-            }
-            else
-            {
-                shildControl.OnBroken(true); //방어막 부서짐 
-            }
+            HelmatBroken(); //핼맷 파괴됨
+        }
+    }
+    private void SteminaControl()
+    {
+        stemina--;
+        heartControl.RemoveHeart(); //추가 체력 없애기
+
+        damage = true;
+        state = State.DAMAGE;
+    }
+    private void HpControl()
+    {
+        hp--;
+        heartControl.ChangeHP(hp); //UI 하트 변경
+
+        //죽음
+        if (hp <= 0)
+        {
+            soundManager.OnBGM(2);
+            state = State.DEAD;
+        }
+        else
+        {
+            damage = true;
+            state = State.DAMAGE;
+        }
+    }
+    private void HelmatBroken()
+    {
+        helmat--; //방어막 깎임
+        helmat = Mathf.Clamp(helmat, 0, 2);
+        if (helmat == 0)
+        {
+            shildControl.OnBroken(false); //방어막 부서짐 + 사라짐
+        }
+        else
+        {
+            shildControl.OnBroken(true); //방어막 부서짐 
         }
     }
     //피격 받았을 때 고래 색깔 빨간색으로
@@ -239,7 +262,6 @@ public class PlayerController : WhaleBase
             Init(); //초기화
         }
     }
-
     #endregion
 
     #region 공격시
