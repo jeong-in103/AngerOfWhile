@@ -78,4 +78,17 @@ public class ObjectPool : MonoBehaviour
         gameObj.transform.SetParent(Instance.transform);
         Instance.poolingObjQueue[ID].Enqueue(gameObj);
     }
+
+    //게임 메니져에 넣는게 나을 듯
+    public static void StopGame()
+    {
+        Time.timeScale = 0.0f;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+    }
+
+    public static void StartGame()
+    {
+        Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+    }
 }

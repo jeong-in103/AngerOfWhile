@@ -11,6 +11,9 @@ public class ObstacleAttacked : ObstacleData
     private HumanExplosion humanEffect;
 
     [SerializeField]
+    private GameObject humansObj;
+
+    [SerializeField]
     private int humanValue;
 
     [SerializeField]
@@ -43,6 +46,12 @@ public class ObstacleAttacked : ObstacleData
             {
                 humanEffect.ExpHuman(humanValue);
             }
+
+            if(humansObj == true)
+            {
+                humansObj.SetActive(false);
+            }
+
             obstacleCtrl.MoveSpeed = 0f;
             boxCollider.enabled = false;
             //점수 증가
@@ -62,6 +71,12 @@ public class ObstacleAttacked : ObstacleData
         {
             humanEffect.ExpHuman(humanValue);
         }
+
+        if (humansObj == true)
+        {
+            humansObj.SetActive(false);
+        }
+
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
         //점수 증가

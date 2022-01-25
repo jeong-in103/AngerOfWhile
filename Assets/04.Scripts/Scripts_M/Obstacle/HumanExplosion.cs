@@ -18,11 +18,6 @@ public class HumanExplosion : MonoBehaviour
     private void Awake()
     {
         tr = GetComponent<Transform>();
-        humanObj = GetComponentsInChildren<Rigidbody>();
-        for(int i = 0; i < humanObj.Length; i++)
-        {
-            humanObj[i].gameObject.SetActive(false);
-        }
     }
 
     public void ExpHuman(int value)
