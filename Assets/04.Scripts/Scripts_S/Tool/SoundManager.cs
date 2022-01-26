@@ -26,10 +26,12 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip heal;
     public AudioClip helmat;
 
-    private void Start()
+    //BGM 초기화
+    private void BgmInit()
     {
-        //DontDestroyOnLoad(gameObject);
+        bgmAudio.spatialBlend = 0f;
     }
+
     public void OnBGM(int num)
     {
         bgmAudio.clip = bgms[num]; //0. Main 1.Play 2.Over 3.Clear
@@ -43,30 +45,33 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void AttackSound()
     {
+        BgmInit(); //물속 -> 공격시
+
+        playAudio.Stop();
         playAudio.volume = 0.5f;
         playAudio.PlayOneShot(attack);
+        
     }
 
     public void DamageSound()
     {
-        if(playAudio.clip != damage)
-        {
-            playAudio.Stop();
-        }
+        BgmInit(); //물속 -> 피격시
+
+        playAudio.Stop();
         if (!playAudio.isPlaying)
         {
-            playAudio.volume = 0.8f;
+            playAudio.volume = 0.7f;
             playAudio.PlayOneShot(damage);
         }
     }
 
     public void UnderWaterSound()
     {
-        if (!playAudio.isPlaying)
-        {
-            playAudio.volume = 0.8f;
-            playAudio.PlayOneShot(underWater);
-        }
+        playAudio.Stop();
+        playAudio.volume = 0.85f;
+        playAudio.PlayOneShot(underWater);
+        bgmAudio.spatialBlend = 0.8f; //사운드 공간감 주기
+
     }
 
     public void AidKitSound()

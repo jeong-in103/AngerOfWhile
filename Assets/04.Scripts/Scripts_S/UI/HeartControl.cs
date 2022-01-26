@@ -39,12 +39,25 @@ public class HeartControl : MonoBehaviour
         }
     }
 
+    //추가 체력 삭제
+    public void RemoveHeart()
+    {
+        if (heartsParent[4].gameObject.activeSelf)
+        {
+            heartsParent[4].gameObject.SetActive(false);
+        }
+        else if (heartsParent[3].gameObject.activeSelf)
+        {
+            heartsParent[3].gameObject.SetActive(false);
+        }
+    }
+
     //체력 회복,감소
     public void ChangeHP(int currentHP)
     {
-        for(int i=0; i<heartsParent.Length; i++)
+        for (int i = 0; i < heartsParent.Length; i++)
         {
-            if (i <= currentHP-1)
+            if (i <= currentHP - 1)
             {
                 hearts[i].gameObject.SetActive(true);
             }

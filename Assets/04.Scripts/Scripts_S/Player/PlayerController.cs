@@ -22,7 +22,7 @@ public class PlayerController : WhaleBase
 
     [Header("Player Interaction Object")]
     public Material skin; //고래 스킨
-    public ParticleSystem[] effects; 
+    public ParticleSystem[] effects;
 
     [HideInInspector]
     public Animator animator;
@@ -34,6 +34,7 @@ public class PlayerController : WhaleBase
 
     public float InvincibleTime = 1f; // 무적 시간
     private float blinkTime; //색 변화 시간
+    private float slowTime; //느려지는 시간
 
     private float startPosY; // Player 초기 위치Y
     private float startPosZ; // Player 초기 위치Z
@@ -75,7 +76,6 @@ public class PlayerController : WhaleBase
                 Move(); //이동
                 LimitMove(); //이동제한
                 AttackWay(); //공격 애니
-                soundManager.UnderWaterSound();
                 break;
             case State.ATTACK:
                 if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
@@ -85,6 +85,7 @@ public class PlayerController : WhaleBase
                 break;
             case State.DEAD:
                 endingCanvas.gameObject.SetActive(true);
+                skin.color = Color.black;
                 break;
             case State.DAMAGE:
                 Damage();
@@ -147,6 +148,7 @@ public class PlayerController : WhaleBase
         {
             animator.SetTrigger("Dive");
             diveBarControl.OnDiveBar(); // 다이브바 UI On
+            soundManager.UnderWaterSound();
             state = State.DIVE;
         }
     }
@@ -157,6 +159,7 @@ public class PlayerController : WhaleBase
         animator.SetTrigger("Attack");
         diveBarControl.OffDiveBar(); // 다이브바 UI Off
         soundManager.AttackSound();
+        AttackEffect();
         state = State.ATTACK;
     }
 
@@ -191,37 +194,60 @@ public class PlayerController : WhaleBase
     #region 피격시
     public void OnDamage()
     {
-        soundManager.DamageSound();
-
+        soundManager.DamageSound(); //피격 사운드
+        diveBarControl.OffDiveBar(); // 잠수중일경우 다이브바 UI Off
         if (helmat == 0)
         {
-            hp--;
-            heartControl.ChangeHP(hp); //UI 하트 변경
-
-            //죽음
-            if (hp <= 0)
+            if (stemina != 0)
             {
-                soundManager.OnBGM(2);
-                state = State.DEAD;
+                SteminaControl(); //스테미나 깎임
             }
             else
             {
-                damage = true;
-                state = State.DAMAGE;
+                HpControl(); //체력 깎임 or 죽음
             }
         }
         else
         {
-            helmat--; //방어막 깎임
-            helmat = Mathf.Clamp(helmat, 0, 2);
-            if (helmat == 0)
-            {
-                shildControl.OnBroken(false); //방어막 부서짐 + 사라짐
-            }
-            else
-            {
-                shildControl.OnBroken(true); //방어막 부서짐 
-            }
+            HelmatBroken(); //핼맷 파괴됨
+        }
+    }
+    private void SteminaControl()
+    {
+        stemina--;
+        heartControl.RemoveHeart(); //추가 체력 없애기
+
+        damage = true;
+        state = State.DAMAGE;
+    }
+    private void HpControl()
+    {
+        hp--;
+        heartControl.ChangeHP(hp); //UI 하트 변경
+
+        //죽음
+        if (hp <= 0)
+        {
+            soundManager.OnBGM(2);
+            state = State.DEAD;
+        }
+        else
+        {
+            damage = true;
+            state = State.DAMAGE;
+        }
+    }
+    private void HelmatBroken()
+    {
+        helmat--; //방어막 깎임
+        helmat = Mathf.Clamp(helmat, 0, 2);
+        if (helmat == 0)
+        {
+            shildControl.OnBroken(false); //방어막 부서짐 + 사라짐
+        }
+        else
+        {
+            shildControl.OnBroken(true); //방어막 부서짐 
         }
     }
     //피격 받았을 때 고래 색깔 빨간색으로
@@ -239,7 +265,6 @@ public class PlayerController : WhaleBase
             Init(); //초기화
         }
     }
-
     #endregion
 
     #region 공격시
@@ -257,7 +282,7 @@ public class PlayerController : WhaleBase
     }
     IEnumerator TimeDelay()
     {
-        float slowTime = 0f;
+        slowTime = 0f;
         while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             slowTime = Mathf.Lerp(slowTime, 1f, Time.deltaTime * timeSpeed);
@@ -267,6 +292,7 @@ public class PlayerController : WhaleBase
         }
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         Time.timeScale = 1.0f;
+        slowTime = 0f;
         Init();
     }
 
@@ -305,9 +331,14 @@ public class PlayerController : WhaleBase
     }
 
     //무적 이팩트?
-    public void ClockEffect()
+    public void AttackEffect()
     {
-        effects[3].gameObject.SetActive(true);
+        if (effects[2].gameObject.activeSelf)
+        {
+            effects[2].gameObject.SetActive(false);
+        }
+        effects[2].transform.position = transform.position + new Vector3(0f,0f,1f);
+        effects[2].gameObject.SetActive(true);
     }
     #endregion
 }

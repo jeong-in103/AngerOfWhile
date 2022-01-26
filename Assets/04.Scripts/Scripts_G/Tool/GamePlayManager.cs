@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
-    public static bool newUpdate;
-
     public Slider angerSlider;
 
     public Text currentMeter;
@@ -20,6 +18,7 @@ public class GamePlayManager : MonoBehaviour
 
     [SerializeField]
     private float pastMeter = 0;
+
     void Start()
     {
         GameManager.score = 0;
@@ -33,34 +32,33 @@ public class GamePlayManager : MonoBehaviour
     {
         MeterUpdate();
         AngerUpdate();
-        ScoreUpdate();       
+        ScoreUpdate();
     }
 
     private void AngerUpdate()
     {
         angerSlider.value = GameManager.angerValue;
-        if (angerSlider.value>0)
-            angerSlider.value -= Time.deltaTime; //G:1초에 angerGauge -1 감소부분
-        
-           
-        if(angerSlider.value == 100)
+        if (GameManager.angerValue >= 100)
         {
             AngerFriends.gameObject.SetActive(true);
             angerSlider.value = 0f;
+            GameManager.angerValue = 0f;
         }
-      
+
+        GameManager.angerValue -= Time.deltaTime; //G:1초에 angerGauge -1 감소부분
+        GameManager.angerValue = Mathf.Clamp(GameManager.angerValue, 0, 100); //최소 최대
     }
 
     private void MeterUpdate() //G:미터기 업데이트 추후 수정
     {
         if (endingCanvas.activeSelf  == false && clearCanvas.activeSelf == false)
         {
-            meter += Time.deltaTime / 10;
-            currentMeter.text = meter.ToString("F0") + "m";
+            meter += Time.deltaTime * 0.1f;
+            currentMeter.text = meter.ToString("F2");
         }
         else if(endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalMeter.text = meter.ToString("F0") + "m";
+            finalMeter.text = meter.ToString("F2");
         }
     }
 
