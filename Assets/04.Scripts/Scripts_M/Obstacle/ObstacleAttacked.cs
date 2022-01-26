@@ -73,7 +73,7 @@ public class ObstacleAttacked : ObstacleData
 
     private void OnTriggerEnter(Collider other)
     {
-        Attacked();
+        //Attacked();
     }
     public void Attacked()
     {
