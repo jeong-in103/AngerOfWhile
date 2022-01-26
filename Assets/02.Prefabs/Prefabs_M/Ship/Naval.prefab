@@ -47,7 +47,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962347472655277370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0.15, z: 10.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1735143360018465376}
@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 3c3ef525e51f16941b5dd1d9000e3db1, type: 2}
+  oilMaterial: {fileID: 0}
+  oilRemoveMaterial: {fileID: 0}
   humansObj: {fileID: 6062920993067879271}
   humanValue: 6
   destroyDelay: 5

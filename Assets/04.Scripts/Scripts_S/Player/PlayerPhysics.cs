@@ -39,7 +39,7 @@ public class PlayerPhysics : MonoBehaviour
         if(playerController.state == PlayerController.State.IDLE)
         {
             boxCollider.enabled = true;
-            boxCollider.center = new Vector3(0.04f, 0.03f, boxCollider.center.z);
+            boxCollider.center = new Vector3(0.06f, 0.03f, boxCollider.center.z);
             boxCollider.size = colliderStartSize;
         }
         else if(playerController.state == PlayerController.State.DIVE)
@@ -71,16 +71,25 @@ public class PlayerPhysics : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            //같은 배 부딪힐 경우 넘어가기
             if (enemy == other.gameObject)
             {
                 return;
             }
+            //배 부딪힐 경우 대미지
             if ((playerController.state == PlayerController.State.IDLE || playerController.state == PlayerController.State.DIVE))
             {
                 enemy = other.gameObject;
                 playerController.OnDamage();
             }
-        }else if(other.gameObject.layer == LayerMask.NameToLayer("Item"))
+            // 공격할 경우만 Attakced 시키기
+            if ((playerController.state == PlayerController.State.ATTACK))
+            {
+                other.gameObject.GetComponent<ObstacleAttacked>().Attacked();
+            }
+        }
+        //아이템 부딪힐 경우
+        else if(other.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             if(other.GetComponent<ObstacleCtrl>().GetObstacleType == TypeID.HEL1)
             {

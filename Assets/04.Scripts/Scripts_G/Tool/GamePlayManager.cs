@@ -11,6 +11,9 @@ public class GamePlayManager : MonoBehaviour
     public Text currentScore;
     public Text finalMeter;
     public Text finalScore;
+    public Text bestScore;
+    private string KeyString = "BestRecord";
+    public GameObject newRecord;
     public GameObject endingCanvas;
     public GameObject clearCanvas;
     public GameObject AngerFriends;
@@ -19,11 +22,13 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField]
     private float pastMeter = 0;
 
+    
     void Start()
     {
         GameManager.score = 0;
         GameManager.angerValue = 0f;
 
+        GameManager.bestScore = PlayerPrefs.GetInt("BestRecord", 0);
         angerSlider.value = 0; //G: 0으로 초기화 해서 시작할 것 
     }
 
@@ -49,16 +54,16 @@ public class GamePlayManager : MonoBehaviour
         GameManager.angerValue = Mathf.Clamp(GameManager.angerValue, 0, 100); //최소 최대
     }
 
-    private void MeterUpdate() //G:미터기 업데이트 추후 수정
+    private void MeterUpdate() 
     {
         if (endingCanvas.activeSelf  == false && clearCanvas.activeSelf == false)
         {
             meter += Time.deltaTime * 0.1f;
-            currentMeter.text = meter.ToString("F2");
+            currentMeter.text = meter.ToString("F0")+"m";
         }
         else if(endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalMeter.text = meter.ToString("F2");
+            finalMeter.text = meter.ToString("F0")+"m";
         }
     }
 
@@ -74,7 +79,16 @@ public class GamePlayManager : MonoBehaviour
         currentScore.text = GameManager.score.ToString();
         if (endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalScore.text = GameManager.score.ToString();
+            if (GameManager.score > GameManager.bestScore)
+            {
+                PlayerPrefs.SetInt(KeyString, GameManager.score);
+                newRecord.SetActive(true);
+                GameManager.bestScore = GameManager.score;
+            }
+             finalScore.text = GameManager.score.ToString();
+            bestScore.text = GameManager.bestScore.ToString();
+            PlayerPrefs.Save();
+
         }
     }
 }

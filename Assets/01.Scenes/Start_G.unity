@@ -624,6 +624,7 @@ MonoBehaviour:
   timeSpeed: 29
   blinkSpeed: 0
   InvincibleTime: 1
+  hp: 0
 --- !u!95 &1382431388
 Animator:
   serializedVersion: 3
@@ -881,7 +882,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 13.6, y: 381.3}
-  m_SizeDelta: {x: 400, y: 400}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943232028
 MonoBehaviour:

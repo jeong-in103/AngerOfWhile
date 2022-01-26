@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34887545887225e4c813c655091a5c4a, type: 3}
   m_Name: Mot
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   angerGauge: 15
   score: 450
   obstacleObject: {fileID: 4496493003748863147, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
