@@ -45,6 +45,7 @@ public class PlayerController : WhaleBase
 
     private bool damage; //피격체크
 
+    WaitForSeconds waitSeconds = new WaitForSeconds(0.1f);
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -56,7 +57,7 @@ public class PlayerController : WhaleBase
         stemina = 0;
         helmat = 0;
 
-        moveSpeed = 8f; // 이동 속도
+        moveSpeed = 10f; // 이동 속도
 
         startPosY = transform.position.y;
         startPosZ = transform.position.z;
@@ -284,16 +285,15 @@ public class PlayerController : WhaleBase
     }
     IEnumerator TimeDelay()
     {
-        slowTime = 0f;
         while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             slowTime = Mathf.Lerp(slowTime, 1f, Time.deltaTime * timeSpeed);
             Time.timeScale = slowTime;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            yield return null;
+            yield return waitSeconds;
         }
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
         Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
         slowTime = 0f;
         Init();
     }

@@ -74,6 +74,11 @@ public class ObjectPool : MonoBehaviour
 
     public static void ReturnObj(GameObject gameObj, int ID)
     {
+        gameObj.transform.position = Vector3.zero;
+        if (ID == 1)
+        {
+            gameObj.transform.position = new Vector3(0f, -2.1f, 0f);
+        }
         gameObj.SetActive(false);
         gameObj.transform.SetParent(Instance.transform);
         Instance.poolingObjQueue[ID].Enqueue(gameObj);

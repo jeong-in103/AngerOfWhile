@@ -68,7 +68,7 @@ public class SoundManager : Singleton<SoundManager>
     public void UnderWaterSound()
     {
         playAudio.Stop();
-        playAudio.volume = 0.85f;
+        playAudio.volume = 1f;
         playAudio.PlayOneShot(underWater);
         bgmAudio.spatialBlend = 0.8f; //사운드 공간감 주기
 

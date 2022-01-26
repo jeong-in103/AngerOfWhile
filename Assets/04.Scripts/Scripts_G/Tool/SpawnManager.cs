@@ -58,6 +58,7 @@ public class SpawnManager : MonoBehaviour
             ships.Clear();
             developLevel = 0;
         }
+
         //현재 Level에서 배들이 다 나왔을 경우
         if(ships.Count == 0)
         {
@@ -73,7 +74,6 @@ public class SpawnManager : MonoBehaviour
     }
     void WorldPositionInit()
     {
-
         for (int i = 0; i < position.Length; i++)
         {
             viewPosX = gapX + gapX * i;
@@ -113,7 +113,7 @@ public class SpawnManager : MonoBehaviour
             //------------------------------------------ 난이도 1
             case 1:
                 spawnDelay = 3.2f;
-                enemyNumber[0] = 2;
+                enemyNumber[0] = 20;
                 SpawnCountInit();
 
                 ships.Clear();
