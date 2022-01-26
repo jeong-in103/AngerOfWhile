@@ -78,7 +78,7 @@ public class PlayerController : WhaleBase
                 AttackWay(); //공격 애니
                 break;
             case State.ATTACK:
-                //if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
                 {
                     StartCoroutine(TimeDelay()); //시간 딜레이
                 }

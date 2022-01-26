@@ -19,7 +19,6 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField]
     private float pastMeter = 0;
 
-    public bool test;
     void Start()
     {
         GameManager.score = 0;
