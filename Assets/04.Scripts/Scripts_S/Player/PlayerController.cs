@@ -38,7 +38,7 @@ public class PlayerController : WhaleBase
 
     private float startPosY; // Player 초기 위치Y
     private float startPosZ; // Player 초기 위치Z
-
+    [SerializeField]
     private int hp; // 체력
     private int stemina; // 구급상자 추가 HP
     private int helmat; // 헬멧 갯수

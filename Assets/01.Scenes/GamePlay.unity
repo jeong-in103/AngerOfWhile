@@ -11870,6 +11870,7 @@ MonoBehaviour:
   timeSpeed: 25
   blinkSpeed: 3.5
   InvincibleTime: 2
+  hp: 0
 --- !u!95 &583023617
 Animator:
   serializedVersion: 3
@@ -30892,21 +30893,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b9ea4e02486cc40842e88f6f4ba5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7575090733795943707, guid: 9a858ba23c7eb85478a9463c89dcdea6, type: 3}
-  - {fileID: 2850008748513546575, guid: 1f40368c8a43cda42a68c19246327ed3, type: 3}
-  - {fileID: 1268448512848450842, guid: bd3793fa305ca0c468aca3b9fe943253, type: 3}
-  - {fileID: 2975464955512506372, guid: fd811069f488ab747a7c68ac2b467fc7, type: 3}
-  - {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
+  position:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   spawnTimer: 2.5
   spawnDelay: 2.5
   spawnCount: 0000000000000000000000000000000000000000
   enemyNumber: 0000000000000000000000000000000000000000
   type: 0
-  level: 1
+  positionRand: 0
   timer: 0
   isSpawn: 1
-  isItemSpawn: 1
+  isItemCreation: 1
+  FadeOut: {fileID: 1386861016}
+  randType: 0
+  randType2: 0
+  randPosition: 0
+  level: 0
+  developLevel: 0
+  levelTimes: 3c00000078000000b4000000f00000002c01000068010000a4010000e00100001c0200005802000094020000d00200000c030000
 --- !u!1 &1574618899
 GameObject:
   m_ObjectHideFlags: 0
