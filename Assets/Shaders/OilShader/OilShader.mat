@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_OilShader
+  m_Name: OilShader
   m_Shader: {fileID: -6465566751694194690, guid: 41219a364a7044e4ab117f58c5df9c5d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,13 +32,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_332e7105fe4d4421acad9a18da1ea37e: 20.06
-    - Vector1_5d3a126593d04da8a520ebee74d97e08: 7.52
-    - Vector1_6d184a7439ce4f78b1a73bc769180a02: 0.44
-    - Vector1_781ab89c9c914aaea5ee1ca93886460c: 1
+    - Vector1_332e7105fe4d4421acad9a18da1ea37e: 20
+    - Vector1_5d3a126593d04da8a520ebee74d97e08: 5
+    - Vector1_6d184a7439ce4f78b1a73bc769180a02: 0.01
     - Vector1_bc3e7e4649ec49ff930a14c01ecb5407: 1
-    - Vector1_c2cfa3444ac1422fbe3a6bbd74406b8f: 23.6
-    - Vector1_d72769b10a414d5793788360dd11e840: 0.28
-    m_Colors:
-    - Color_23240d1bb3c04565a3fa5f00e2db5c60: {r: 1, g: 0.60033494, b: 0.0047169924, a: 0}
+    - Vector1_c2cfa3444ac1422fbe3a6bbd74406b8f: 10
+    m_Colors: []
   m_BuildTextureStacks: []

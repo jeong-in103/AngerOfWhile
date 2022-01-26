@@ -14,8 +14,8 @@ public class Obstacle : ScriptableObject  // 스크립터블 오브젝트
     public float AngerGauge { get { return angerGauge; } }
 
     [SerializeField]
-    private float score; // 추가 점수
-    public float Score { get { return score; } }
+    private int score; // 추가 점수
+    public int Score { get { return score; } }
 
     [SerializeField]
     private GameObject obstacleObject; // 배가 생성하는 장애물

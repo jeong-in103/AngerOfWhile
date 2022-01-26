@@ -82,8 +82,17 @@ public class ObjectPool : MonoBehaviour
     //게임 메니져에 넣는게 나을 듯
     public static void StopGame()
     {
-        Time.timeScale = 0.0f;
-        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        GameObject[] enemyObj = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] itemObj = GameObject.FindGameObjectsWithTag("Item");
+
+        for(int i = 0; i < enemyObj.Length; i++)
+        {
+            enemyObj[i].SetActive(false);
+        }
+        for (int i = 0; i < itemObj.Length; i++)
+        {
+            itemObj[i].SetActive(false);
+        }
     }
 
     public static void StartGame()

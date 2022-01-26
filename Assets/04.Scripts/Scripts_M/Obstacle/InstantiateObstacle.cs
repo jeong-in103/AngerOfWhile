@@ -59,4 +59,12 @@ public class InstantiateObstacle : ObstacleData
         GameObject leaveObj = ObjectPool.GetObj(attackObjID);
         leaveObj.transform.position = point.position;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("ObjectWall"))
+        {
+            isAttack = false;
+        }
+    }
 }
