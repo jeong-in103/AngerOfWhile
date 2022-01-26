@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     public int positionRand = 0;
     public float timer = 0f;
     public bool isSpawn = false;
-    public bool isItemCreation = true;
+    public bool isItemCreation=false;
 
     public GameObject FadeOut;
 
@@ -58,7 +58,6 @@ public class SpawnManager : MonoBehaviour
             ships.Clear();
             developLevel = 0;
         }
-
         //현재 Level에서 배들이 다 나왔을 경우
         if(ships.Count == 0)
         {
@@ -74,6 +73,7 @@ public class SpawnManager : MonoBehaviour
     }
     void WorldPositionInit()
     {
+
         for (int i = 0; i < position.Length; i++)
         {
             viewPosX = gapX + gapX * i;
@@ -113,7 +113,7 @@ public class SpawnManager : MonoBehaviour
             //------------------------------------------ 난이도 1
             case 1:
                 spawnDelay = 3.2f;
-                enemyNumber[0] = 20;
+                enemyNumber[0] = 2;
                 SpawnCountInit();
 
                 ships.Clear();
@@ -338,98 +338,137 @@ public class SpawnManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        switch (level)
-        {
-            case 1:
-                if (timer >= 50f && timer < 51f) // hel1 출현 
+             if (timer >= 50f && timer < 51f) // hel1 출현 
                 {
                     ItemCreation(8);
                 }
-                break;
-            case 2:
+             if (timer >= 92f && timer < 93f) // hel1 출현 
+                {
+                    isItemCreation = false;
+                }
                 if (timer >= 93f && timer < 94f) // kit1 출현 
                 {
+            
                     ItemCreation(10);
                 }
-                break;
-            case 3:
-                if (timer >= 140f && timer < 141f) //hel 출현
-                {
-                    ItemCreation(8);
-                }
-                break;
-            case 4:
-                if (timer >= 210f && timer < 211f) //kit2 출현
-                {
-                    ItemCreation(11);
-                }
-                if (timer >= 230f && timer < 231f) //hel 출현
-                {
-                    ItemCreation(8);
-                }
-                break;
-            case 5:
-                if (timer >= 260f && timer < 261f) //kit2 출현
-                {
-                    ItemCreation(11);
-                }
-                break;
-            case 6:
-                break;
-            case 7:
-                if (timer >= 390f && timer < 391f) //hel2 출현
-                {
-                    ItemCreation(9);
-                }
-                if (timer >= 410f && timer < 411f) //kit2 출현
-                {
-                    ItemCreation(11);
-                }
-                break;
-            case 8:
-                if (timer >= 430f && timer < 431f)
-                {
-                    ItemCreation(10);
-                }
-                if (timer >= 435f && timer < 436f)
-                {
-                    ItemCreation(8);
-                }
-                break;
-            case 9:
-                if (timer >= 490f && timer < 491f) //kit2 출현
-                {
-                    ItemCreation(11);
-                }
-                break;
-            case 10:
-                if (timer >= 560f && timer < 561f) //kit2 출현
-                {
-                    ItemCreation(11);
-                }
-                break;
-            case 11:
-                if (timer >= 620f && timer < 621f) //kit2 출현
-                {
-                    ItemCreation(9);
-                }
-
-                if (timer >= 630f && timer < 631f)  //kit2 출현
-                {
-                    ItemCreation(10);
-                }
-
-                if (timer >= 740f && timer < 741f) //kit2 출현
-                {
-                    ItemCreation(11);
-                }
-                break;
-            case 12:
-
-                break;
-            default:
-                break;
+         if (timer >= 139f && timer < 140) // hel1 출현 
+        {
+            isItemCreation = false;
         }
+
+        if (timer >= 140f && timer < 141f) //hel 출현
+                {
+                    ItemCreation(8);
+                }
+        if (timer >= 209f && timer < 210) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+            if (timer >= 210f && timer < 211f) //kit2 출현
+                {
+                    ItemCreation(11);
+                }
+        if (timer >= 229f && timer < 230) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+        if (timer >= 230f && timer < 231f) //hel 출현
+                {
+                    ItemCreation(8);
+                }
+        if (timer >= 259f && timer < 260) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+        if (timer >= 260f && timer < 261f) //kit2 출현
+                {
+                    ItemCreation(11);
+                }
+
+        if (timer >= 389f && timer < 390) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+
+
+        if (timer >= 390f && timer < 391f) //hel2 출현
+                {
+                    ItemCreation(9);
+                }
+        if (timer >= 429f && timer < 430) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+        if (timer >= 430f && timer < 431f)
+                {
+                    ItemCreation(10);
+                }
+        if (timer >= 434f && timer < 435) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+        if (timer >= 435f && timer < 436f)
+                {
+                    ItemCreation(8);
+                }
+        if (timer >= 489f && timer < 490) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+        if (timer >= 490f && timer < 491f) //kit2 출현
+                {
+                    ItemCreation(11);
+                }
+        if (timer >= 559f && timer < 560) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+        if (timer >= 560f && timer < 561f) //kit2 출현
+                {
+                    ItemCreation(11);
+                }
+        if (timer >= 619f && timer < 620) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+        if (timer >= 620f && timer < 621f) //kit2 출현
+                {
+                    ItemCreation(11);
+                }
+        if (timer >= 629f && timer < 630) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+
+        if (timer >= 630f && timer < 631f)  //kit2 출현
+                {
+                    ItemCreation(9);
+                }
+        if (timer >= 679f && timer < 680) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+        if (timer >= 680f && timer < 681f)  //kit2 출현
+                {
+                    ItemCreation(10);
+                }
+        if (timer >= 739f && timer < 740) // hel1 출현 
+        {
+            isItemCreation = false;
+        }
+        if (timer >= 740f && timer < 741f) //kit2 출현
+                {
+                    ItemCreation(11);
+                }
+               
+        
     }
 
     //아이템 생성
@@ -437,10 +476,10 @@ public class SpawnManager : MonoBehaviour
     {
         if (isItemCreation == false)
         {
+            isItemCreation = true;
             randPosition = Random.Range(0, position.Length);
             GameObject leaveObj = ObjectPool.GetObj(type);
-            leaveObj.transform.position = position[randPosition];
-            isItemCreation = true;
+            leaveObj.transform.position = position[randPosition];           
         }
     }
     #endregion
