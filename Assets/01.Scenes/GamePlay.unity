@@ -1195,10 +1195,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectPool
       objectReference: {fileID: 0}
-    - target: {fileID: 8083181558068550822, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a72e2f315f529b4084b4bc11095f283, type: 3}
 --- !u!1 &215892826
@@ -1411,7 +1407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0.00m
+  m_Text: 0m
 --- !u!222 &328670222
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2143,8 +2139,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2547286773070980224, guid: 2f2c30d117ea2694d91b3b706ff3be12, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547286773070980224, guid: 2f2c30d117ea2694d91b3b706ff3be12, type: 3}
       propertyPath: m_Constraints
       value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774761888523855086, guid: 2f2c30d117ea2694d91b3b706ff3be12, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3774761888523855086, guid: 2f2c30d117ea2694d91b3b706ff3be12, type: 3}
       propertyPath: m_IsTrigger
@@ -5020,11 +5024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faebe697b8aed19498a5f880a992b790, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.9
+      value: 22.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faebe697b8aed19498a5f880a992b790, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1544.2001
+      value: -1544.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: faebe697b8aed19498a5f880a992b790, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5070,48 +5074,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: faebe697b8aed19498a5f880a992b790, type: 3}
   m_PrefabInstance: {fileID: 1516018283}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1516018286
-MonoBehaviour:
+--- !u!111 &1516018286
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516018285}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7b064190bd30a48b016e261560d901, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &1516018287
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516018285}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.07407253
-  m_Height: 0.2912221
-  m_Direction: 1
-  m_Center: {x: 0.00048432563, y: 0.022581175, z: 0.0016535686}
---- !u!54 &1516018288
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516018285}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f9dfb46ea1f181b48b3de5efca270c63, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f9dfb46ea1f181b48b3de5efca270c63, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1544564438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5155,21 +5133,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b9ea4e02486cc40842e88f6f4ba5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7575090733795943707, guid: 9a858ba23c7eb85478a9463c89dcdea6, type: 3}
-  - {fileID: 2850008748513546575, guid: 1f40368c8a43cda42a68c19246327ed3, type: 3}
-  - {fileID: 1268448512848450842, guid: bd3793fa305ca0c468aca3b9fe943253, type: 3}
-  - {fileID: 2975464955512506372, guid: fd811069f488ab747a7c68ac2b467fc7, type: 3}
-  - {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
   spawnTimer: 2.5
   spawnDelay: 2.5
   spawnCount: 0000000000000000000000000000000000000000
   enemyNumber: 0000000000000000000000000000000000000000
   type: 0
   level: 1
-  timer: 0
+  positionRand: 0
+  timer: 300
   isSpawn: 1
-  isItemSpawn: 1
+  isItemSpawn: 0
+  FadeOut: {fileID: 1386861016}
+  randType: 0
+  randType2: 0
+  randPosition: 0
 --- !u!1 &1574618899
 GameObject:
   m_ObjectHideFlags: 0
