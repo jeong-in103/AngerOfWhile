@@ -7,8 +7,12 @@ public class SpawnManager : MonoBehaviour
 
     Vector3[] position = new Vector3[5];
 
-    public GameObject[] enemies;
+    //public GameObject[] enemies;
     private Vector3 worldPos;
+    private float viewPosZ = -30f;
+    private float gapX = 1f / 6f;
+    private float viewPosX = 0f;
+    private Vector3 viewPos;
 
     public float spawnTimer;
     public float spawnDelay;
@@ -18,41 +22,61 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int type;
 
+
     [SerializeField]
     private int level = 1;
     private int levelBefore = 1;
-    private int randPosition = 0;
+    public int positionRand = 0;
     public float timer = 0f;
     public bool isSpawn = false;
     public bool isItemSpawn = true;
 
+    public GameObject FadeOut;
+
+    public int randType;
+    public int randType2;
+    public int randPosition;
     // Start is called before the first frame update
     void Start()
     {
-        CreatePosition();
+        CreatePosition(-1, positionRand);
     }
 
 
 
-    void CreatePosition() //G:적이 생성될 위치값
+    void CreatePosition(int type, int positionRand) //G:적이 생성될 위치값
     {
-
-        float viewPosZ = -30f;
-        float gapX = 1f / 6f;
-        float viewPosX = 0f;
-
-        for (int i = 0; i < position.Length; i++)
+        if (type == -1)
         {
+            for (int i = 0; i < position.Length; i++)
+            {
 
-            viewPosX = gapX + gapX * i;
+                viewPosX = gapX + gapX * i;
 
-            Vector3 viewPos = new Vector3(viewPosX, 0, viewPosZ);
+                Vector3 viewPos = new Vector3(viewPosX, 0, viewPosZ);
 
-            worldPos = Camera.main.ViewportToWorldPoint(viewPos);
-            //worldPos.y = -0.2f;
+                worldPos = Camera.main.ViewportToWorldPoint(viewPos);
+
+                worldPos.y = -1f;
+
+                position[i] = worldPos;
+            }
+        }
+        else if (type == 1)
+        {
+            worldPos = position[positionRand];
+
+            worldPos.y = -2.1f;
+
+            position[positionRand] = worldPos;
+        }
+        else
+        {
+            worldPos = position[positionRand];
+
             worldPos.y = -1f;
 
-            position[i] = worldPos;
+            position[positionRand] = worldPos;
         }
 
     }
@@ -190,7 +214,7 @@ public class SpawnManager : MonoBehaviour
                 {
                     if (isItemSpawn == false)
                     {
-                        ItemSpawn(12);
+                        ItemSpawn(11);
                     }
                 }
             }
@@ -316,8 +340,8 @@ public class SpawnManager : MonoBehaviour
         switch (level)
         {
             //------------------------------------------ 난이도 1
-            case 1:
-                spawnDelay = 3.3f;
+            case 1:  
+                spawnDelay = 3.2f;
                 enemyNumber[0] = 20;
                 EnemySpawn(0); //Ship 출현
                 break;
@@ -325,47 +349,47 @@ public class SpawnManager : MonoBehaviour
             case 2:
                 spawnDelay = 3.9f;
                 enemyNumber[0] = 10;
-                enemyNumber[1] = 7;
-                EnemySpawn(1);  //Mot 출현
+                enemyNumber[2] = 7;
+                EnemySpawn(2);  //Mot 출현
                 break;
             //------------------------------------------- 난이도 2  
             case 3:
                 spawnDelay = 3.3f;
                 enemyNumber[0] = 10;
-                enemyNumber[1] = 3;
-                enemyNumber[2] = 5;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 3;
                 EnemySpawn(2);  //sub 출현          
                 break;
             //-------------------------------------------- 난이도 3
             case 4:
                 spawnDelay = 3.0f;
                 enemyNumber[0] = 10;
-                enemyNumber[1] = 6;
-                enemyNumber[2] = 5;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 6;
                 EnemySpawn(2);
                 break;
             //-------------------------------------------- 난이도 4
             case 5:
                 spawnDelay = 3.25f;
                 enemyNumber[0] = 8;
-                enemyNumber[1] = 7;
-                enemyNumber[2] = 5;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 7;
                 EnemySpawn(2);
                 break;
             //-------------------------------------------- 난이도 5
             case 6:
                 spawnDelay = 3.4f;
                 enemyNumber[0] = 5;
-                enemyNumber[1] = 8;
-                enemyNumber[2] = 5;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 8;
                 EnemySpawn(2);
                 break;
             //-------------------------------------------- 난이도 6
             case 7:
                 spawnDelay = 2.8f;
                 enemyNumber[0] = 10;
-                enemyNumber[1] = 8;
-                enemyNumber[2] = 2;
+                enemyNumber[1] = 2;
+                enemyNumber[2] = 8;
                 enemyNumber[3] = 3;
                 EnemySpawn(3); // Hunt 출현
                 break;
@@ -373,8 +397,8 @@ public class SpawnManager : MonoBehaviour
             case 8:
                 spawnDelay = 2.6f;
                 enemyNumber[0] = 10;
-                enemyNumber[1] = 8;
-                enemyNumber[2] = 5;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 8;
                 enemyNumber[3] = 3;
                 EnemySpawn(3);
                 break;
@@ -382,8 +406,8 @@ public class SpawnManager : MonoBehaviour
             case 9:
                 spawnDelay = 3.15f;
                 enemyNumber[0] = 0;
-                enemyNumber[1] = 10;
-                enemyNumber[2] = 2;
+                enemyNumber[1] = 2;
+                enemyNumber[2] = 10;
                 enemyNumber[3] = 5;
                 enemyNumber[4] = 3;
                 EnemySpawn(4); // Naval 출현
@@ -392,8 +416,8 @@ public class SpawnManager : MonoBehaviour
             case 10:
                 spawnDelay = 2.75f;
                 enemyNumber[0] = 0;
-                enemyNumber[1] = 10;
-                enemyNumber[2] = 4;
+                enemyNumber[1] = 4;
+                enemyNumber[2] = 10;
                 enemyNumber[3] = 5;
                 enemyNumber[4] = 3;
                 EnemySpawn(4);
@@ -402,14 +426,14 @@ public class SpawnManager : MonoBehaviour
             case 11:
                 spawnDelay = 3.2f;
                 enemyNumber[0] = 15;
-                enemyNumber[1] = 20;
-                enemyNumber[2] = 5;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 20;
                 enemyNumber[3] = 10;
                 enemyNumber[4] = 10;
                 EnemySpawn(4);
                 break;
             case 12:
-                GameObject.Find("FadeOut").GetComponent<FadeOut>().StartFadeAnim();
+                FadeOut.GetComponent<FadeOut>().StartFadeAnim();
                 level++;
                 break;
         }
@@ -421,50 +445,28 @@ public class SpawnManager : MonoBehaviour
         {
 
             randPosition = Random.Range(0, position.Length);
-            int randType = Random.Range(0, type + 1);
-            int randType2 = Random.Range(0, type + 1);
+            randType = Random.Range(0, type + 1);
+            randType2 = Random.Range(0, type + 1);
             if (spawnCount[randType] < enemyNumber[randType])
-            {
-                GameObject leaveObj = ObjectPool.GetObj(randType);
-                if (randType == 1)
-                {
-                    worldPos.y = -1.8f;
-                    position[randPosition] = worldPos;
-                    leaveObj.transform.position = position[randPosition];
-                    worldPos.y = -1f;
-                    position[randPosition] = worldPos;
-                }
-                else
-                {
-                    leaveObj.transform.position = position[randPosition];
-                }
-
+            {  
+                CreatePosition(randType, randPosition);
+                GameObject leaveObj = ObjectPool.GetObj(randType);                
+                leaveObj.transform.position = position[randPosition];
                 spawnCount[randType] += 1;
             }
-            else if(spawnCount[randType] == enemyNumber[randType])
+            else
             {
                 while (randType == randType2 || spawnCount[randType2] == enemyNumber[randType2])
                 {
                     randType2 = Random.Range(0, type + 1);
                 }
+                CreatePosition(randType2, randPosition);
                 GameObject leaveObj = ObjectPool.GetObj(randType2);
-                if (randType2 == 1)
-                {
-                    worldPos.y = -1.8f;
-                    position[randPosition] = worldPos;
-                    leaveObj.transform.position = position[randPosition];
-                    worldPos.y = -1f;
-                    position[randPosition] = worldPos;
-                }
-                else
-                {
-                    leaveObj.transform.position = position[randPosition];
-                }
+                leaveObj.transform.position = position[randPosition];
+
                 spawnCount[randType2] += 1;
                 randType = randType2;
             }
-           
-            
 
 
             spawnTimer = 0f;
@@ -476,7 +478,6 @@ public class SpawnManager : MonoBehaviour
 
     void ItemSpawn(int type)
     {
-
         if (isItemSpawn == false)
         {
             randPosition = Random.Range(0, position.Length);

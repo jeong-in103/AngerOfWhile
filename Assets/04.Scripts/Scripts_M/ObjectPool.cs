@@ -5,8 +5,8 @@ using UnityEngine;
 public enum TypeID
 {
     SHIP = 0,
-    MOT,
-    SUB, 
+    SUB,
+    MOT, 
     HUNT,
     NAVAL,
     TRASH,

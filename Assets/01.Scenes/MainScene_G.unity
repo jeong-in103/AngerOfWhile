@@ -1197,11 +1197,8 @@ MonoBehaviour:
   effects: []
   animator: {fileID: 0}
   timeSpeed: 25
-  moveSpeed: 8
   blinkSpeed: 0
   InvincibleTime: 1
-  hp: 0
-  helmat: 0
 --- !u!95 &526644420
 Animator:
   serializedVersion: 3
@@ -2153,9 +2150,8 @@ MonoBehaviour:
   finalScore: {fileID: 1836023869}
   endingCanvas: {fileID: 482771666}
   clearCanvas: {fileID: 1041623283}
+  AngerFriends: {fileID: 0}
   meter: 0
-  score: 0
-  angerValue: 0
   pastMeter: 0
 --- !u!4 &849749798
 Transform:
@@ -3040,7 +3036,7 @@ MonoBehaviour:
   - {fileID: 1962347472655277370, guid: b920245ccb924484a8be453e99020864, type: 3}
   spawnTimer: 3.1
   spawnDelay: 3.1
-  spawnCount: 0000000000000000000000000000000000000000
+  spawnCount: 1100000000000000000000000000000000000000
   enemyNumber: 0000000000000000000000000000000000000000
   type: 0
   level: 1

@@ -20,4 +20,5 @@ public class Obstacle : ScriptableObject  // 스크립터블 오브젝트
     [SerializeField]
     private GameObject obstacleObject; // 배가 생성하는 장애물
     public GameObject ObstacleObject { get { return obstacleObject; } }
+
 }

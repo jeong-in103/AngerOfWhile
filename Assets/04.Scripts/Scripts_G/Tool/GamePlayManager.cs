@@ -20,7 +20,6 @@ public class GamePlayManager : MonoBehaviour
 
     [SerializeField]
     private float pastMeter = 0;
-    
     void Start()
     {
         GameManager.score = 0;
@@ -57,11 +56,11 @@ public class GamePlayManager : MonoBehaviour
         if (endingCanvas.activeSelf  == false && clearCanvas.activeSelf == false)
         {
             meter += Time.deltaTime / 10;
-            currentMeter.text = meter.ToString("F2") + "m";
+            currentMeter.text = meter.ToString("F0") + "m";
         }
         else if(endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalMeter.text = meter.ToString("F2") + "m";
+            finalMeter.text = meter.ToString("F0") + "m";
         }
     }
 
