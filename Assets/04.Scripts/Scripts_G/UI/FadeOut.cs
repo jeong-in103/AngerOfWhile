@@ -63,6 +63,9 @@ public class FadeOut : MonoBehaviour
 
         MainCanvas.SetActive(false);
         ClearCanvas.SetActive(true);
+
+        //플레이 화면에서 Item, Enemy 삭제
+        ObjectPool.StopGame();
     }
 
 

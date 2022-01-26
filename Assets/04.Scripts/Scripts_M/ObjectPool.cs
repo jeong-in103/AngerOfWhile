@@ -94,10 +94,4 @@ public class ObjectPool : MonoBehaviour
             itemObj[i].SetActive(false);
         }
     }
-
-    public static void StartGame()
-    {
-        Time.timeScale = 1.0f;
-        Time.fixedDeltaTime = 0.02F * Time.timeScale;
-    }
 }

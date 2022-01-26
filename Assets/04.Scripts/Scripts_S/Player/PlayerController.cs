@@ -86,6 +86,8 @@ public class PlayerController : WhaleBase
             case State.DEAD:
                 endingCanvas.gameObject.SetActive(true);
                 skin.color = Color.black;
+                //플레이 화면에서 Item, Enemy 삭제
+                ObjectPool.StopGame();
                 break;
             case State.DAMAGE:
                 Damage();
