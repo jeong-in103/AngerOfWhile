@@ -308,7 +308,9 @@ public class PlayerController : WhaleBase
     public void AidKitEffect(int num)
     {
         soundManager.AidKitSound();
-        if (num == 1)
+
+        //체력 우선 회복
+        if (hp < 3)
         {
             //체력 회복
             effects[0].gameObject.SetActive(true);
@@ -316,10 +318,14 @@ public class PlayerController : WhaleBase
         }
         else
         {
-            //하트 추가
-            effects[1].gameObject.SetActive(true);
-            AddStemina();
+            if (num == 2)
+            {
+                //하트 추가
+                effects[1].gameObject.SetActive(true);
+                AddStemina();
+            }
         }
+
     }
     //보호막 이팩트
     public void HelmatEffect(int count)
