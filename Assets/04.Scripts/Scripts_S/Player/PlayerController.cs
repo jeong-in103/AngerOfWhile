@@ -32,8 +32,6 @@ public class PlayerController : WhaleBase
     public float timeSpeed = 29f; // 정지 시간 속도
     public float blinkSpeed; //색 변화 속도
 
-    public bool notInit; //오일 공격시 Init하지 않기
-
     public float InvincibleTime = 1f; // 무적 시간
     private float blinkTime; //색 변화 시간
     private float slowTime; //느려지는 시간
@@ -68,7 +66,6 @@ public class PlayerController : WhaleBase
     }
     private void Update()
     {
-        Debug.Log(state);
         switch (state)
         {
             case State.IDLE:
@@ -85,14 +82,12 @@ public class PlayerController : WhaleBase
                 if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
                 {
                     StartCoroutine(TimeDelay()); //시간 딜레이
-                    /* 딜레이 없앨시
+
                     if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
                     {
                         Init();
                     }
-                    */
                 }
-
                 break;
             case State.DEAD:
                 endingCanvas.gameObject.SetActive(true);
@@ -308,15 +303,6 @@ public class PlayerController : WhaleBase
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         slowTime = 0f;
-        if (!notInit)
-        {
-            Init();
-        }
-        else
-        {
-            notInit = false;
-        }
-            
     }
 
     #endregion
@@ -360,7 +346,7 @@ public class PlayerController : WhaleBase
         {
             effects[2].gameObject.SetActive(false);
         }
-        effects[2].transform.position = transform.position + new Vector3(0f,0f,1f);
+        effects[2].transform.position = transform.position + new Vector3(0f, 0f, 1f);
         effects[2].gameObject.SetActive(true);
     }
     #endregion

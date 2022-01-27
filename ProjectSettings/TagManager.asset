@@ -10,6 +10,8 @@ TagManager:
   - MainCanvas
   - Oil
   - Sub
+  - Deco
+  - GamePlayManager
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - None
   - 
   - HumanEffect
-  - 
+  - Deco
   - 
   - 
   - 
