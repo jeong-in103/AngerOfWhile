@@ -4,10 +4,14 @@ using UnityEngine;
 
 public static class GameManager
 {
-    public static int score;
     public static float angerValue;
+
+    public static int score;
     public static int bestScore;
 
+    public static bool endGame;
+
+    /*
     public static void StopGame()
     {
         GameObject[] enemyObj = GameObject.FindGameObjectsWithTag("Enemy");
@@ -22,4 +26,5 @@ public static class GameManager
             itemObj[i].SetActive(false);
         }
     }
+    */
 }

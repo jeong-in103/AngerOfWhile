@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class FadeOut : MonoBehaviour
 {
-
     public float animTime = 2f;
 
     private Image fadeImage;
@@ -20,17 +19,13 @@ public class FadeOut : MonoBehaviour
     public GameObject ClearCanvas;
     void Awake()
     {
-
         fadeImage = GetComponent<Image>();
     }
 
-
     public void StartFadeAnim()
     {
-
         if (isPlay == true)
             return;
-
 
         StartCoroutine("PlayFadeOut");
     }
@@ -38,9 +33,7 @@ public class FadeOut : MonoBehaviour
 
     IEnumerator PlayFadeOut()
     {
-
         isPlay = true;
-
 
         Color color = fadeImage.color;
         time = 0f;
@@ -57,15 +50,10 @@ public class FadeOut : MonoBehaviour
             yield return null;
         }
 
-
         isPlay = false;
-
 
         MainCanvas.SetActive(false);
         ClearCanvas.SetActive(true);
-
-        //플레이 화면에서 Item, Enemy 삭제
-        GameManager.StopGame();
     }
 
 

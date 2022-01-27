@@ -66,13 +66,14 @@ public class PlayerPhysics : MonoBehaviour
             {
                 return;
             }
+
             //배 부딪힐 경우 대미지
             if ((playerController.state == PlayerController.State.IDLE || playerController.state == PlayerController.State.DIVE))
             {
                 enemy = other.gameObject;
 
                 //배 충돌시 Anger Gage 올리기
-                if (enemy.CompareTag("SUB"))
+                if (enemy.CompareTag("Sub"))
                 {
                     GameManager.angerValue += 50;
                 }
@@ -83,9 +84,18 @@ public class PlayerPhysics : MonoBehaviour
                 //대미지 효과
                 playerController.OnDamage();
             }
+
             // 공격할 경우만 Attakced 시키기
             if ((playerController.state == PlayerController.State.ATTACK))
             {
+                //enemy = other.gameObject;
+                if (other.gameObject.CompareTag("Oil")) //기름 공격했을 경우 데미지 
+                {
+                    //대미지 효과
+                    playerController.OnDamage();
+                    playerController.notInit = true;
+                }
+
                 other.gameObject.GetComponent<ObstacleAttacked>().Attacked(1);
             }
         }

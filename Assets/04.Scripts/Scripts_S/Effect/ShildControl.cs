@@ -36,10 +36,8 @@ public class ShildControl : MonoBehaviour
         {
             shildBrokenValue = Mathf.Lerp(shildBrokenValue, disolveMin-0.01f, Time.smoothDeltaTime * shildBrokenSpeed);
             render.material.SetFloat("_Displacement", shildBrokenValue); // 0.6f ~ -0.2f DisolveEdgeThickness
-            Debug.Log("�ϴ���" + shildBrokenValue);
             yield return null;
         }
-        Debug.Log("End");
         shildBrokenValue = disolveMax;
         render.material.SetFloat("_Displacement", disolveMax);
         if (!active)

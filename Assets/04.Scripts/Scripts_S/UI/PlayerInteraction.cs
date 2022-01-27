@@ -9,7 +9,9 @@ public class PlayerInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpH
     private Ray ray;
     private Vector3 directPos;
 
+    [SerializeField]
     private bool attack;
+    [SerializeField]
     private bool dive;
 
     // Property 
@@ -23,21 +25,20 @@ public class PlayerInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpH
         directPos = GetDirectPos(eventData.position);
         //attack = false;
 
-        if (dive)
-        {
-            attack = true;
-        }
+ 
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        directPos = GetDirectPos(eventData.position);
+        if(!dive && !attack)
+            directPos = GetDirectPos(eventData.position);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         directPos = Vector3.zero;
-        if(dive == true)
+        if(dive)
         {
             attack = true;
             dive = false;

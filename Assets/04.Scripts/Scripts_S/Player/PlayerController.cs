@@ -32,6 +32,8 @@ public class PlayerController : WhaleBase
     public float timeSpeed = 29f; // 정지 시간 속도
     public float blinkSpeed; //색 변화 속도
 
+    public bool notInit; //오일 공격시 Init하지 않기
+
     public float InvincibleTime = 1f; // 무적 시간
     private float blinkTime; //색 변화 시간
     private float slowTime; //느려지는 시간
@@ -66,6 +68,7 @@ public class PlayerController : WhaleBase
     }
     private void Update()
     {
+        Debug.Log(state);
         switch (state)
         {
             case State.IDLE:
@@ -82,13 +85,19 @@ public class PlayerController : WhaleBase
                 if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
                 {
                     StartCoroutine(TimeDelay()); //시간 딜레이
+                    /* 딜레이 없앨시
+                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
+                    {
+                        Init();
+                    }
+                    */
                 }
+
                 break;
             case State.DEAD:
                 endingCanvas.gameObject.SetActive(true);
                 skin.color = Color.black;
-                //플레이 화면에서 Item, Enemy 삭제
-                GameManager.StopGame();
+                GameManager.endGame = true;
                 break;
             case State.DAMAGE:
                 Damage();
@@ -97,7 +106,9 @@ public class PlayerController : WhaleBase
                     DamageBlink();
                 }
                 Move(); //이동
-                LimitMove(); //이동제한               
+                LimitMove(); //이동제한 
+                PlayerInteraction.Attack = false;
+                PlayerInteraction.Dive = false;
                 break;
         }
     }
@@ -107,8 +118,8 @@ public class PlayerController : WhaleBase
         PlayerInteraction.Dive = false;
         PlayerInteraction.Attack = false;
 
-        animator.ResetTrigger("Dive");
-        animator.ResetTrigger("Attack");
+        //animator.ResetTrigger("Dive");
+        //animator.ResetTrigger("Attack");
 
         skin.color = Color.black;
 
@@ -149,6 +160,7 @@ public class PlayerController : WhaleBase
     {
         if (PlayerInteraction.Dive)
         {
+            animator.ResetTrigger("Attack");
             animator.SetTrigger("Dive");
             diveBarControl.OnDiveBar(); // 다이브바 UI On
             soundManager.UnderWaterSound();
@@ -159,6 +171,7 @@ public class PlayerController : WhaleBase
     //공격
     private void Attack()
     {
+        animator.ResetTrigger("Dive");
         animator.SetTrigger("Attack");
         diveBarControl.OffDiveBar(); // 다이브바 UI Off
         soundManager.AttackSound();
@@ -256,10 +269,10 @@ public class PlayerController : WhaleBase
     //피격 받았을 때 고래 색깔 빨간색으로
     private void DamageBlink()
     {
-        blinkTime += Time.deltaTime;
+        blinkTime += Time.unscaledDeltaTime;
         if (blinkTime <= InvincibleTime)
         {
-            skin.color = new Color(Mathf.PingPong(Time.time * blinkSpeed, 1f), 0f, 0f);
+            skin.color = new Color(Mathf.PingPong(Time.unscaledTime * blinkSpeed, 1f), 0f, 0f);
         }
         else
         {
@@ -287,15 +300,23 @@ public class PlayerController : WhaleBase
     {
         while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            slowTime = Mathf.Lerp(slowTime, 1f, Time.deltaTime * timeSpeed);
+            slowTime = Mathf.Lerp(slowTime, 1f, Time.unscaledTime * timeSpeed);
             Time.timeScale = slowTime;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            yield return waitSeconds;
+            yield return null;
         }
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         slowTime = 0f;
-        Init();
+        if (!notInit)
+        {
+            Init();
+        }
+        else
+        {
+            notInit = false;
+        }
+            
     }
 
     #endregion
