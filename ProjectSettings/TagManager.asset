@@ -8,6 +8,8 @@ TagManager:
   - Item
   - ObjectWall
   - SUB
+  - GamePlayManager
+  - Deco
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - None
   - 
   - HumanEffect
-  - 
+  - Deco
   - 
   - 
   - 

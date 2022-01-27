@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
+    [SerializeField]
+    private SoundManager soundManager;
+
     public Slider angerSlider;
 
     public Text currentMeter;
@@ -20,9 +23,12 @@ public class GamePlayManager : MonoBehaviour
     public float meter;
 
     [SerializeField]
-    private float pastMeter = 0;
+    private ScoreUp highLightScore;
 
-    
+    [SerializeField]
+    private float pastMeter = 0;
+    private int countHighlightScore = 0;
+
     void Start()
     {
         GameManager.score = 0;
@@ -74,7 +80,7 @@ public class GamePlayManager : MonoBehaviour
         {
             pastMeter = meter;
             GameManager.score += 50;
-           
+            ScoreHighlight();
         }
         currentScore.text = GameManager.score.ToString();
         if (endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
@@ -89,6 +95,17 @@ public class GamePlayManager : MonoBehaviour
             bestScore.text = GameManager.bestScore.ToString();
             PlayerPrefs.Save();
 
+        }
+    }
+
+    public void ScoreHighlight()
+    {
+        if (GameManager.score > 0 && GameManager.score / 1000 > countHighlightScore)
+        {
+            countHighlightScore++;
+            currentScore.gameObject.SetActive(false);
+            highLightScore.ScoreAccent(GameManager.score, currentScore.gameObject);
+            soundManager.ScoreHighlightSound();
         }
     }
 }
