@@ -18,11 +18,12 @@ public class SpawnManager : MonoBehaviour
     public float spawnDelay;
     public int[] spawnCount = new int[5];
     public int[] enemyNumber = new int[5];
+    private int samePosition;
 
     [SerializeField]
     private int type;
 
-    public int positionRand = 0;
+   // public int positionRand = 0;
     public float timer = 0f;
     public bool isSpawn = false;
     public bool isItemCreation=false;
@@ -31,7 +32,8 @@ public class SpawnManager : MonoBehaviour
 
     public int randType;
     public int randType2;
-    public int randPosition;
+    public int currentRandPosition;
+    public int beforeRandPosition;
 
     // S 
     [SerializeField]
@@ -119,7 +121,7 @@ public class SpawnManager : MonoBehaviour
                 ships.Clear();
                 shipsReady(0);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
 
@@ -133,7 +135,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(0);
                 shipsReady(2);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //------------------------------------------- 난이도 2  
@@ -150,7 +152,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 3
@@ -166,7 +168,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 4
@@ -183,7 +185,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 5
@@ -200,7 +202,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 6
@@ -219,7 +221,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(2);
                 shipsReady(3);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 7
@@ -238,7 +240,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(2);
                 shipsReady(3);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 8
@@ -259,7 +261,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(3);
                 shipsReady(4);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 9
@@ -280,7 +282,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(3);
                 shipsReady(4);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 10
@@ -301,7 +303,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(3);
                 shipsReady(4);
 
-                random = new System.Random(level);
+                random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
 
@@ -317,14 +319,28 @@ public class SpawnManager : MonoBehaviour
         {
             if (ships.Count != 0)
             {
-                randPosition = random.Next(0, position.Length); // 배 나올 위치
+               currentRandPosition = random.Next(0,position.Length); // 배 나올 위치
+                if (beforeRandPosition == currentRandPosition) //연속 포지션 3번 이상 금지
+                {
+                    samePosition += 1;
+                    if(samePosition == 2)
+                    {
+                        while (currentRandPosition == beforeRandPosition)
+                        {
+                            currentRandPosition = random.Next(0, position.Length);
+                        }
+                    }
+                }
+                else
+                {
+                    samePosition = 0;
+                }
                 GameObject ship = ships[0];// 배 꺼내기
                 ship.gameObject.SetActive(true);
-
                 ships.RemoveAt(0); // 배 List에서 삭제
-
-                ship.transform.position += position[randPosition];// 배 위치 설정
+                ship.transform.position += position[currentRandPosition];// 배 위치 설정
                 spawnCount[randType] += 1; // 배 카운트 UP
+                beforeRandPosition = currentRandPosition;
             }
             spawnTimer = 0f;
         }
@@ -477,9 +493,9 @@ public class SpawnManager : MonoBehaviour
         if (isItemCreation == false)
         {
             isItemCreation = true;
-            randPosition = Random.Range(0, position.Length);
+            currentRandPosition = Random.Range(0, position.Length);
             GameObject leaveObj = ObjectPool.GetObj(type);
-            leaveObj.transform.position = position[randPosition];           
+            leaveObj.transform.position = position[currentRandPosition];           
         }
     }
     #endregion
