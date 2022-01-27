@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Contour
-  m_Shader: {fileID: -6465566751694194690, guid: 26753255402773547884c2106ae483bc, type: 3}
+  m_Name: PlayerBubbleEffect
+  m_Shader: {fileID: -6465566751694194690, guid: 3b7e20d1ceafebb41a2178dd44eb3b1a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,16 +32,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_0abfd27fa0fd4b08b3d421f803cf1f77: 12.15
-    - Vector1_38f15f21b895421985575fd040072370: 1.17
-    - Vector1_75b94f224657464eafa72dd93e8d8946: 7.01
-    - Vector1_94843f4b9b8843e383c9ed0f2465d471: 2.11
-    - Vector1_a21de6fe9cdc46a08a4e799304109179: 7.62
-    - Vector1_bf13aad4970c4183bd0cfeafb1fda783: 0
-    - Vector1_c33909bee3dc4a31ba2f6f6f0003d7e0: 2.71
-    - _Thickness: 0
+    - Vector1_0eb33243de7f46b3af44f3a5b8044647: 0.3
+    - Vector1_2601d41c6ff344ac978c586859080457: 0.33
+    - Vector1_542ed7ab9c9749f8857aa49e5f431fa3: 0.1
+    - Vector1_92535ed456ed48dbbd7456faf7206523: 0
+    - Vector1_ac90d095f16b4b7193782a7e6e0a901a: 0.3
+    - Vector1_e6a72b2cbfe544f291b6564c253be877: 0.39
+    - _Displacement: 0.1
     m_Colors:
-    - Vector3_47461651bfa84a39bebba67373954b07: {r: 1.2, g: 1.11, b: 1.2, a: 0}
-    - Vector3_73caf353545e4685a9d76e09f8b1db22: {r: 1.12, g: 1.48, b: 1.09, a: 0}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - Color_d5fb6af31b4645d68975b677caa23e74: {r: 0, g: 0.19979109, b: 0.9607843, a: 0}
+    - Color_dcaf41a42670450eab89e7cd3ae07fea: {r: 0, g: 0.01960802, b: 1, a: 0}
   m_BuildTextureStacks: []

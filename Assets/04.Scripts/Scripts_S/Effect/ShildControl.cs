@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class ShildControl : MonoBehaviour
 {
-    private Renderer renderer;
+    private Renderer render;
 
-    public float shildBrokenSpeed; //½¯µå ºÎ¼­Áü ½Ã°£
-    private float shildBrokenValue; //½¯µå ºÎ¼­Áü ½Ã°£
+    public float shildBrokenSpeed; //ë³´í˜¸ë§‰ ë¶€ì„œì§ ì†ë„
+    private float shildBrokenValue; //ë³´í˜¸ë§‰ ë³´í˜¸ë§‰ ê°’
 
     private float disolveMin;
     private float disolveMax;
 
     void Awake()
     {
-        renderer = GetComponent<Renderer>();
+        render = GetComponent<Renderer>();
 
-        disolveMin = -0.1f;
-        disolveMax = 0.5f;
+        disolveMin = -0.3f;
+        disolveMax = 0.15f;
     }
     private void OnEnable()
     {
@@ -29,19 +29,19 @@ public class ShildControl : MonoBehaviour
     {
         StartCoroutine(SheildBroken(active));
     }
-    //º¸È£¸· ±úÁü
+    //ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     IEnumerator SheildBroken(bool active)
     {
         while (shildBrokenValue >= disolveMin)
         {
             shildBrokenValue = Mathf.Lerp(shildBrokenValue, disolveMin-0.01f, Time.smoothDeltaTime * shildBrokenSpeed);
-            renderer.material.SetFloat("_DisolveEdgeThickness", shildBrokenValue); // 0.6f ~ -0.2f DisolveEdgeThickness
-            Debug.Log("ÇÏ´ÂÁß" + shildBrokenValue);
+            render.material.SetFloat("_Displacement", shildBrokenValue); // 0.6f ~ -0.2f DisolveEdgeThickness
+            Debug.Log("ï¿½Ï´ï¿½ï¿½ï¿½" + shildBrokenValue);
             yield return null;
         }
         Debug.Log("End");
         shildBrokenValue = disolveMax;
-        renderer.material.SetFloat("_DisolveEdgeThickness", disolveMax);
+        render.material.SetFloat("_Displacement", disolveMax);
         if (!active)
         {
             gameObject.SetActive(false);

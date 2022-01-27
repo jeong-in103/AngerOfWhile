@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_BubbleEffect
+  m_Name: ItemBubbleEffect
   m_Shader: {fileID: -6465566751694194690, guid: 3b7e20d1ceafebb41a2178dd44eb3b1a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,11 +32,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_0eb33243de7f46b3af44f3a5b8044647: 0.1
-    - Vector1_2601d41c6ff344ac978c586859080457: 0.15
+    - Vector1_0eb33243de7f46b3af44f3a5b8044647: 0
+    - Vector1_2601d41c6ff344ac978c586859080457: 0
     - Vector1_542ed7ab9c9749f8857aa49e5f431fa3: 0.12
     - Vector1_92535ed456ed48dbbd7456faf7206523: 0
     - Vector1_ac90d095f16b4b7193782a7e6e0a901a: 0.3
     - Vector1_e6a72b2cbfe544f291b6564c253be877: 0.39
-    m_Colors: []
+    - _Displacement: 0
+    m_Colors:
+    - Color_d5fb6af31b4645d68975b677caa23e74: {r: 0, g: 1, b: 0.10700154, a: 0}
+    - Color_dcaf41a42670450eab89e7cd3ae07fea: {r: 1, g: 0.94117653, b: 0, a: 0}
   m_BuildTextureStacks: []
