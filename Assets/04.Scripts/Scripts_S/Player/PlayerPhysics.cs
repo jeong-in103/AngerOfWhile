@@ -86,7 +86,7 @@ public class PlayerPhysics : MonoBehaviour
             // 공격할 경우만 Attakced 시키기
             if ((playerController.state == PlayerController.State.ATTACK))
             {
-                other.gameObject.GetComponent<ObstacleAttacked>().Attacked();
+                other.gameObject.GetComponent<ObstacleAttacked>().Attacked(1);
             }
         }
         //아이템 부딪힐 경우

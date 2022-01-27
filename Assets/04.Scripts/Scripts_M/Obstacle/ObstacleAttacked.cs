@@ -35,7 +35,7 @@ public class ObstacleAttacked : ObstacleData
         oilCtrl = GetComponentInChildren<OilCtrl>();
     }
 
-    public void Attacked()
+    public void Attacked(int whale)
     {
         if (obstacleAnimator != null)
         {
@@ -66,8 +66,11 @@ public class ObstacleAttacked : ObstacleData
         tempMoveSpeed = obstacleCtrl.MoveSpeed;
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
-       
-        ScoreAndGauge();
+
+        if (whale==1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
+        {
+            ScoreAndGauge();
+        }
 
         Invoke("ResettingObstacle", destroyDelay);
     }

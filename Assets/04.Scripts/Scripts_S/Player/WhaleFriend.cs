@@ -45,7 +45,7 @@ public class WhaleFriend : WhaleBase
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            other.gameObject.GetComponent<ObstacleAttacked>().Attacked();
+            other.gameObject.GetComponent<ObstacleAttacked>().Attacked(2);
         }
     }
 

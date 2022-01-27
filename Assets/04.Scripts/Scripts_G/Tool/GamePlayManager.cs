@@ -46,8 +46,8 @@ public class GamePlayManager : MonoBehaviour
         if (GameManager.angerValue >= 100)
         {
             AngerFriends.gameObject.SetActive(true);
-            angerSlider.value = 0f;
-            GameManager.angerValue = 0f;
+            angerSlider.value = 30f;
+            GameManager.angerValue = 30f;
         }
 
         GameManager.angerValue -= Time.deltaTime *5f; //G:1초에 angerGauge -5 감소부분

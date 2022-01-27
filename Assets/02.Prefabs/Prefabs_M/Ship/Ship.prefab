@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 5a2b15c488cbcad42a7eb190b6eccf9f, type: 2}
-  moveSpeed: 3
+  moveSpeed: 5
 --- !u!114 &720175574318008940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,6 @@ MonoBehaviour:
   humansObj: {fileID: 44281034125735018}
   humanValue: 2
   destroyDelay: 3
-  testAttackedSwitch: 0
 --- !u!95 &1966485298
 Animator:
   serializedVersion: 3

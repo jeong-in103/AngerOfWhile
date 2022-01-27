@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 5f9555ced5ad8b94f9ee11b8069a0335, type: 2}
-  moveSpeed: 2.4
+  moveSpeed: 3
 --- !u!114 &5972229886041497717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   humansObj: {fileID: 0}
   humanValue: 3
   destroyDelay: 6
-  testAttackedSwitch: 0
 --- !u!1001 &726484927797515417
 PrefabInstance:
   m_ObjectHideFlags: 0
