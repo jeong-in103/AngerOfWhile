@@ -71,6 +71,10 @@ public class ObstacleAttacked : ObstacleData
         {
             ScoreAndGauge();
         }
+        else
+        {
+            GameManager.score += type.Score;
+        }
 
         Invoke("ResettingObstacle", destroyDelay);
     }
