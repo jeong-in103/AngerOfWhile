@@ -8,7 +8,6 @@ public static class GameManager
 
     public static int score;
     public static int bestScore;
-    public static bool delete = false;
 
     public static bool endGame;
 
