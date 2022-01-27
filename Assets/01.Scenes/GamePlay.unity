@@ -12050,9 +12050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc4f977e15d2bd4c86975d13e4a859d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 1.5, y: 1, z: 3}
-  upOffset: {x: 0, y: 1, z: 1.4}
-  downOffset: {x: 0, y: -1.5, z: 1.4}
 --- !u!4 &583023619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 298db96f6d20f1e439cd38cdb4f18fa1, type: 3}
@@ -31886,7 +31883,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 1b58a74cf9b9798428815c0af3c8eb05, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6e31321f19cada644838cb2a87e1a269, type: 2}
+      objectReference: {fileID: 2100000, guid: 3ca1c032d7025064fa2b29e596f08047, type: 2}
     - target: {fileID: 919132149155446097, guid: 1b58a74cf9b9798428815c0af3c8eb05, type: 3}
       propertyPath: m_Name
       value: Sea
