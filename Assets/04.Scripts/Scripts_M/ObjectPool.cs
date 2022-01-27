@@ -76,6 +76,10 @@ public class ObjectPool : MonoBehaviour
 
     public static void ReturnObj(GameObject gameObj, int ID)
     {
+        if (ID >= 0 && ID <= 4)
+        {
+            GameManager.delete = true;
+        }
         gameObj.transform.position = Vector3.zero;
         if (ID == 1)
         {
