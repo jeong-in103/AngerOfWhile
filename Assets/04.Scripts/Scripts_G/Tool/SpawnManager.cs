@@ -61,7 +61,7 @@ public class SpawnManager : MonoBehaviour
             developLevel = 0;
         }
         //현재 Level에서 배들이 다 나왔을 경우
-        if (ships.Count == 0)
+        if (ships.Count == 0 && !GameManager.endGame)
         {
             level++;
             LevelUpSetting(level);
@@ -298,6 +298,7 @@ public class SpawnManager : MonoBehaviour
                 break;
 
             case 12:
+                GameManager.endGame = true;
                 FadeOut.GetComponent<FadeOut>().StartFadeAnim();
                 break;
 

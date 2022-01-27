@@ -36,6 +36,7 @@ public class GamePlayManager : MonoBehaviour
 
         GameManager.bestScore = PlayerPrefs.GetInt("BestRecord", 0);
         GameManager.endGame = false;
+
         angerSlider.value = 0; //G: 0으로 초기화 해서 시작할 것 
     }
 

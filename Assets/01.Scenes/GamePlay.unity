@@ -31284,12 +31284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b9ea4e02486cc40842e88f6f4ba5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   spawnTimer: 2.5
   spawnDelay: 2.5
   spawnCount: 0000000000000000000000000000000000000000
@@ -31302,7 +31296,6 @@ MonoBehaviour:
   randType: 0
   randType2: 0
   currentRandPosition: 0
-  beforeRandPosition: 0
   level: 0
   developLevel: 8
   levelTimes: 3c00000078000000b4000000f00000002c01000068010000a4010000e00100001c0200005802000094020000d00200000c030000
