@@ -27,6 +27,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject[] objPrefab;
 
+
     private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[14];
 
     private void Awake()
@@ -75,6 +76,7 @@ public class ObjectPool : MonoBehaviour
 
     public static void ReturnObj(GameObject gameObj, int ID)
     {
+        GameManager.delete = true;
         gameObj.transform.position = Vector3.zero;
         if (ID == 1)
         {
