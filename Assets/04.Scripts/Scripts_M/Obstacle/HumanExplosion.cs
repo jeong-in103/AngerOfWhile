@@ -36,7 +36,7 @@ public class HumanExplosion : MonoBehaviour
         }
     }
 
-    public void Reset(int value)
+    public void Resetting(int value)
     {
         for (int i = 0; i < value; i++)
         {
