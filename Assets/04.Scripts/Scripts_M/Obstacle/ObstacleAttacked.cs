@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class ObstacleAttacked : ObstacleData
 {
+    [SerializeField]
+    private GamePlayManager gamePlayManager;
+
     private Animator obstacleAnimator;
     private BoxCollider boxCollider;
-    [SerializeField]
-    private Material oilMaterial;
-    [SerializeField]
-    private Material oilRemoveMaterial;
 
     private ObstacleCtrl obstacleCtrl;
     private HumanExplosion humanEffect;
@@ -28,6 +27,7 @@ public class ObstacleAttacked : ObstacleData
 
     private void Awake()
     {
+        gamePlayManager = GameObject.FindWithTag("GamePlayManager").GetComponent<GamePlayManager>();
         boxCollider = GetComponent<BoxCollider>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
         obstacleAnimator = GetComponentInChildren<Animator>();
@@ -107,5 +107,7 @@ public class ObstacleAttacked : ObstacleData
     {
         GameManager.angerValue += type.AngerGauge;
         GameManager.score += type.Score;
+
+        gamePlayManager.ScoreHighlight();
     }
 }

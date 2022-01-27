@@ -17,7 +17,8 @@ public enum TypeID
     KIT1,
     KIT2,
     CLOCK, 
-    TEXT, 
+    TEXT,
+    FISH, 
 }
 
 public class ObjectPool : MonoBehaviour
@@ -27,7 +28,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject[] objPrefab;
 
-    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[14];
+    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[15];
 
     private void Awake()
     {
