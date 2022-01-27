@@ -12083,7 +12083,6 @@ MonoBehaviour:
   diveBarControl: {fileID: 78762498}
   heartControl: {fileID: 1009924626}
   shildControl: {fileID: 583642561}
-  endingCanvas: {fileID: 1613428081}
   skin: {fileID: 2100000, guid: d82a45643bf24a14d82af312cda4a4e6, type: 2}
   effects:
   - {fileID: 1194680023}
@@ -31297,7 +31296,7 @@ MonoBehaviour:
   randType2: 0
   currentRandPosition: 0
   level: 0
-  developLevel: 8
+  developLevel: 0
   levelTimes: 3c00000078000000b4000000f00000002c01000068010000a4010000e00100001c0200005802000094020000d00200000c030000
 --- !u!114 &1544564441
 MonoBehaviour:
@@ -32059,7 +32058,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 1b58a74cf9b9798428815c0af3c8eb05, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3ca1c032d7025064fa2b29e596f08047, type: 2}
+      objectReference: {fileID: 2100000, guid: 8ffe8fcad9c3ab941b2084a748820704, type: 2}
     - target: {fileID: 919132149155446097, guid: 1b58a74cf9b9798428815c0af3c8eb05, type: 3}
       propertyPath: m_Name
       value: Sea
@@ -32627,6 +32626,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692276097}
   m_CullTransparentMesh: 1
+--- !u!1 &1709117991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b58a74cf9b9798428815c0af3c8eb05, type: 3}
+  m_PrefabInstance: {fileID: 1645664987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1709117992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709117991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78ca1b909824dd47a883225d29748dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 8ffe8fcad9c3ab941b2084a748820704, type: 2}
+  startColor: {r: 0.2633054, g: 0.8316653, b: 0.9150943, a: 0}
+  sunsetColor: {r: 0.9056604, g: 0.66517216, b: 0.38020647, a: 0}
+  nightColor: {r: 0.4359647, g: 0.6917275, b: 0.9150943, a: 0}
+  colorSpeed: 7
+  morning: 0
+  sunset: 0
+  night: 0
 --- !u!1 &1722933992
 GameObject:
   m_ObjectHideFlags: 0

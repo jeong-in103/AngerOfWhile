@@ -18,8 +18,6 @@ public class PlayerController : WhaleBase
     public HeartControl heartControl;
     public ShildControl shildControl;
 
-    public GameObject endingCanvas;
-
     [Header("Player Interaction Object")]
     public Material skin; //고래 스킨
     public ParticleSystem[] effects;
@@ -90,7 +88,6 @@ public class PlayerController : WhaleBase
                 }
                 break;
             case State.DEAD:
-                endingCanvas.gameObject.SetActive(true);
                 skin.color = Color.black;
                 GameManager.endGame = true;
                 break;

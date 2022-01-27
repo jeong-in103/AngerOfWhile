@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SahderWater 1
+  m_Name: ColorChangeWater
   m_Shader: {fileID: 4800000, guid: ae0b03949aae86f478be2838ee94b0e8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_036ecf83bbac4a729f8e02aeb1a394b0: -0.01
+    - Vector1_036ecf83bbac4a729f8e02aeb1a394b0: 0.2
     - Vector1_1AE1D4CB: 0.03
     - Vector1_1E58CA3C: 0.2
     - Vector1_24DAD7F: 0.1
@@ -44,8 +44,8 @@ Material:
     - Vector1_4F92311A: 2.72
     - Vector1_51075417: 1
     - Vector1_5190E028: 0
-    - Vector1_5232C9B8: 0.38
-    - Vector1_5EB91206: 0.24
+    - Vector1_5232C9B8: 0.1
+    - Vector1_5EB91206: 0.2
     - Vector1_6DA97D7: 0
     - Vector1_722CB011: 0.028
     - Vector1_7FB5584F: 0
@@ -66,15 +66,15 @@ Material:
     - Vector1_F0FA9185: 4.99
     - Vector1_F2029A8E: 0.52
     - Vector1_F4A73BA: 1
-    - Vector1_F976D8BD: 0.471
+    - Vector1_F976D8BD: 1
     - Vector1_FABC47E4: 0.6
     - Vector1_a0162010909a42c2a711d0e6d54de087: 0
     m_Colors:
     - Color_3CACD0BA: {r: 0.08962262, g: 0.39665627, b: 1, a: 1}
     - Color_936A8730: {r: 0.4000089, g: 0.8408386, b: 0.9528302, a: 1}
-    - Color_D70B9788: {r: 1, g: 0.995283, b: 0.995283, a: 0.70980394}
+    - Color_D70B9788: {r: 1, g: 0.995283, b: 0.995283, a: 1}
     - Color_E63B4CEF: {r: 0.145098, g: 0.9490197, b: 1, a: 1}
     - Vector2_B86025B3: {r: 0.1, g: 1, b: 0, a: 0}
     - Vector2_D494475D: {r: 0.59, g: 0.55, b: 0, a: 0}
-    - _TopDarkColour: {r: 0.40583795, g: 0.87585354, b: 0.9056595, a: 0.9999986}
+    - _TopDarkColour: {r: 0.2633054, g: 0.8316653, b: 0.9150943, a: 0}
   m_BuildTextureStacks: []

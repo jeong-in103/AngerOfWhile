@@ -48,6 +48,13 @@ public class GamePlayManager : MonoBehaviour
         ScoreUpdate();
     }
 
+    private void LateUpdate()
+    {
+        if (GameManager.endGame)
+        {
+            endingCanvas.SetActive(true);
+        }
+    }
     private void AngerUpdate()
     {
         angerSlider.value = GameManager.angerValue;
@@ -77,7 +84,6 @@ public class GamePlayManager : MonoBehaviour
 
     private void ScoreUpdate()  //G: 점수 업데이트 (미터에 따른 점수 추가 O | 아이템에 따른 점수 추가 X | 장애물에 따른 점수 감소 X)
     {
-       
         if (meter - pastMeter >= 1f)
         {
             pastMeter = meter;
@@ -96,7 +102,6 @@ public class GamePlayManager : MonoBehaviour
              finalScore.text = GameManager.score.ToString();
             bestScore.text = GameManager.bestScore.ToString();
             PlayerPrefs.Save();
-
         }
     }
 

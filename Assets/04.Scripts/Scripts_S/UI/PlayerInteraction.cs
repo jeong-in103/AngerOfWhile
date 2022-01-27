@@ -23,9 +23,10 @@ public class PlayerInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public void OnPointerDown(PointerEventData eventData)
     {
         directPos = GetDirectPos(eventData.position);
-        //attack = false;
-
- 
+        if (dive)
+        {
+            attack = true;
+        }
 
     }
 
