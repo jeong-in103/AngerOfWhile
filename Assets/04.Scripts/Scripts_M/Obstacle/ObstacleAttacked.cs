@@ -14,6 +14,7 @@ public class ObstacleAttacked : ObstacleData
 
     private ObstacleCtrl obstacleCtrl;
     private HumanExplosion humanEffect;
+    private OilCtrl oilCtrl;
 
     [SerializeField]
     private GameObject humansObj;
@@ -25,50 +26,13 @@ public class ObstacleAttacked : ObstacleData
     private float destroyDelay;
     private float tempMoveSpeed;
 
-    [SerializeField]
-    private bool testAttackedSwitch = false;
-
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
         obstacleAnimator = GetComponentInChildren<Animator>();
         humanEffect = GetComponentInChildren<HumanExplosion>();
-    }
-
-    private void Update()
-    {
-        if(testAttackedSwitch == true)
-        {
-            testAttackedSwitch = false;
-
-            if (obstacleAnimator != null)
-            {
-                obstacleAnimator.SetBool("Attacked", true);
-            }
-            else if (type.Type == TypeID.OIL)
-            {
-                GetComponentInChildren<MeshRenderer>().material = oilRemoveMaterial;
-            }
-
-            if (humanEffect == true)
-            {
-                humanEffect.ExpHuman(humanValue);
-            }
-
-            if (humansObj == true)
-            {
-                humansObj.SetActive(false);
-            }
-
-            tempMoveSpeed = obstacleCtrl.MoveSpeed;
-            obstacleCtrl.MoveSpeed = 0f;
-            boxCollider.enabled = false;
-
-            ScoreAndGauge();
-
-            Invoke("DestroyObstacle", destroyDelay);
-        }
+        oilCtrl = GetComponentInChildren<OilCtrl>();
     }
 
     public void Attacked()
@@ -79,7 +43,7 @@ public class ObstacleAttacked : ObstacleData
         }
         else if(type.Type == TypeID.OIL)
         {
-            GetComponentInChildren<MeshRenderer>().material = oilRemoveMaterial;
+            oilCtrl.OilDisappear();
         }
 
         if (humanEffect == true)
@@ -92,34 +56,32 @@ public class ObstacleAttacked : ObstacleData
             humansObj.SetActive(false);
         }
 
+        //점수 출력
+        GameObject scoreText = ObjectPool.GetObj((int)TypeID.TEXT);
+        float ran = Random.Range(-2f, 2f);
+        scoreText.transform.position = 
+            new Vector3(transform.position.x + ran, transform.position.y, transform.position.z + 5f + ran);
+        scoreText.GetComponentInChildren<ScoreText>().PrintScore(type.Score);
+
         tempMoveSpeed = obstacleCtrl.MoveSpeed;
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
        
         ScoreAndGauge();
 
-        Invoke("DestroyObstacle", destroyDelay);
-    }
-
-    private void DestroyObstacle()
-    {
-        ObjectPool.ReturnObj(this.gameObject, (int)type.Type);
-        ResettingObstacle();
+        Invoke("ResettingObstacle", destroyDelay);
     }
 
     private void ResettingObstacle()
     {
-        
-        obstacleCtrl.MoveSpeed = tempMoveSpeed;
-        boxCollider.enabled = true;
-
         if(obstacleAnimator == true)
         {
             obstacleAnimator.SetBool("Attacked", false);
         }
         else if(type.Type == TypeID.OIL)
         {
-            GetComponentInChildren<MeshRenderer>().material = oilMaterial;
+            oilCtrl.OilDisappear();
+            oilCtrl.StopOilDisappear();
         }
 
         if(humansObj == true)
@@ -129,8 +91,13 @@ public class ObstacleAttacked : ObstacleData
 
         if(humanEffect == true)
         {
-            humanEffect.Reset(humanValue);
+            humanEffect.Resetting(humanValue);
         }
+
+        ObjectPool.ReturnObj(this.gameObject, (int)type.Type);
+
+        obstacleCtrl.MoveSpeed = tempMoveSpeed;
+        boxCollider.enabled = true;
     }
 
     private void ScoreAndGauge()

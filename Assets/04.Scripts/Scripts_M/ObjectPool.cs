@@ -17,6 +17,7 @@ public enum TypeID
     KIT1,
     KIT2,
     CLOCK, 
+    TEXT, 
 }
 
 public class ObjectPool : MonoBehaviour
@@ -26,7 +27,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject[] objPrefab;
 
-    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[13];
+    private Queue<GameObject>[] poolingObjQueue = new Queue<GameObject>[14];
 
     private void Awake()
     {
@@ -82,21 +83,5 @@ public class ObjectPool : MonoBehaviour
         gameObj.SetActive(false);
         gameObj.transform.SetParent(Instance.transform);
         Instance.poolingObjQueue[ID].Enqueue(gameObj);
-    }
-
-    //게임 메니져에 넣는게 나을 듯
-    public static void StopGame()
-    {
-        GameObject[] enemyObj = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] itemObj = GameObject.FindGameObjectsWithTag("Item");
-
-        for(int i = 0; i < enemyObj.Length; i++)
-        {
-            enemyObj[i].SetActive(false);
-        }
-        for (int i = 0; i < itemObj.Length; i++)
-        {
-            itemObj[i].SetActive(false);
-        }
     }
 }

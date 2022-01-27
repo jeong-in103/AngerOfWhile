@@ -74,10 +74,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: cce1350851d68584080fb5e3085b6325, type: 2}
+  oilMaterial: {fileID: 0}
+  oilRemoveMaterial: {fileID: 0}
   humansObj: {fileID: 0}
   humanValue: 0
   destroyDelay: 2
-  testAttackedSwitch: 0
 --- !u!95 &8341322153668963596
 Animator:
   serializedVersion: 3
@@ -114,7 +115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60b7d77e0e0df9645bced1eb626082b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60b7d77e0e0df9645bced1eb626082b7, type: 3}
       propertyPath: m_LocalPosition.z

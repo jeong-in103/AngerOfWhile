@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 6cf55d1df65334a4080e9fa87fdbcd32, type: 2}
-  moveSpeed: 4.5
+  moveSpeed: 3.6
 --- !u!114 &-9084768540927660987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +79,18 @@ MonoBehaviour:
   humansObj: {fileID: 0}
   humanValue: 0
   destroyDelay: 2
-  testAttackedSwitch: 0
+--- !u!114 &8745831076982204244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983889442398613308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8002ca64bab1a4b897c3126e8f718e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100789953719439981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,7 +145,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 643e941277c337a44ba66875f00648d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af5d5f17efda9de45a8faf9be277c943, type: 2}
+      objectReference: {fileID: 2100000, guid: d39a6d0bfe25a0f47bd98f4bd1827491, type: 2}
     - target: {fileID: 919132149155446097, guid: 643e941277c337a44ba66875f00648d0, type: 3}
       propertyPath: m_Name
       value: Oil
@@ -145,6 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 643e941277c337a44ba66875f00648d0, type: 3}
+--- !u!1 &983889442398613308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 643e941277c337a44ba66875f00648d0, type: 3}
+  m_PrefabInstance: {fileID: 100789953719439981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &498961197184152966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 643e941277c337a44ba66875f00648d0, type: 3}
