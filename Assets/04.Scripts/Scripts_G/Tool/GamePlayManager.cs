@@ -50,7 +50,7 @@ public class GamePlayManager : MonoBehaviour
             GameManager.angerValue = 0f;
         }
 
-        GameManager.angerValue -= Time.deltaTime; //G:1초에 angerGauge -1 감소부분
+        GameManager.angerValue -= Time.deltaTime *5f; //G:1초에 angerGauge -5 감소부분
         GameManager.angerValue = Mathf.Clamp(GameManager.angerValue, 0, 100); //최소 최대
     }
 

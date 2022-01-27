@@ -18,13 +18,16 @@ public class PlayerInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public bool Attack { get {return attack;} set { attack = value; } }
     public bool Dive { get { return dive; } set { dive = value; } }
 
-
     public void OnPointerDown(PointerEventData eventData)
     {
         directPos = GetDirectPos(eventData.position);
-        attack = false;
+        //attack = false;
+
+        if (dive)
+        {
+            attack = true;
+        }
     }
-    
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -45,7 +48,6 @@ public class PlayerInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpH
             dive = true;
         }
     }
-
     private Vector3 GetDirectPos(Vector2 eventDataPos)
     {
         ray = Camera.main.ScreenPointToRay(eventDataPos);

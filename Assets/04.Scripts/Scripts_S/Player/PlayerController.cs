@@ -74,8 +74,8 @@ public class PlayerController : WhaleBase
                 Dive(); //잠수 애니
                 break;
             case State.DIVE:
-                Move(); //이동
-                LimitMove(); //이동제한
+                //Move(); //이동
+                //LimitMove(); //이동제한
                 AttackWay(); //공격 애니
                 break;
             case State.ATTACK:

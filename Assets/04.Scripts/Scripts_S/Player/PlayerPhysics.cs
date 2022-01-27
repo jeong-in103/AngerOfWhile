@@ -10,18 +10,9 @@ public class PlayerPhysics : MonoBehaviour
     private BoxCollider boxCollider;
 
     // Variable
-    public Vector3 boxSize = new Vector3(1.5f,1f,3f); //Default Box Size
-    public Vector3 upOffset = new Vector3(0f, 1f, 1.4f); //Idle 
-    public Vector3 downOffset = new Vector3(0f, -1.5f, 1.4f); // Dive
-
-    private Vector3 colliderStartSize;
-    private Vector3 colliderSize;
-    private Vector3 colliderPosition;
-
     private GameObject enemy;
+    private Vector3 colliderStartSize;
     
-    private Collider[] results = new Collider[1];
-
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
@@ -30,7 +21,6 @@ public class PlayerPhysics : MonoBehaviour
     private void Start()
     {
         colliderStartSize = boxCollider.size;
-        colliderSize = boxSize / 2f;
     }
 
     private void Update()
@@ -59,7 +49,7 @@ public class PlayerPhysics : MonoBehaviour
                 boxCollider.enabled = true;
             }
             boxCollider.center = new Vector3(0.06f, 0.03f, boxCollider.center.z);
-            boxCollider.size = new Vector3(0.15f, 0.03f, 0.1f);
+            boxCollider.size = new Vector3(0.15f, 0.3f, 0.1f);
         }
         else
         {
@@ -80,6 +70,17 @@ public class PlayerPhysics : MonoBehaviour
             if ((playerController.state == PlayerController.State.IDLE || playerController.state == PlayerController.State.DIVE))
             {
                 enemy = other.gameObject;
+
+                //배 충돌시 Anger Gage 올리기
+                if (enemy.CompareTag("SUB"))
+                {
+                    GameManager.angerValue += 50;
+                }
+                else
+                {
+                    GameManager.angerValue += 10;
+                }
+                //대미지 효과
                 playerController.OnDamage();
             }
             // 공격할 경우만 Attakced 시키기

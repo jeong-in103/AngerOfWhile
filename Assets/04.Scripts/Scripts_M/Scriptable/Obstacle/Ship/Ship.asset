@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34887545887225e4c813c655091a5c4a, type: 3}
   m_Name: Ship
   m_EditorClassIdentifier: 
-  type: SHIP
-  moveSpeed: 1
-  angerGauge: 5
+  type: 0
+  angerGauge: 30
   score: 100
-  leaveObject: {fileID: 0}
-  bulletObject: {fileID: 0}
+  obstacleObject: {fileID: 0}

@@ -71,10 +71,6 @@ public class ObstacleAttacked : ObstacleData
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Attacked();
-    }
     public void Attacked()
     {
         if (obstacleAnimator != null)
@@ -141,35 +137,5 @@ public class ObstacleAttacked : ObstacleData
     {
         GameManager.angerValue += type.AngerGauge;
         GameManager.score += type.Score;
-
-        //if ((int)type.Type == 0)
-        //{
-        //    GameManager.angerValue += 5;
-        //    GameManager.score += 100;
-        //}
-        //else if ((int)type.Type == 1)
-        //{
-        //    GameManager.angerValue += 15;
-        //    GameManager.score += 450;
-        //}
-    
-        //else if ((int)type.Type == 2)
-        //{
-        //    GameManager.angerValue += 10;
-        //    GameManager.score += 200;
-        //}
-        
-        //else if ((int)type.Type == 3)
-        //{
-        //    GameManager.angerValue += 20;
-        //    GameManager.score += 700;
-
-        //}
-        //else if ((int)type.Type == 4)
-        //{
-        //    GameManager.angerValue += 25;
-        //    GameManager.score += 1300;
-        //}
-        
     }
 }
