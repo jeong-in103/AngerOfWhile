@@ -103,10 +103,6 @@ public class ObstacleAttacked : ObstacleData
         if (obstacleAnimator == true)
         {
             obstacleAnimator.SetBool("Attacked", false);
-            if (instantiateObstacle == true)
-            {
-                instantiateObstacle.IsAttack = false;
-            }
         }
         else if (type.Type == TypeID.OIL)
         {
@@ -127,7 +123,7 @@ public class ObstacleAttacked : ObstacleData
         obstacleCtrl.MoveSpeed = tempMoveSpeed;
 
         // 박스 콜라이더 활성화
-        boxCollider.enabled = false;
+        boxCollider.enabled = true;
     }
 
     private void ScoreAndGauge()

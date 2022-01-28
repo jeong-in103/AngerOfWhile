@@ -51,7 +51,7 @@ public class OilCtrl : MonoBehaviour
         }
     }
 
-    public void OilReset()
+    private void OilReset()
     {
         floatTime = 1;
         oilRenderer.material.SetFloat("_floatTime", floatTime);

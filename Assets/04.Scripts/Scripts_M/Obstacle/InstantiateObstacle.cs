@@ -37,6 +37,11 @@ public class InstantiateObstacle : ObstacleData
         curSpawnTime = 0;
     }
 
+    private void OnEnable()
+    {
+        isAttack = false;
+    }
+
     private void Update()
     {
         if (maxSpawnTime <= curSpawnTime && isAttack == false)

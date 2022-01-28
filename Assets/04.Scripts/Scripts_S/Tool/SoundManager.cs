@@ -115,12 +115,6 @@ public class SoundManager : Singleton<SoundManager>
         playAudio.PlayOneShot(helmat);
     }
 
-    public void ScoreHighlightSound()
-    {
-        playAudio.volume = 0.8f;
-        playAudio.PlayOneShot(scoreHighlight);
-    }
-
     public void SoundOff()
     {
         AudioListener.volume = 0;

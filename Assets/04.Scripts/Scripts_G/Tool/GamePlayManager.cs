@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
-    //[SerializeField]
-    //private SoundManager soundManager;
-
     public Slider angerSlider;
     public Slider stressSlider;
 
@@ -156,7 +153,6 @@ public class GamePlayManager : MonoBehaviour
             countHighlightScore = (int)(GameManager.score / 1000);
             currentScore.gameObject.SetActive(false);
             highLightScore.ScoreAccent(GameManager.score, currentScore.gameObject);
-            //soundManager.ScoreHighlightSound();
         }
     }
 
