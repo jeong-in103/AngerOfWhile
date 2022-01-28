@@ -327,11 +327,11 @@ public class SpawnManager : MonoBehaviour
             case 12:
                 timer = 600f;
 
-                enemyNumber[0] = 3;
+                enemyNumber[0] = 10;
                 enemyNumber[1] = 10;
-                enemyNumber[2] = 8;
-                enemyNumber[3] = 8;
-                enemyNumber[4] = 13;
+                enemyNumber[2] = 15;
+                enemyNumber[3] = 15;
+                enemyNumber[4] = 20;
 
                 SpawnCountInit();
 
@@ -348,11 +348,11 @@ public class SpawnManager : MonoBehaviour
             case 13:
                 timer = 780f;
 
-                enemyNumber[0] = 3;
+                enemyNumber[0] = 5;
                 enemyNumber[1] = 10;
-                enemyNumber[2] = 12;
-                enemyNumber[3] = 9;
-                enemyNumber[4] = 13;
+                enemyNumber[2] = 20;
+                enemyNumber[3] = 10;
+                enemyNumber[4] = 20;
 
                 SpawnCountInit();
 
@@ -383,8 +383,6 @@ public class SpawnManager : MonoBehaviour
         {
             if (ships.Count != 0)
             {
-
-
                 currentRandPosition = random.Next(0, position.Length);
                 int a = currentRandPosition;
                 if (samePosition[currentRandPosition] + 1 >= 4)
@@ -462,10 +460,10 @@ public class SpawnManager : MonoBehaviour
                 spawnDelay = Random.Range(1.4f, 2.0f);
                 break;
             case 12:
-                spawnDelay = Random.Range(3.4f, 4.0f);
+                spawnDelay = Random.Range(2.2f, 2.8f);
                 break;
             case 13:
-                spawnDelay = Random.Range(2.2f, 2.8f);
+                spawnDelay = Random.Range(1.5f, 2.1f);
                 break;
             case 14:
 
@@ -663,8 +661,8 @@ public class SpawnManager : MonoBehaviour
             case 14:
                 break;
         }
-    }
 
+    }
     //아이템 생성
     void ItemCreation(int type)
     {
@@ -682,6 +680,6 @@ public class SpawnManager : MonoBehaviour
     {
         isItemCreation = false;
     }
-    #endregion
-    #endregion
 }
+#endregion
+#endregion
