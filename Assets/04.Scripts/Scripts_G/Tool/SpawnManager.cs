@@ -68,10 +68,10 @@ public class SpawnManager : MonoBehaviour
             SpawnDelay(level);
         }
 
-        if (level < 13)
+        if (level < 14)
         {
             EnemySpawn(); //적 생성
-            ItemSpawn();  //아이템 생성
+            ItemSpawn(level);  //아이템 생성
         }
     }
     void WorldPositionInit()
@@ -115,19 +115,22 @@ public class SpawnManager : MonoBehaviour
         {
             //------------------------------------------ 난이도 1
             case 1:
-                enemyNumber[0] = 30;
+                enemyNumber[0] = 10;
+                enemyNumber[1] = 3;
                 SpawnCountInit();
                 ships.Clear();
                 shipsReady(0);
+                shipsReady(1);
 
                 random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
 
             case 2:
+                timer = 30f;
 
-                enemyNumber[0] = 10;
-                enemyNumber[2] = 7;
+                enemyNumber[0] = 6;
+                enemyNumber[2] = 5;
                 SpawnCountInit();
 
                 ships.Clear();
@@ -139,9 +142,11 @@ public class SpawnManager : MonoBehaviour
                 break;
             //------------------------------------------- 난이도 2  
             case 3:
-                enemyNumber[0] = 10;
-                enemyNumber[1] = 5;
-                enemyNumber[2] = 3;
+                timer = 60f;
+
+                enemyNumber[0] = 8;
+                enemyNumber[1] = 3;
+                enemyNumber[2] = 10;
 
                 SpawnCountInit();
 
@@ -155,9 +160,11 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 3
             case 4:
-                enemyNumber[0] = 10;
+                timer = 125f;
+
+                enemyNumber[0] = 5;
                 enemyNumber[1] = 5;
-                enemyNumber[2] = 6;
+                enemyNumber[2] = 13;
                 SpawnCountInit();
 
                 ships.Clear();
@@ -170,9 +177,12 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 4
             case 5:
-                enemyNumber[0] = 8;
-                enemyNumber[1] = 5;
-                enemyNumber[2] = 7;
+                timer = 180f;
+
+                enemyNumber[0] = 5;
+                enemyNumber[1] = 3;
+                enemyNumber[2] = 10;
+                enemyNumber[3] = 3;
 
                 SpawnCountInit();
 
@@ -180,15 +190,19 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(0);
                 shipsReady(1);
                 shipsReady(2);
+                shipsReady(3);
 
                 random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 5
             case 6:
+                timer = 240f;
+
                 enemyNumber[0] = 5;
-                enemyNumber[1] = 5;
-                enemyNumber[2] = 8;
+                enemyNumber[1] = 3;
+                enemyNumber[2] = 10;
+                enemyNumber[3] = 3;
 
                 SpawnCountInit();
 
@@ -196,16 +210,19 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(0);
                 shipsReady(1);
                 shipsReady(2);
+                shipsReady(3);
 
                 random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 6
             case 7:
-                enemyNumber[0] = 10;
-                enemyNumber[1] = 2;
-                enemyNumber[2] = 8;
-                enemyNumber[3] = 3;
+                timer = 300f;
+
+                enemyNumber[0] = 3;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 10;
+                enemyNumber[3] = 6;
 
                 SpawnCountInit();
 
@@ -220,10 +237,12 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 7
             case 8:
-                enemyNumber[0] = 10;
+                timer = 360f;
+
+                enemyNumber[0] = 5;
                 enemyNumber[1] = 5;
-                enemyNumber[2] = 8;
-                enemyNumber[3] = 3;
+                enemyNumber[2] = 5;
+                enemyNumber[3] = 10;
 
                 SpawnCountInit();
 
@@ -238,11 +257,12 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 8
             case 9:
+                timer = 420f;
+
                 enemyNumber[0] = 0;
-                enemyNumber[1] = 2;
+                enemyNumber[1] = 5;
                 enemyNumber[2] = 10;
-                enemyNumber[3] = 5;
-                enemyNumber[4] = 3;
+                enemyNumber[3] = 10;
 
                 SpawnCountInit();
 
@@ -251,18 +271,19 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
                 shipsReady(3);
-                shipsReady(4);
 
                 random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
                 break;
             //-------------------------------------------- 난이도 9
             case 10:
+                timer = 480f;
+
                 enemyNumber[0] = 0;
-                enemyNumber[1] = 4;
+                enemyNumber[1] = 2;
                 enemyNumber[2] = 10;
                 enemyNumber[3] = 5;
-                enemyNumber[4] = 3;
+                enemyNumber[4] = 10;
 
                 SpawnCountInit();
 
@@ -278,10 +299,12 @@ public class SpawnManager : MonoBehaviour
                 break;
             //-------------------------------------------- 난이도 10
             case 11:
-                enemyNumber[0] = 15;
-                enemyNumber[1] = 5;
-                enemyNumber[2] = 20;
-                enemyNumber[3] = 10;
+                timer = 540f;
+
+                enemyNumber[0] = 0;
+                enemyNumber[1] = 4;
+                enemyNumber[2] = 10;
+                enemyNumber[3] = 5;
                 enemyNumber[4] = 10;
 
                 SpawnCountInit();
@@ -298,6 +321,49 @@ public class SpawnManager : MonoBehaviour
                 break;
 
             case 12:
+                timer = 600f;
+
+                enemyNumber[0] = 3;
+                enemyNumber[1] = 10;
+                enemyNumber[2] = 8;
+                enemyNumber[3] = 10;
+                enemyNumber[4] = 13;
+
+                SpawnCountInit();
+
+                ships.Clear();
+                shipsReady(0);
+                shipsReady(1);
+                shipsReady(2);
+                shipsReady(3);
+                shipsReady(4);
+
+                random = new System.Random();
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                break;
+            case 13:
+                timer = 780f;
+
+                enemyNumber[0] = 3;
+                enemyNumber[1] = 10;
+                enemyNumber[2] = 12;
+                enemyNumber[3] = 10;
+                enemyNumber[4] = 10;
+
+                SpawnCountInit();
+
+                ships.Clear();
+                shipsReady(0);
+                shipsReady(1);
+                shipsReady(2);
+                shipsReady(3);
+                shipsReady(4);
+
+                random = new System.Random();
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                break;
+
+            case 14:
                 GameManager.endGame = true;
                 FadeOut.GetComponent<FadeOut>().StartFadeAnim();
                 break;
@@ -359,193 +425,235 @@ public class SpawnManager : MonoBehaviour
         switch (level)
         {
             case 1:
-                spawnDelay = Random.Range(1.8f, 2.8f);
+                spawnDelay = Random.Range(2.0f, 2.6f);
                 break;
             case 2:
-                spawnDelay = Random.Range(1.7f, 2.7f);
+                spawnDelay = Random.Range(2.4f, 3.0f);
                 break;
             case 3:
-                spawnDelay = Random.Range(2.1f, 3.1f);
+                spawnDelay = Random.Range(2.5f, 3.1f);
                 break;
             case 4:
-                spawnDelay = Random.Range(1.8f, 2.8f);
+                spawnDelay = Random.Range(2.01f, 2.6f);
                 break;
             case 5:
-                spawnDelay = Random.Range(2.0f, 3.0f);
+                spawnDelay = Random.Range(2.3f, 3.3f);
                 break;
             case 6:
-                spawnDelay = Random.Range(2.2f, 3.2f);
+                spawnDelay = Random.Range(2.5f, 3.1f);
                 break;
             case 7:
-                spawnDelay = Random.Range(1.6f, 2.6f);
+                spawnDelay = Random.Range(2.2f, 2.8f);
                 break;
             case 8:
-                spawnDelay = Random.Range(1.4f, 2.4f);
+                spawnDelay = Random.Range(2.1f, 2.7f);
                 break;
             case 9:
-                spawnDelay = Random.Range(1.9f, 2.9f);
+                spawnDelay = Random.Range(2.1f, 2.7f);
                 break;
             case 10:
-                spawnDelay = Random.Range(1.5f, 2.5f);
+                spawnDelay = Random.Range(1.9f, 2.5f);
                 break;
             case 11:
-                spawnDelay = Random.Range(2.0f, 3.0f);
+                spawnDelay = Random.Range(1.7f, 2.3f);
                 break;
             case 12:
+                spawnDelay = Random.Range(3.7f, 4.3f);
+                break;
+            case 13:
+                spawnDelay = Random.Range(2.3f, 2.9f);
+                break;
+            case 14:
+
                 break;
         }
 
     }
     #region Item
     // 아이템 생성 시간
-    void ItemSpawn()
+    void ItemSpawn(int level)
     {
         timer += Time.deltaTime;
-
-        if (timer >= 50f && timer < 51f) // hel1 출현 
+        switch (level)
         {
-            ItemCreation(8);
+
+            //난이도 1
+            case 1:
+                if (timer >= 20f && timer < 21f)
+                {
+                    ItemCreation(10);
+                }
+                break;
+            case 2:
+
+                if (timer >= 50f && timer < 51f)
+                {
+                    ItemCreation(8);
+                }
+                break;
+
+            //난이도 2
+            case 3:
+                if (timer >= 80f && timer < 81f)
+                {
+                    ItemCreation(10);
+                }
+
+                if (timer >= 94f && timer < 95f)
+                {
+                    ItemCreation(10);
+                }
+                if (timer >= 110f && timer < 111f)
+                {
+                    ItemCreation(10);
+                }
+                break;
+            //난이도 3
+            case 4:
+                if (timer >= 140f && timer < 141f)
+                {
+                    ItemCreation(8);
+                }
+                break;
+            //난이도 4
+            case 5:
+                if (timer >= 210f && timer < 211f)
+                {
+                    ItemCreation(11);
+                }
+
+                if (timer >= 230f && timer < 231f)
+                {
+                    ItemCreation(8);
+                }
+                break;
+
+            //난이도 5
+            case 6:
+                if (timer >= 260f && timer < 261f)
+                {
+                    ItemCreation(11);
+                }
+                if (timer >= 290f && timer < 291f)
+                {
+                    ItemCreation(8);
+                }
+                break;
+            //난이도 6
+            case 7:
+                break;
+            //난이도 7
+            case 8:
+                if (timer >= 360f && timer < 361f)
+                {
+                    ItemCreation(10);
+                }
+                if (timer >= 390f && timer < 391f)
+                {
+                    ItemCreation(9);
+                }
+                break;
+            //난이도 8
+            case 9:
+                if (timer >= 430f && timer < 431f)
+                {
+                    ItemCreation(10);
+                }
+
+                if (timer >= 435f && timer < 436f)
+                {
+                    ItemCreation(8);
+                }
+                if (timer >= 465f && timer < 467)
+                {
+                    ItemCreation(8);
+                }
+                break;
+            //난이도 9
+            case 10:
+                if (timer >= 490f && timer < 491f)
+                {
+                    ItemCreation(11);
+                }
+                if (timer >= 510f && timer < 511f)
+                {
+                    ItemCreation(11);
+                }
+                break;
+            //난이도 10
+            case 11:
+                if (timer >= 560f && timer < 561f)
+                {
+                    ItemCreation(11);
+                }
+                if (timer >= 580f && timer < 581f)
+                {
+                    ItemCreation(8);
+                }
+                break;
+            //난이도 11
+            case 12:
+                if (timer >= 620f && timer < 621f)
+                {
+                    ItemCreation(11);
+                }
+
+                if (timer >= 630f && timer < 631f)
+                {
+                    ItemCreation(9);
+                }
+
+                if (timer >= 680f && timer < 681f)
+                {
+                    ItemCreation(10);
+                }
+
+                if (timer >= 740f && timer < 741f)
+                {
+                    ItemCreation(11);
+                }
+                break;
+            //난이도 12
+            case 13:
+                if (timer >= 790f && timer < 791f)
+                {
+                    ItemCreation(10);
+                }
+                if (timer >= 840f && timer < 841f)
+                {
+                    ItemCreation(10);
+                }
+                if (timer >= 810f && timer < 811f)
+                {
+                    ItemCreation(8);
+                }
+                if (timer >= 870f && timer < 871f)
+                {
+                    ItemCreation(11);
+                }
+                break;
+            case 14:
+                break;
         }
-        if (timer >= 92f && timer < 93f) // hel1 출현 
+
+        //아이템 생성
+        void ItemCreation(int type)
+        {
+            if (isItemCreation == false)
+            {
+                isItemCreation = true;
+                currentRandPosition = Random.Range(0, position.Length);
+                GameObject leaveObj = ObjectPool.GetObj(type);
+                leaveObj.transform.position = position[currentRandPosition];
+                Invoke("ItemFalse", 4f);
+            }
+        }
+
+        void ItemFalse()
         {
             isItemCreation = false;
         }
-        if (timer >= 93f && timer < 94f) // kit1 출현 
-        {
-
-            ItemCreation(10);
-        }
-        if (timer >= 139f && timer < 140) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 140f && timer < 141f) //hel 출현
-        {
-            ItemCreation(8);
-        }
-        if (timer >= 209f && timer < 210) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 210f && timer < 211f) //kit2 출현
-        {
-            ItemCreation(11);
-        }
-        if (timer >= 229f && timer < 230) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 230f && timer < 231f) //hel 출현
-        {
-            ItemCreation(8);
-        }
-        if (timer >= 259f && timer < 260) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 260f && timer < 261f) //kit2 출현
-        {
-            ItemCreation(11);
-        }
-
-        if (timer >= 389f && timer < 390) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-
-
-        if (timer >= 390f && timer < 391f) //hel2 출현
-        {
-            ItemCreation(9);
-        }
-        if (timer >= 429f && timer < 430) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 430f && timer < 431f)
-        {
-            ItemCreation(10);
-        }
-        if (timer >= 434f && timer < 435) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-        if (timer >= 435f && timer < 436f)
-        {
-            ItemCreation(8);
-        }
-        if (timer >= 489f && timer < 490) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 490f && timer < 491f) //kit2 출현
-        {
-            ItemCreation(11);
-        }
-        if (timer >= 559f && timer < 560) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 560f && timer < 561f) //kit2 출현
-        {
-            ItemCreation(11);
-        }
-        if (timer >= 619f && timer < 620) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-        if (timer >= 620f && timer < 621f) //kit2 출현
-        {
-            ItemCreation(11);
-        }
-        if (timer >= 629f && timer < 630) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-
-        if (timer >= 630f && timer < 631f)  //kit2 출현
-        {
-            ItemCreation(9);
-        }
-        if (timer >= 679f && timer < 680) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-        if (timer >= 680f && timer < 681f)  //kit2 출현
-        {
-            ItemCreation(10);
-        }
-        if (timer >= 739f && timer < 740) // hel1 출현 
-        {
-            isItemCreation = false;
-        }
-        if (timer >= 740f && timer < 741f) //kit2 출현
-        {
-            ItemCreation(11);
-        }
-
-
+        #endregion
+        #endregion
     }
-
-    //아이템 생성
-    void ItemCreation(int type)
-    {
-        if (isItemCreation == false)
-        {
-            isItemCreation = true;
-            currentRandPosition = Random.Range(0, position.Length);
-            GameObject leaveObj = ObjectPool.GetObj(type);
-            leaveObj.transform.position = position[currentRandPosition];
-        }
-    }
-    #endregion
-    #endregion
 }

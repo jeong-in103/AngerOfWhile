@@ -34,7 +34,7 @@ public class GamePlayManager : MonoBehaviour
     {
         GameManager.score = 0;
         GameManager.angerValue = 0f;
-
+       
         GameManager.bestScore = PlayerPrefs.GetInt("BestRecord", 0);
         GameManager.endGame = false;
 
@@ -75,11 +75,11 @@ public class GamePlayManager : MonoBehaviour
         if (endingCanvas.activeSelf  == false && clearCanvas.activeSelf == false)
         {
             meter += Time.deltaTime * 0.1f;
-            currentMeter.text = meter.ToString("F0")+"m";
+            currentMeter.text = meter.ToString("F0");
         }
         else if(endingCanvas.activeSelf == true || clearCanvas.activeSelf == true)
         {
-            finalMeter.text = meter.ToString("F0")+"m";
+            finalMeter.text = meter.ToString("F0");
         }
     }
 

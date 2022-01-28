@@ -6,6 +6,8 @@ public class StartSceneManager : MonoBehaviour
 {
     // Manager
     SoundManager soundManager;
+    public GameObject soundOff;
+    public GameObject soundOn;
 
     private void Awake()
     {
@@ -15,5 +17,12 @@ public class StartSceneManager : MonoBehaviour
     private void OnEnable()
     {
         soundManager.OnBGM(0); //Main BGM ON       
+        if (AudioListener.volume == 0)
+        {
+            soundOff.SetActive(true);
+            soundOn.SetActive(false);
+
+        }
+
     }
 }
