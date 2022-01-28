@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34887545887225e4c813c655091a5c4a, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  type: 14
+  type: 13
   angerGauge: 0
   score: 0
   obstacleObject: {fileID: 0}
