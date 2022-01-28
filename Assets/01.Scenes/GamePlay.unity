@@ -33261,11 +33261,11 @@ MonoBehaviour:
   startColor: {r: 0.2633054, g: 0.8316653, b: 0.9150943, a: 0}
   PoisonColor: {r: 0.785479, g: 0.63576895, b: 0.8584906, a: 0}
   nightColor: {r: 0.4359647, g: 0.6917275, b: 0.9150943, a: 0}
-  colorSpeed: 0.1
+  colorSpeed: 2
   morning: 0
   poison: 0
   night: 0
-  changeColorScore: 2000
+  changeColorScore: 50000
 --- !u!1 &1722933992
 GameObject:
   m_ObjectHideFlags: 0
@@ -33402,6 +33402,26 @@ PrefabInstance:
       propertyPath: scoreHighlight
       value: 
       objectReference: {fileID: 8300000, guid: fd15badecdfeab044a872bfac2803301, type: 3}
+    - target: {fileID: 5372538485688902451, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: bgms.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538485688902451, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: bgms.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 966d7e152af1d894c92b61e078a04f39, type: 3}
+    - target: {fileID: 5372538485688902451, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: bgms.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 50472d5b5a128864c9c11756e62a0485, type: 3}
+    - target: {fileID: 5372538486183964168, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538486183964168, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d63d1304f5dc41843ad05c24d9d86d95, type: 3}
     - target: {fileID: 5372538486183964168, guid: b01c0e433c944a6499b9d5cc21da2c4a, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0.5

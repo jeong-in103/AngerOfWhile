@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaterControl : MonoBehaviour
 {
+    SoundManager soundManager;
+
     public Material mat;
 
     public Color startColor;
@@ -30,6 +32,8 @@ public class WaterControl : MonoBehaviour
     Coroutine changeWater;
     private void Start()
     {
+        soundManager = SoundManager.Instance;
+
         nextColor = 0;
         multiple = 1;
 
@@ -39,9 +43,11 @@ public class WaterControl : MonoBehaviour
 
     private void LateUpdate()
     {
-        CheckScore();
-
-        
+        if (nextColor < 2)
+        {
+            CheckScore();
+        }
+        /*
         if (morning)
         {
             currentColor = Color.Lerp(currentColor, startColor, Time.smoothDeltaTime * colorSpeed);
@@ -57,7 +63,7 @@ public class WaterControl : MonoBehaviour
             currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
         }
-        
+        */
     }
     public void CheckScore()
     {
@@ -72,23 +78,18 @@ public class WaterControl : MonoBehaviour
     }
     IEnumerator ChangeWater(int type)
     {
+        soundManager.OnBGM(type+3);
         while (true)
         {
-            if (type == 0)
-            {
-                currentColor = Color.Lerp(currentColor, startColor, Time.smoothDeltaTime * colorSpeed);
-                mat.SetColor("_TopDarkColour", currentColor);
-
-                if (currentColor == startColor)
-                    break;
-            }
-            else if (type == 1)
+           if (type == 1)
             {
                 currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
                 mat.SetColor("_TopDarkColour", currentColor);
 
-                if (currentColor == nightColor)
+                if (currentColor == nightColor) {
+                    //soundManager.OnBGM(4);
                     break;
+                }
             }
             else if (type == 2)
             {
@@ -96,7 +97,10 @@ public class WaterControl : MonoBehaviour
                 mat.SetColor("_TopDarkColour", currentColor);
 
                 if (currentColor == PoisonColor)
+                {
+                    //soundManager.OnBGM(5);
                     break;
+                }
             }
             yield return null;
         }

@@ -39,7 +39,30 @@ public class SoundManager : Singleton<SoundManager>
 
     public void OnBGM(int num)
     {
-        bgmAudio.clip = bgms[num]; //0. Main 1.Play 2.Over 3.Clear
+        bgmAudio.clip = bgms[num]; //0. Main 1.Play 2.Over 3.Clear  + 4. Sunset 5. Night
+
+        switch (num)
+        {
+            case 0:
+                bgmAudio.volume = 1f;
+                break;
+            case 1:
+                bgmAudio.volume = 1f;
+                break;
+            case 2:
+                bgmAudio.volume = 1f;
+                break;
+            case 3:
+                bgmAudio.volume = 0.6f;
+                break;
+            case 4:
+                bgmAudio.volume = 0.5f;
+                break;
+            case 5:
+                bgmAudio.volume = 1f;
+                break;
+        }
+
         bgmAudio.Play();
     }
 
