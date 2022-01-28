@@ -80,8 +80,6 @@ public class GamePlayManager : MonoBehaviour
     }
     private void AngerUpdate()
     {
-        angerSlider.gameObject.SetActive(true);
-        stressSlider.gameObject.SetActive(false);//StestBar Off
         stressSlider.value = 0;
 
         angerSlider.value = GameManager.angerValue;
@@ -99,9 +97,6 @@ public class GamePlayManager : MonoBehaviour
 
     private void StressUpdate()
     {
-        angerSlider.gameObject.SetActive(false);
-        stressSlider.gameObject.SetActive(true);//StresBar On
-
         if (!stressWait)
         {
             stressSlider.value += Time.deltaTime;
@@ -109,9 +104,7 @@ public class GamePlayManager : MonoBehaviour
             {
                 stressSlider.value = stressSlider.minValue;
                 GameManager.stress = true;// HP -1
-                stressWait = true;
-                // 무적시간에 맞게 2초 후 다시 시작
-
+                stressWait = true; // Player 무적시간 2초 설정된 대로 2초 후 다시 시작
             }
         }
         else
