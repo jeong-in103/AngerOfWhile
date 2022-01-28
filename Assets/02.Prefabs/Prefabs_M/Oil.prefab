@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 6cf55d1df65334a4080e9fa87fdbcd32, type: 2}
-  moveSpeed: 3.6
+  moveSpeed: 5
 --- !u!114 &-9084768540927660987
 MonoBehaviour:
   m_ObjectHideFlags: 0
