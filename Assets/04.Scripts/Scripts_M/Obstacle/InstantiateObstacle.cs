@@ -59,6 +59,10 @@ public class InstantiateObstacle : ObstacleData
     {
         GameObject leaveObj = ObjectPool.GetObj(attackObjID);
         leaveObj.transform.position = point.position;
+        if (leaveObj.GetComponentInChildren<OilCtrl>())
+        {
+            leaveObj.GetComponentInChildren<OilCtrl>().OilReset();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

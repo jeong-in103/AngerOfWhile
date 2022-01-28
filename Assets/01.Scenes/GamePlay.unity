@@ -12332,7 +12332,7 @@ MonoBehaviour:
   attackStopTime: 0.7
   blinkSpeed: 3.5
   InvincibleTime: 2
-  hp: 0
+  hp: 100
 --- !u!95 &583023617
 Animator:
   serializedVersion: 3
