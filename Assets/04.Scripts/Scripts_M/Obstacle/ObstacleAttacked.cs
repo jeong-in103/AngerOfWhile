@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class ObstacleAttacked : ObstacleData
 {
@@ -57,7 +57,7 @@ public class ObstacleAttacked : ObstacleData
         }
 
         //Á¡¼ö Ãâ·Â
-        GameObject scoreText = ObjectPool.GetObj((int)TypeID.TEXT);
+        GameObject scoreText = ObjectPool.GetObj(UnsafeUtility.EnumToInt(TypeID.TEXT));
         float ran = Random.Range(-2f, 2f);
         scoreText.transform.position = 
             new Vector3(transform.position.x + ran, transform.position.y, transform.position.z + 5f + ran);
@@ -67,13 +67,16 @@ public class ObstacleAttacked : ObstacleData
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
 
-        if (whale==1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
+        if (!GameManager.endGame)
         {
-            ScoreAndGauge();
-        }
-        else
-        {
-            GameManager.score += type.Score;
+            if (whale == 1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
+            {
+                ScoreAndGauge();
+            }
+            else
+            {
+                GameManager.score += type.Score;
+            }
         }
 
         Invoke("ResettingObstacle", destroyDelay);
@@ -101,7 +104,7 @@ public class ObstacleAttacked : ObstacleData
             humanEffect.Resetting(humanValue);
         }
 
-        ObjectPool.ReturnObj(this.gameObject, (int)type.Type);
+        ObjectPool.ReturnObj(this.gameObject, UnsafeUtility.EnumToInt(type.Type));
 
         obstacleCtrl.MoveSpeed = tempMoveSpeed;
         boxCollider.enabled = true;

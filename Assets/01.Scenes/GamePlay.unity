@@ -31296,7 +31296,7 @@ MonoBehaviour:
   randType2: 0
   currentRandPosition: 0
   level: 0
-  developLevel: 0
+  developLevel: 8
   levelTimes: 3c00000078000000b4000000f00000002c01000068010000a4010000e00100001c0200005802000094020000d00200000c030000
 --- !u!114 &1544564441
 MonoBehaviour:
@@ -32647,10 +32647,11 @@ MonoBehaviour:
   startColor: {r: 0.2633054, g: 0.8316653, b: 0.9150943, a: 0}
   sunsetColor: {r: 0.9056604, g: 0.66517216, b: 0.38020647, a: 0}
   nightColor: {r: 0.4359647, g: 0.6917275, b: 0.9150943, a: 0}
-  colorSpeed: 7
+  colorSpeed: 0.1
   morning: 0
   sunset: 0
   night: 0
+  changeColorScore: 2000
 --- !u!1 &1722933992
 GameObject:
   m_ObjectHideFlags: 0

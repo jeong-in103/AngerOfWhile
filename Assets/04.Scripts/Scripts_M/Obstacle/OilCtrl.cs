@@ -20,6 +20,11 @@ public class OilCtrl : MonoBehaviour
         removeSpeed = 1f;
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
     public void OilDisappear()
     {
         coroutine = RemoveOil();

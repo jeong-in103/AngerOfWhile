@@ -54,7 +54,7 @@ public class PlayerController : WhaleBase
         hp = 3;
         stemina = 0;
         helmat = 0;
-
+        slowTime = 0.1f;
         moveSpeed = 10f; // 이동 속도
 
         startPosY = transform.position.y;
@@ -292,14 +292,14 @@ public class PlayerController : WhaleBase
     {
         while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
-            slowTime = Mathf.Lerp(slowTime, 1f, Time.unscaledTime * timeSpeed);
+            slowTime = Mathf.Lerp(slowTime, 1f, Time.unscaledDeltaTime * timeSpeed);
             Time.timeScale = slowTime;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             yield return null;
         }
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        slowTime = 0f;
+        slowTime = 0.1f;
     }
 
     #endregion

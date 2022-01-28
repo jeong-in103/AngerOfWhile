@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class ScoreText : MonoBehaviour
 {
@@ -64,6 +65,6 @@ public class ScoreText : MonoBehaviour
     private void Resetting()
     {
         alpha = new Color(1, 1, 1, 1);
-        ObjectPool.ReturnObj(this.gameObject, (int)TypeID.TEXT);
+        ObjectPool.ReturnObj(this.gameObject, UnsafeUtility.EnumToInt(TypeID.TEXT));
     }
 }
