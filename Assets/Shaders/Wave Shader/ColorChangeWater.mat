@@ -76,5 +76,5 @@ Material:
     - Color_E63B4CEF: {r: 0.145098, g: 0.9490197, b: 1, a: 1}
     - Vector2_B86025B3: {r: 0.1, g: 1, b: 0, a: 0}
     - Vector2_D494475D: {r: 0.59, g: 0.55, b: 0, a: 0}
-    - _TopDarkColour: {r: 0.65930384, g: 0.64813644, b: 0.89506906, a: 0}
+    - _TopDarkColour: {r: 0.2633054, g: 0.8316653, b: 0.9150943, a: 0}
   m_BuildTextureStacks: []

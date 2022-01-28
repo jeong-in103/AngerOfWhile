@@ -111,36 +111,40 @@ public class SpawnManager : MonoBehaviour
         {
             //------------------------------------------ 난이도 1
             case 1:
-                enemyNumber[0] = 10;
+                enemyNumber[0] = 15;
                 enemyNumber[1] = 3;
+                enemyNumber[2] = 3;
                 SpawnCountInit();
                 ships.Clear();
                 shipsReady(0);
                 shipsReady(1);
+                shipsReady(2);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
 
             case 2:
                 timer = 30f;
 
-                enemyNumber[0] = 6;
-                enemyNumber[2] = 5;
+                enemyNumber[0] = 12;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 6;
                 SpawnCountInit();
 
                 ships.Clear();
                 shipsReady(0);
+                shipsReady(1);
                 shipsReady(2);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //------------------------------------------- 난이도 2  
             case 3:
                 timer = 60f;
 
-                enemyNumber[0] = 8;
+                enemyNumber[0] = 10;
                 enemyNumber[1] = 3;
                 enemyNumber[2] = 10;
 
@@ -152,24 +156,26 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(2);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //-------------------------------------------- 난이도 3
             case 4:
                 timer = 125f;
 
-                enemyNumber[0] = 5;
+                enemyNumber[0] = 8;
                 enemyNumber[1] = 5;
                 enemyNumber[2] = 13;
+                enemyNumber[3] = 3;
                 SpawnCountInit();
 
                 ships.Clear();
                 shipsReady(0);
                 shipsReady(1);
                 shipsReady(2);
+                shipsReady(3);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //-------------------------------------------- 난이도 4
             case 5:
@@ -177,46 +183,6 @@ public class SpawnManager : MonoBehaviour
 
                 enemyNumber[0] = 5;
                 enemyNumber[1] = 3;
-                enemyNumber[2] = 10;
-                enemyNumber[3] = 3;
-
-                SpawnCountInit();
-
-                ships.Clear();
-                shipsReady(0);
-                shipsReady(1);
-                shipsReady(2);
-                shipsReady(3);
-
-                random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
-                break;
-            //-------------------------------------------- 난이도 5
-            case 6:
-                timer = 240f;
-
-                enemyNumber[0] = 5;
-                enemyNumber[1] = 3;
-                enemyNumber[2] = 10;
-                enemyNumber[3] = 3;
-
-                SpawnCountInit();
-
-                ships.Clear();
-                shipsReady(0);
-                shipsReady(1);
-                shipsReady(2);
-                shipsReady(3);
-
-                random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
-                break;
-            //-------------------------------------------- 난이도 6
-            case 7:
-                timer = 300f;
-
-                enemyNumber[0] = 3;
-                enemyNumber[1] = 5;
                 enemyNumber[2] = 10;
                 enemyNumber[3] = 6;
 
@@ -229,16 +195,56 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(3);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
+                break;
+            //-------------------------------------------- 난이도 5
+            case 6:
+                timer = 240f;
+
+                enemyNumber[0] = 8;
+                enemyNumber[1] = 3;
+                enemyNumber[2] = 10;
+                enemyNumber[3] = 5;
+
+                SpawnCountInit();
+
+                ships.Clear();
+                shipsReady(0);
+                shipsReady(1);
+                shipsReady(2);
+                shipsReady(3);
+
+                random = new System.Random();
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
+                break;
+            //-------------------------------------------- 난이도 6
+            case 7:
+                timer = 300f;
+
+                enemyNumber[0] = 8;
+                enemyNumber[1] = 5;
+                enemyNumber[2] = 12;
+                enemyNumber[3] = 8;
+
+                SpawnCountInit();
+
+                ships.Clear();
+                shipsReady(0);
+                shipsReady(1);
+                shipsReady(2);
+                shipsReady(3);
+
+                random = new System.Random();
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //-------------------------------------------- 난이도 7
             case 8:
                 timer = 360f;
 
-                enemyNumber[0] = 5;
+                enemyNumber[0] = 8;
                 enemyNumber[1] = 5;
-                enemyNumber[2] = 5;
-                enemyNumber[3] = 10;
+                enemyNumber[2] = 8;
+                enemyNumber[3] = 12;
 
                 SpawnCountInit();
 
@@ -249,16 +255,17 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(3);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //-------------------------------------------- 난이도 8
             case 9:
                 timer = 420f;
 
-                enemyNumber[0] = 0;
+                enemyNumber[0] = 3;
                 enemyNumber[1] = 5;
-                enemyNumber[2] = 10;
-                enemyNumber[3] = 10;
+                enemyNumber[2] = 8;
+                enemyNumber[3] = 8;
+                enemyNumber[4] = 10;
 
                 SpawnCountInit();
 
@@ -267,9 +274,10 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
                 shipsReady(3);
+                shipsReady(4);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //-------------------------------------------- 난이도 9
             case 10:
@@ -279,7 +287,7 @@ public class SpawnManager : MonoBehaviour
                 enemyNumber[1] = 2;
                 enemyNumber[2] = 10;
                 enemyNumber[3] = 5;
-                enemyNumber[4] = 10;
+                enemyNumber[4] = 12;
 
                 SpawnCountInit();
 
@@ -291,7 +299,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(4);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             //-------------------------------------------- 난이도 10
             case 11:
@@ -300,8 +308,8 @@ public class SpawnManager : MonoBehaviour
                 enemyNumber[0] = 0;
                 enemyNumber[1] = 4;
                 enemyNumber[2] = 10;
-                enemyNumber[3] = 5;
-                enemyNumber[4] = 10;
+                enemyNumber[3] = 8;
+                enemyNumber[4] = 12;
 
                 SpawnCountInit();
 
@@ -313,7 +321,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(4);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
 
             case 12:
@@ -322,7 +330,7 @@ public class SpawnManager : MonoBehaviour
                 enemyNumber[0] = 3;
                 enemyNumber[1] = 10;
                 enemyNumber[2] = 8;
-                enemyNumber[3] = 10;
+                enemyNumber[3] = 8;
                 enemyNumber[4] = 13;
 
                 SpawnCountInit();
@@ -335,7 +343,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(4);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
             case 13:
                 timer = 780f;
@@ -343,8 +351,8 @@ public class SpawnManager : MonoBehaviour
                 enemyNumber[0] = 3;
                 enemyNumber[1] = 10;
                 enemyNumber[2] = 12;
-                enemyNumber[3] = 10;
-                enemyNumber[4] = 10;
+                enemyNumber[3] = 9;
+                enemyNumber[4] = 13;
 
                 SpawnCountInit();
 
@@ -356,7 +364,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(4);
 
                 random = new System.Random();
-                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships, level);
+                ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
                 break;
 
             case 14:
@@ -421,43 +429,43 @@ public class SpawnManager : MonoBehaviour
         switch (level)
         {
             case 1:
-                spawnDelay = Random.Range(2.0f, 2.6f);
+                spawnDelay = Random.Range(1.1f, 1.7f);
                 break;
             case 2:
-                spawnDelay = Random.Range(2.4f, 3.0f);
+                spawnDelay = Random.Range(1.0f, 1.6f);
                 break;
             case 3:
-                spawnDelay = Random.Range(2.5f, 3.1f);
+                spawnDelay = Random.Range(2.3f, 2.9f);
                 break;
             case 4:
-                spawnDelay = Random.Range(2.01f, 2.6f);
+                spawnDelay = Random.Range(1.5f, 2.1f);
                 break;
             case 5:
-                spawnDelay = Random.Range(2.3f, 3.3f);
-                break;
-            case 6:
-                spawnDelay = Random.Range(2.5f, 3.1f);
-                break;
-            case 7:
                 spawnDelay = Random.Range(2.2f, 2.8f);
                 break;
+            case 6:
+                spawnDelay = Random.Range(1.6f, 2.2f);
+                break;
+            case 7:
+                spawnDelay = Random.Range(1.5f, 2.1f);
+                break;
             case 8:
-                spawnDelay = Random.Range(2.1f, 2.7f);
+                spawnDelay = Random.Range(1.5f, 2.1f);
                 break;
             case 9:
-                spawnDelay = Random.Range(2.1f, 2.7f);
+                spawnDelay = Random.Range(1.4f, 2.0f);
                 break;
             case 10:
                 spawnDelay = Random.Range(1.9f, 2.5f);
                 break;
             case 11:
-                spawnDelay = Random.Range(1.7f, 2.3f);
+                spawnDelay = Random.Range(1.4f, 2.0f);
                 break;
             case 12:
-                spawnDelay = Random.Range(3.7f, 4.3f);
+                spawnDelay = Random.Range(3.4f, 4.0f);
                 break;
             case 13:
-                spawnDelay = Random.Range(2.3f, 2.9f);
+                spawnDelay = Random.Range(2.2f, 2.8f);
                 break;
             case 14:
 
@@ -479,6 +487,10 @@ public class SpawnManager : MonoBehaviour
                 {
                     ItemCreation(10);
                 }
+                if (timer >= 30f && timer < 31f)
+                {
+                    ItemCreation(8);
+                }
                 break;
             case 2:
 
@@ -490,7 +502,7 @@ public class SpawnManager : MonoBehaviour
 
             //난이도 2
             case 3:
-                if (timer >= 80f && timer < 81f)
+                if (timer >= 60f && timer < 61f)
                 {
                     ItemCreation(10);
                 }
@@ -510,12 +522,16 @@ public class SpawnManager : MonoBehaviour
                 {
                     ItemCreation(8);
                 }
+                if (timer >= 170f && timer < 171f)
+                {
+                    ItemCreation(11);
+                }
                 break;
             //난이도 4
             case 5:
-                if (timer >= 210f && timer < 211f)
+                if (timer >= 190f && timer < 191f)
                 {
-                    ItemCreation(11);
+                    ItemCreation(10);
                 }
 
                 if (timer >= 230f && timer < 231f)
@@ -530,6 +546,10 @@ public class SpawnManager : MonoBehaviour
                 {
                     ItemCreation(11);
                 }
+                if (timer >= 275f && timer < 276f)
+                {
+                    ItemCreation(10);
+                }
                 if (timer >= 290f && timer < 291f)
                 {
                     ItemCreation(8);
@@ -537,16 +557,24 @@ public class SpawnManager : MonoBehaviour
                 break;
             //난이도 6
             case 7:
+                if (timer >= 310f && timer < 311f)
+                {
+                    ItemCreation(11);
+                }
+                if (timer >= 340f && timer < 341f)
+                {
+                    ItemCreation(8);
+                }
                 break;
             //난이도 7
             case 8:
-                if (timer >= 360f && timer < 361f)
-                {
-                    ItemCreation(10);
-                }
                 if (timer >= 390f && timer < 391f)
                 {
                     ItemCreation(9);
+                }
+                if (timer >= 410f && timer < 411f)
+                {
+                    ItemCreation(11);
                 }
                 break;
             //난이도 8
@@ -578,6 +606,10 @@ public class SpawnManager : MonoBehaviour
                 break;
             //난이도 10
             case 11:
+                if (timer >= 540f && timer < 541f)
+                {
+                    ItemCreation(10);
+                }
                 if (timer >= 560f && timer < 561f)
                 {
                     ItemCreation(11);
