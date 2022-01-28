@@ -38,6 +38,6 @@ Material:
     - Vector1_bc3e7e4649ec49ff930a14c01ecb5407: 1
     - Vector1_c2cfa3444ac1422fbe3a6bbd74406b8f: 10
     - Vector1_d55f315d48c44c4f87498c86ae062afd: -0.99
-    - _floatTime: 0
+    - _floatTime: 0.91
     m_Colors: []
   m_BuildTextureStacks: []

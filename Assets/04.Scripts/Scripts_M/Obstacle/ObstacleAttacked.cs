@@ -11,6 +11,7 @@ public class ObstacleAttacked : ObstacleData
     private Animator obstacleAnimator;
     private BoxCollider boxCollider;
 
+    private InstantiateObstacle instantiateObstacle;
     private ObstacleCtrl obstacleCtrl;
     private HumanExplosion humanEffect;
     private OilCtrl oilCtrl;
@@ -29,6 +30,7 @@ public class ObstacleAttacked : ObstacleData
     {
         gamePlayManager = GameObject.FindWithTag("GamePlayManager").GetComponent<GamePlayManager>();
         boxCollider = GetComponent<BoxCollider>();
+        instantiateObstacle = GetComponent<InstantiateObstacle>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
         obstacleAnimator = GetComponentInChildren<Animator>();
         humanEffect = GetComponentInChildren<HumanExplosion>();
@@ -67,13 +69,15 @@ public class ObstacleAttacked : ObstacleData
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
 
-        if (whale==1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
+        if (whale == 1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
         {
             ScoreAndGauge();
         }
         else
         {
             GameManager.score += type.Score;
+
+            gamePlayManager.ScoreHighlight();
         }
 
         Invoke("ResettingObstacle", destroyDelay);
@@ -84,10 +88,13 @@ public class ObstacleAttacked : ObstacleData
         if(obstacleAnimator == true)
         {
             obstacleAnimator.SetBool("Attacked", false);
+            if(instantiateObstacle == true)
+            {
+                instantiateObstacle.IsAttack = false;
+            }
         }
         else if(type.Type == TypeID.OIL)
         {
-            oilCtrl.OilDisappear();
             oilCtrl.StopOilDisappear();
         }
 

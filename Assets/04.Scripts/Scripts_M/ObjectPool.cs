@@ -34,7 +34,7 @@ public class ObjectPool : MonoBehaviour
     {
         Instance = this;
 
-        Initialize(10);
+        Initialize(1);
     }
 
     private GameObject CreateNewObj(int ID)

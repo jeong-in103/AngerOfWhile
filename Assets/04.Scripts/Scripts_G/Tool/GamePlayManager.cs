@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class GamePlayManager : MonoBehaviour
 {
-    [SerializeField]
-    private SoundManager soundManager;
+    //[SerializeField]
+    //private SoundManager soundManager;
 
     public Slider angerSlider;
 
@@ -27,6 +27,7 @@ public class GamePlayManager : MonoBehaviour
 
     [SerializeField]
     private float pastMeter = 0;
+    [SerializeField]
     private int countHighlightScore = 0;
 
     void Start()
@@ -104,10 +105,10 @@ public class GamePlayManager : MonoBehaviour
     {
         if (GameManager.score > 0 && GameManager.score / 1000 > countHighlightScore)
         {
-            countHighlightScore++;
+            countHighlightScore = (int)(GameManager.score / 1000);
             currentScore.gameObject.SetActive(false);
             highLightScore.ScoreAccent(GameManager.score, currentScore.gameObject);
-            soundManager.ScoreHighlightSound();
+            //soundManager.ScoreHighlightSound();
         }
     }
 }

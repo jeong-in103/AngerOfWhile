@@ -13,7 +13,7 @@ public class SoundManager : Singleton<SoundManager>
 
     [Header("UI 효과음")]
     public AudioClip buttonClick;
-    public AudioClip scoreOn;
+    //public AudioClip scoreOn;
 
     [Header("고래 소리")]
     public AudioClip attack;
@@ -89,9 +89,9 @@ public class SoundManager : Singleton<SoundManager>
         playAudio.PlayOneShot(helmat);
     }
 
-    public void ScoreHighlightSound()
-    {
-        playAudio.volume = 0.8f;
-        playAudio.PlayOneShot(scoreHighlight);
-    }
+    //public void ScoreHighlightSound()
+    //{
+    //    playAudio.volume = 0.8f;
+    //    playAudio.PlayOneShot(scoreHighlight);
+    //}
 }

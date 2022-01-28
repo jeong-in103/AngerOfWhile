@@ -24,6 +24,7 @@ public class OilCtrl : MonoBehaviour
     {
         coroutine = RemoveOil();
         StartCoroutine(coroutine);
+        OilReset();
     }
 
     public void StopOilDisappear()
@@ -41,7 +42,7 @@ public class OilCtrl : MonoBehaviour
         }
     }
 
-    public void OilReset()
+    private void OilReset()
     {
         floatTime = 1;
         oilRenderer.material.SetFloat("_floatTime", floatTime);
