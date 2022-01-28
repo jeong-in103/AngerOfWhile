@@ -29,6 +29,8 @@ public class SoundManager : Singleton<SoundManager>
     [Header("점수 효과음")]
     public AudioClip scoreHighlight;
 
+    public float a;
+
     //BGM 초기화
     private void BgmInit()
     {
@@ -80,6 +82,7 @@ public class SoundManager : Singleton<SoundManager>
     public void AidKitSound()
     {
         playAudio.volume = 0.5f;
+         a = playAudio.volume;
         playAudio.PlayOneShot(heal);
     }
 
@@ -93,5 +96,14 @@ public class SoundManager : Singleton<SoundManager>
     {
         playAudio.volume = 0.8f;
         playAudio.PlayOneShot(scoreHighlight);
+    }
+
+    public void SoundOff()
+    {
+        AudioListener.volume = 0;
+    }
+    public void SoundOn()
+    {
+       AudioListener.volume = 1;
     }
 }

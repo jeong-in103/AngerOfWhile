@@ -12,7 +12,7 @@ public class SceneChange : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene("Start_G");
+        SceneManager.LoadScene("GamePlay");
     }
 
     public void CloseButton()
