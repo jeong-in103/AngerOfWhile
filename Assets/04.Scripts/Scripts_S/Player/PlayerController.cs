@@ -27,12 +27,15 @@ public class PlayerController : WhaleBase
 
     [Header("Player Detail Setting")]
     // Variable
-    public float timeSpeed = 29f; // 정지 시간 속도
+    public float attackStopTime; //공격시 정지 시간 
     public float blinkSpeed; //색 변화 속도
+
 
     public float InvincibleTime = 1f; // 무적 시간
     private float blinkTime; //색 변화 시간
-    private float slowTime; //느려지는 시간
+    private float attackTime; //공격 하는 시간
+    //public float timeSpeed = 29f; // 정지 시간 속도
+    //private float slowTime; //느려지는 시간
 
     private float startPosY; // Player 초기 위치Y
     private float startPosZ; // Player 초기 위치Z
@@ -54,7 +57,9 @@ public class PlayerController : WhaleBase
         hp = 3;
         stemina = 0;
         helmat = 0;
-        slowTime = 0.1f;
+        //slowTime = 0.1f;
+        attackStopTime = 0.7f;
+        attackTime = 0f;
         moveSpeed = 10f; // 이동 속도
 
         startPosY = transform.position.y;
@@ -77,14 +82,10 @@ public class PlayerController : WhaleBase
                 AttackWay(); //공격 애니
                 break;
             case State.ATTACK:
-                if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+                attackTime += Time.deltaTime;
+                if (attackTime >= attackStopTime) //공격시간 정하기
                 {
-                    StartCoroutine(TimeDelay()); //시간 딜레이
-
-                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
-                    {
-                        Init();
-                    }
+                    Init();
                 }
                 break;
             case State.DEAD:
@@ -110,6 +111,7 @@ public class PlayerController : WhaleBase
         PlayerInteraction.Dive = false;
         PlayerInteraction.Attack = false;
 
+        attackTime = 0f;
         //animator.ResetTrigger("Dive");
         //animator.ResetTrigger("Attack");
 
@@ -288,6 +290,7 @@ public class PlayerController : WhaleBase
             Attack();
         }
     }
+    /*
     IEnumerator TimeDelay()
     {
         while (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
@@ -301,6 +304,7 @@ public class PlayerController : WhaleBase
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         slowTime = 0.1f;
     }
+    */
 
     #endregion
 
