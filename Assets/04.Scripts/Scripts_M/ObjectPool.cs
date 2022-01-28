@@ -33,7 +33,7 @@ public class ObjectPool : MonoBehaviour
     {
         Instance = this;
 
-        Initialize(1);
+        Initialize(10);
     }
 
     private GameObject CreateNewObj(int ID)
