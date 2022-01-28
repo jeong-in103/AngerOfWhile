@@ -7,7 +7,7 @@ public class WaterControl : MonoBehaviour
     public Material mat;
 
     public Color startColor;
-    public Color sunsetColor;
+    public Color PoisonColor;
     public Color nightColor;
 
     private Color currentColor;
@@ -15,7 +15,7 @@ public class WaterControl : MonoBehaviour
     public float colorSpeed;
 
     public bool morning;
-    public bool sunset;
+    public bool poison;
     public bool night;
 
     private int nextColor;
@@ -41,15 +41,15 @@ public class WaterControl : MonoBehaviour
     {
         CheckScore();
 
-        /*
+        
         if (morning)
         {
             currentColor = Color.Lerp(currentColor, startColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
         }
-        if (sunset)
+        if (poison)
         {
-            currentColor = Color.Lerp(currentColor, sunsetColor, Time.smoothDeltaTime * colorSpeed);
+            currentColor = Color.Lerp(currentColor, PoisonColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
         }
         if (night)
@@ -57,7 +57,7 @@ public class WaterControl : MonoBehaviour
             currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
         }
-        */
+        
     }
     public void CheckScore()
     {
@@ -84,7 +84,7 @@ public class WaterControl : MonoBehaviour
             }
             else if (type == 1)
             {
-                currentColor = Color.Lerp(currentColor, sunsetColor, Time.smoothDeltaTime * colorSpeed);
+                currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
                 mat.SetColor("_TopDarkColour", currentColor);
 
                 if (currentColor == nightColor)
@@ -92,10 +92,10 @@ public class WaterControl : MonoBehaviour
             }
             else if (type == 2)
             {
-                currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
+                currentColor = Color.Lerp(currentColor, PoisonColor, Time.smoothDeltaTime * colorSpeed);
                 mat.SetColor("_TopDarkColour", currentColor);
 
-                if (currentColor == sunsetColor)
+                if (currentColor == PoisonColor)
                     break;
             }
             yield return null;

@@ -66,13 +66,16 @@ public class GamePlayManager : MonoBehaviour
 
     private void GaugeUpdate()
     {
-        if (GameManager.angerValue > 0)
+        if (!GameManager.endGame)
         {
-            AngerUpdate();
-        }
-        else
-        {
-            StressUpdate();
+            if (GameManager.angerValue > 0)
+            {
+                AngerUpdate();
+            }
+            else
+            {
+                StressUpdate();
+            }
         }
     }
     private void AngerUpdate()
