@@ -22,7 +22,7 @@ public class OilCtrl : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        OilReset();
     }
 
     public void OilDisappear()

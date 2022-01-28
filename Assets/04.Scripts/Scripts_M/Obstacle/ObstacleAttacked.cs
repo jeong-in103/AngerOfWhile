@@ -127,7 +127,7 @@ public class ObstacleAttacked : ObstacleData
         obstacleCtrl.MoveSpeed = tempMoveSpeed;
 
         // 박스 콜라이더 활성화
-        boxCollider.enabled = true;
+        boxCollider.enabled = false;
     }
 
     private void ScoreAndGauge()
