@@ -63,10 +63,10 @@ public class GamePlayManager : MonoBehaviour
         {
             AngerFriends.gameObject.SetActive(true);
             angerSlider.value = 30f;
-            GameManager.angerValue = 30f;
+            GameManager.angerValue = 25f;
         }
 
-        GameManager.angerValue -= Time.deltaTime *5f; //G:1초에 angerGauge -5 감소부분
+        GameManager.angerValue -= Time.deltaTime *4f; //G:1초에 angerGauge -5 감소부분
         GameManager.angerValue = Mathf.Clamp(GameManager.angerValue, 0, 100); //최소 최대
     }
 

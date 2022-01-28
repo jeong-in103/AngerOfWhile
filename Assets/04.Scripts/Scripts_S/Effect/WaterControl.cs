@@ -32,6 +32,7 @@ public class WaterControl : MonoBehaviour
         multiple = 1;
 
         mat.SetColor("_TopDarkColour", startColor);
+        currentColor = startColor;
     }
 
     private void LateUpdate()
