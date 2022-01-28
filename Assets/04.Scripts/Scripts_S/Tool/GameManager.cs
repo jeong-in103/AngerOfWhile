@@ -10,5 +10,7 @@ public static class GameManager
     public static int bestScore;
     public static bool delete = false;
 
+    public static bool stress;
     public static bool endGame;
+
 }

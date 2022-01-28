@@ -9,6 +9,7 @@ public class GamePlayManager : MonoBehaviour
     //private SoundManager soundManager;
 
     public Slider angerSlider;
+    public Slider stressSlider;
 
     public Text currentMeter;
     public Text currentScore;
@@ -30,22 +31,28 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField]
     private int countHighlightScore = 0;
 
+    private bool stressWait;
+
     void Start()
     {
         GameManager.score = 0;
         GameManager.angerValue = 0f;
        
         GameManager.bestScore = PlayerPrefs.GetInt("BestRecord", 0);
+        GameManager.stress = false;
         GameManager.endGame = false;
 
         angerSlider.value = 0; //G: 0으로 초기화 해서 시작할 것 
+        stressSlider.value = 0;
+
+        stressWait = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         MeterUpdate();
-        AngerUpdate();
+        GaugeUpdate();
         ScoreUpdate();
     }
 
@@ -56,9 +63,26 @@ public class GamePlayManager : MonoBehaviour
             endingCanvas.SetActive(true);
         }
     }
+
+    private void GaugeUpdate()
+    {
+        if (GameManager.angerValue > 0)
+        {
+            AngerUpdate();
+        }
+        else
+        {
+            StressUpdate();
+        }
+    }
     private void AngerUpdate()
     {
+        angerSlider.gameObject.SetActive(true);
+        stressSlider.gameObject.SetActive(false);//StestBar Off
+        stressSlider.value = 0;
+
         angerSlider.value = GameManager.angerValue;
+
         if (GameManager.angerValue >= 100)
         {
             AngerFriends.gameObject.SetActive(true);
@@ -66,8 +90,31 @@ public class GamePlayManager : MonoBehaviour
             GameManager.angerValue = 25f;
         }
 
-        GameManager.angerValue -= Time.deltaTime *4f; //G:1초에 angerGauge -5 감소부분
+        GameManager.angerValue -= Time.deltaTime * 4f; //G:1초에 angerGauge -5 감소부분
         GameManager.angerValue = Mathf.Clamp(GameManager.angerValue, 0, 100); //최소 최대
+    }
+
+    private void StressUpdate()
+    {
+        angerSlider.gameObject.SetActive(false);
+        stressSlider.gameObject.SetActive(true);//StresBar On
+
+        if (!stressWait)
+        {
+            stressSlider.value += Time.deltaTime;
+            if (stressSlider.value == stressSlider.maxValue)
+            {
+                stressSlider.value = stressSlider.minValue;
+                GameManager.stress = true;// HP -1
+                stressWait = true;
+                // 무적시간에 맞게 2초 후 다시 시작
+
+            }
+        }
+        else
+        {
+            Invoke(nameof(StressWaitEnd), 2f);
+        }
     }
 
     private void MeterUpdate() 
@@ -115,5 +162,10 @@ public class GamePlayManager : MonoBehaviour
             highLightScore.ScoreAccent(GameManager.score, currentScore.gameObject);
             //soundManager.ScoreHighlightSound();
         }
+    }
+
+    private void StressWaitEnd()
+    {
+        stressWait = false;
     }
 }

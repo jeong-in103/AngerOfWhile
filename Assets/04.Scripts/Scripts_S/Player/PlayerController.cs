@@ -104,6 +104,12 @@ public class PlayerController : WhaleBase
                 PlayerInteraction.Dive = false;
                 break;
         }
+
+        if (GameManager.stress)
+        {
+            OnDamage();
+            GameManager.stress = false;
+        }
     }
     //√ ±‚»≠
     private void Init()
