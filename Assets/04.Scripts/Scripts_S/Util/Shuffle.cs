@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class Shuffle
 {
-    public static List<GameObject> ShufflEnmey<T>(List<GameObject> list, int seed)
+    public static List<GameObject> ShufflEnmey<T>(List<GameObject> list)
     {
-        System.Random prng = new System.Random(seed);
+        System.Random prng = new System.Random();
 
         for (int i = 0; i < list.Count - 1; i++)
         {
