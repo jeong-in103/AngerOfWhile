@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 164faa5aad685624f9850972351d014b, type: 2}
-  moveSpeed: 12
+  moveSpeed: 20
 --- !u!114 &-72111489429979493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 164faa5aad685624f9850972351d014b, type: 2}
+  gamePlayManager: {fileID: 0}
   humansObj: {fileID: 0}
   humanValue: 0
   destroyDelay: 0
-  testAttackedSwitch: 0
 --- !u!82 &6940793929776763364
 AudioSource:
   m_ObjectHideFlags: 0

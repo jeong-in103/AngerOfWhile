@@ -22,6 +22,7 @@ public class InstantiateObstacle : ObstacleData
     private float ranMaxCoolTime;
 
     private bool isAttack;
+    public bool IsAttack { set { isAttack = value; } }
 
     private void Awake()
     {

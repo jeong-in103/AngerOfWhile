@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Naval
   m_EditorClassIdentifier: 
   type: 4
-  angerGauge: 25
+  angerGauge: 20
   score: 1300
   obstacleObject: {fileID: 330451636966643371, guid: 8d8b3a3a14467e04bad0daafc0ecbbe7, type: 3}

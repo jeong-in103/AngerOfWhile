@@ -11,6 +11,7 @@ public class ScoreText : MonoBehaviour
     private Color alpha;
 
     private float moveSpeed;
+    private float moveSpeedX = 0f;
     private float alphaSpeed;
     private float destroyTime;
     private float fontOriginSize;
@@ -37,7 +38,7 @@ public class ScoreText : MonoBehaviour
         if(isActive)
         {
             // 텍스트 위치
-            transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, moveSpeed * Time.deltaTime));
+            transform.Translate(new Vector3(moveSpeedX * Time.deltaTime, moveSpeed * Time.deltaTime, moveSpeed * Time.deltaTime));
 
             // 텍스트 알파값
             alpha.a = Mathf.Lerp(alpha.a, 0.5f, Time.deltaTime * alphaSpeed);
@@ -52,6 +53,8 @@ public class ScoreText : MonoBehaviour
             Resetting();
         }
 
+        PositionCtrl();
+
         scoreText.text = Score.ToString(); // 출력 값
         float temp = 1 + ((float)Score / 1000);
         scoreText.fontSize = temp > 2f ? (fontOriginSize * 2f) : fontOriginSize * temp;
@@ -61,6 +64,27 @@ public class ScoreText : MonoBehaviour
         Invoke("Resetting", destroyTime);
     }
 
+    private void PositionCtrl()
+    {
+        if (transform.position.z >= -4f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -4f);
+        }
+
+        if (transform.position.z <= -18f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -12f);
+        }
+
+        if (transform.position.x <= -6f)
+        {
+            moveSpeedX = 2f;
+        }
+        else if (transform.position.x >= 6f)
+        {
+            moveSpeedX = -2f;
+        }
+    }
 
     private void Resetting()
     {

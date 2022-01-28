@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sub
   m_EditorClassIdentifier: 
   type: 1
-  angerGauge: 50
-  score: 200
+  angerGauge: 40
+  score: 100
   obstacleObject: {fileID: 0}

@@ -15,7 +15,7 @@ public class ScoreUp : MonoBehaviour
 
     private void Awake()
     {
-        scoreHighlight = GetComponent<TextMeshProUGUI>();
+        scoreHighlight = GetComponentInChildren<TextMeshProUGUI>();
 
         isHighlight = false;
     }

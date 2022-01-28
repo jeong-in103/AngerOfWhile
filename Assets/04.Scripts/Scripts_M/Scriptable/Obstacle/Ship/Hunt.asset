@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hunt
   m_EditorClassIdentifier: 
   type: 3
-  angerGauge: 40
+  angerGauge: 16
   score: 700
   obstacleObject: {fileID: 396601334271349210, guid: 7e2e74303a477544cbf83d0de771b863, type: 3}

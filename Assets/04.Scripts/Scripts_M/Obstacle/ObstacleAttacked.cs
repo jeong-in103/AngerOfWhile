@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Collections.LowLevel.Unsafe;
+using UnityEngine.UI;
 
 public class ObstacleAttacked : ObstacleData
 {
@@ -11,6 +11,7 @@ public class ObstacleAttacked : ObstacleData
     private Animator obstacleAnimator;
     private BoxCollider boxCollider;
 
+    private InstantiateObstacle instantiateObstacle;
     private ObstacleCtrl obstacleCtrl;
     private HumanExplosion humanEffect;
     private OilCtrl oilCtrl;
@@ -29,6 +30,7 @@ public class ObstacleAttacked : ObstacleData
     {
         gamePlayManager = GameObject.FindWithTag("GamePlayManager").GetComponent<GamePlayManager>();
         boxCollider = GetComponent<BoxCollider>();
+        instantiateObstacle = GetComponent<InstantiateObstacle>();
         obstacleCtrl = GetComponent<ObstacleCtrl>();
         obstacleAnimator = GetComponentInChildren<Animator>();
         humanEffect = GetComponentInChildren<HumanExplosion>();
@@ -57,7 +59,7 @@ public class ObstacleAttacked : ObstacleData
         }
 
         //Á¡¼ö Ãâ·Â
-        GameObject scoreText = ObjectPool.GetObj(UnsafeUtility.EnumToInt(TypeID.TEXT));
+        GameObject scoreText = ObjectPool.GetObj((int)TypeID.TEXT);
         float ran = Random.Range(-2f, 2f);
         scoreText.transform.position = 
             new Vector3(transform.position.x + ran, transform.position.y, transform.position.z + 5f + ran);
@@ -67,16 +69,15 @@ public class ObstacleAttacked : ObstacleData
         obstacleCtrl.MoveSpeed = 0f;
         boxCollider.enabled = false;
 
-        if (!GameManager.endGame)
+        if (whale == 1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
         {
-            if (whale == 1) //1.Player¿Í ºÎµúÇûÀ» °æ¿ì 2.ÇÊ»ì±â °í·¡¶û ºÎµúÇûÀ» °æ¿ì
-            {
-                ScoreAndGauge();
-            }
-            else
-            {
-                GameManager.score += type.Score;
-            }
+            ScoreAndGauge();
+        }
+        else
+        {
+            GameManager.score += type.Score;
+
+            gamePlayManager.ScoreHighlight();
         }
 
         Invoke("ResettingObstacle", destroyDelay);
@@ -87,10 +88,13 @@ public class ObstacleAttacked : ObstacleData
         if(obstacleAnimator == true)
         {
             obstacleAnimator.SetBool("Attacked", false);
+            if(instantiateObstacle == true)
+            {
+                instantiateObstacle.IsAttack = false;
+            }
         }
         else if(type.Type == TypeID.OIL)
         {
-            oilCtrl.OilDisappear();
             oilCtrl.StopOilDisappear();
         }
 
@@ -104,7 +108,7 @@ public class ObstacleAttacked : ObstacleData
             humanEffect.Resetting(humanValue);
         }
 
-        ObjectPool.ReturnObj(this.gameObject, UnsafeUtility.EnumToInt(type.Type));
+        ObjectPool.ReturnObj(this.gameObject, (int)type.Type);
 
         obstacleCtrl.MoveSpeed = tempMoveSpeed;
         boxCollider.enabled = true;
