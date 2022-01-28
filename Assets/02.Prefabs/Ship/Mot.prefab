@@ -97,7 +97,7 @@ MonoBehaviour:
   gamePlayManager: {fileID: 0}
   humansObj: {fileID: 2982453379207073050}
   humanValue: 4
-  destroyDelay: 3
+  destroyDelay: 2
 --- !u!1 &1268448512853798448
 GameObject:
   m_ObjectHideFlags: 0
