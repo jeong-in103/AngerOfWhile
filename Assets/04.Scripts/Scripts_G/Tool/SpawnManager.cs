@@ -631,25 +631,25 @@ public class SpawnManager : MonoBehaviour
             case 14:
                 break;
         }
-
-        //아이템 생성
-        void ItemCreation(int type)
-        {
-            if (isItemCreation == false)
-            {
-                isItemCreation = true;
-                currentRandPosition = Random.Range(0, position.Length);
-                GameObject leaveObj = ObjectPool.GetObj(type);
-                leaveObj.transform.position = position[currentRandPosition];
-                Invoke(nameof(ItemFalse), 4f);
-            }
-        }
-
-        void ItemFalse()
-        {
-            isItemCreation = false;
-        }
-        #endregion
-        #endregion
     }
+
+    //아이템 생성
+    void ItemCreation(int type)
+    {
+        if (isItemCreation == false)
+        {
+            isItemCreation = true;
+            currentRandPosition = Random.Range(0, position.Length);
+            GameObject leaveObj = ObjectPool.GetObj(type);
+            leaveObj.transform.position = position[currentRandPosition];
+            Invoke(nameof(ItemFalse), 4f);
+        }
+    }
+
+    void ItemFalse()
+    {
+        isItemCreation = false;
+    }
+    #endregion
+    #endregion
 }
