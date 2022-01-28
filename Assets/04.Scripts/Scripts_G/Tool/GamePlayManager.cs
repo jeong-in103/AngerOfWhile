@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GamePlayManager : MonoBehaviour
 {
     public Slider angerSlider;
     public Slider stressSlider;
 
+    public TextMeshProUGUI stressBlink;
     public Text currentMeter;
     public Text currentScore;
     public Text finalMeter;
@@ -77,6 +79,8 @@ public class GamePlayManager : MonoBehaviour
     }
     private void AngerUpdate()
     {
+        stressBlink.gameObject.SetActive(false);
+
         stressSlider.value = 0;
 
         angerSlider.value = GameManager.angerValue;
@@ -96,6 +100,8 @@ public class GamePlayManager : MonoBehaviour
     {
         if (!stressWait)
         {
+            stressBlink.gameObject.SetActive(true);
+
             stressSlider.value += Time.deltaTime;
             if (stressSlider.value == stressSlider.maxValue)
             {

@@ -13543,6 +13543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angerSlider: {fileID: 800311690}
   stressSlider: {fileID: 94514465}
+  stressBlink: {fileID: 922125949}
   currentMeter: {fileID: 328670221}
   currentScore: {fileID: 215892828}
   finalMeter: {fileID: 1640513646}
