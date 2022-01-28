@@ -20,10 +20,12 @@ public class WaterControl : MonoBehaviour
 
     private int nextColor;
     private int multiple;
-    [SerializeField]
-    private int changeColorScore = 2000;
 
-    WaitForSeconds wait = new WaitForSeconds(0.1f);
+    //게임 Totaㅣ 점수 대략 :170,150  게임 내 3등분해서 바다 색 조절
+    [SerializeField]
+    private int changeColorScore = 50000;
+
+    WaitForSeconds wait = new WaitForSeconds(10f);
 
     Coroutine changeWater;
     private void Start()
@@ -39,24 +41,23 @@ public class WaterControl : MonoBehaviour
     {
         CheckScore();
 
+        /*
         if (morning)
         {
             currentColor = Color.Lerp(currentColor, startColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
-            //mat.SetColor("_TopDarkColour", startColor);
         }
         if (sunset)
         {
             currentColor = Color.Lerp(currentColor, sunsetColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
-            //mat.SetColor("_TopDarkColour", sunsetColor);
         }
         if (night)
         {
             currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
             mat.SetColor("_TopDarkColour", currentColor);
-            //mat.SetColor("_TopDarkColour", nightColor);
         }
+        */
     }
     public void CheckScore()
     {
@@ -66,7 +67,7 @@ public class WaterControl : MonoBehaviour
             multiple++;
             nextColor++;
 
-            //StartCoroutine(ChangeWater(nextColor));
+            StartCoroutine(ChangeWater(nextColor));
         }
     }
     IEnumerator ChangeWater(int type)
@@ -85,8 +86,8 @@ public class WaterControl : MonoBehaviour
             {
                 currentColor = Color.Lerp(currentColor, sunsetColor, Time.smoothDeltaTime * colorSpeed);
                 mat.SetColor("_TopDarkColour", currentColor);
-                Debug.Log("수줏ㅇ");
-                if (currentColor == sunsetColor)
+
+                if (currentColor == nightColor)
                     break;
             }
             else if (type == 2)
@@ -94,7 +95,7 @@ public class WaterControl : MonoBehaviour
                 currentColor = Color.Lerp(currentColor, nightColor, Time.smoothDeltaTime * colorSpeed);
                 mat.SetColor("_TopDarkColour", currentColor);
 
-                if (currentColor == nightColor)
+                if (currentColor == sunsetColor)
                     break;
             }
             yield return null;
