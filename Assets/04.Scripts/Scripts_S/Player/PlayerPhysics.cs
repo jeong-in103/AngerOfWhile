@@ -118,10 +118,7 @@ public class PlayerPhysics : MonoBehaviour
             {
                 playerController.AidKitEffect(2);
             }
-            else if (other.GetComponent<ObstacleCtrl>().GetObstacleType == TypeID.CLOCK)
-            {
 
-            }
             other.gameObject.SetActive(false);
         }
     }

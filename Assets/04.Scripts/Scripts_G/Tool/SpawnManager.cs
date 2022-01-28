@@ -20,9 +20,6 @@ public class SpawnManager : MonoBehaviour
     public int[] enemyNumber = new int[5];
     private int[] samePosition = new int[5];
 
-    [SerializeField]
-    private int type;
-
     // public int positionRand = 0;
     public float timer = 0f;
     public bool isSpawn = false;
@@ -33,8 +30,7 @@ public class SpawnManager : MonoBehaviour
     public int randType;
     public int randType2;
     public int currentRandPosition;
-    private float deleteTimer = 10f;
-    private float deleteTime = 0f;
+
     // S 
     [SerializeField]
     private int level = 1;
@@ -645,7 +641,7 @@ public class SpawnManager : MonoBehaviour
                 currentRandPosition = Random.Range(0, position.Length);
                 GameObject leaveObj = ObjectPool.GetObj(type);
                 leaveObj.transform.position = position[currentRandPosition];
-                Invoke("ItemFalse", 4f);
+                Invoke(nameof(ItemFalse), 4f);
             }
         }
 

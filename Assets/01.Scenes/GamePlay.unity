@@ -31444,7 +31444,6 @@ MonoBehaviour:
   spawnDelay: 2.5
   spawnCount: 0000000000000000000000000000000000000000
   enemyNumber: 0000000000000000000000000000000000000000
-  type: 0
   timer: 0
   isSpawn: 1
   isItemCreation: 0
