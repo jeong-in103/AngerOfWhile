@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mot
   m_EditorClassIdentifier: 
   type: 2
-  angerGauge: 25
+  angerGauge: 35
   score: 450
   obstacleObject: {fileID: 4496493003748863147, guid: 81202251e6386c14fa1aa90e099833f0, type: 3}
