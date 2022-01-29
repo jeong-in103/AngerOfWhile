@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Trash
   m_EditorClassIdentifier: 
   type: 5
-  angerGauge: 0
+  angerGauge: 10
   score: 50
-  leaveObject: {fileID: 0}
-  bulletObject: {fileID: 0}
+  obstacleObject: {fileID: 0}
