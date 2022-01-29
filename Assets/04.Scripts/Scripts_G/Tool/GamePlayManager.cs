@@ -35,7 +35,7 @@ public class GamePlayManager : MonoBehaviour
     void Start()
     {
         GameManager.score = 0;
-        GameManager.angerValue = 0f;
+        GameManager.angerValue = 80f;
        
         GameManager.bestScore = PlayerPrefs.GetInt("BestRecord", 0);
         GameManager.stress = false;
@@ -92,7 +92,7 @@ public class GamePlayManager : MonoBehaviour
             GameManager.angerValue = 25f;
         }
 
-        GameManager.angerValue -= Time.deltaTime * 4f; //G:1초에 angerGauge -5 감소부분
+        GameManager.angerValue -= Time.deltaTime * 2f; //G:1초에 angerGauge -2 감소부분
         GameManager.angerValue = Mathf.Clamp(GameManager.angerValue, 0, 100); //최소 최대
     }
 

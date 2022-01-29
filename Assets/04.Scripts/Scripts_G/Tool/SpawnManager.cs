@@ -111,9 +111,9 @@ public class SpawnManager : MonoBehaviour
         {
             //------------------------------------------ ≥≠¿Ãµµ 1
             case 1:
-                enemyNumber[0] = 15;
+                enemyNumber[0] = 19;
                 enemyNumber[1] = 3;
-                enemyNumber[2] = 3;
+                enemyNumber[2] = 6;
                 SpawnCountInit();
                 ships.Clear();
                 shipsReady(0);
@@ -127,9 +127,9 @@ public class SpawnManager : MonoBehaviour
             case 2:
                 timer = 30f;
 
-                enemyNumber[0] = 12;
-                enemyNumber[1] = 5;
-                enemyNumber[2] = 6;
+                enemyNumber[0] = 17;
+                enemyNumber[1] = 2;
+                enemyNumber[2] = 8;
                 SpawnCountInit();
 
                 ships.Clear();
@@ -144,9 +144,9 @@ public class SpawnManager : MonoBehaviour
             case 3:
                 timer = 60f;
 
-                enemyNumber[0] = 10;
+                enemyNumber[0] = 15;
                 enemyNumber[1] = 3;
-                enemyNumber[2] = 10;
+                enemyNumber[2] = 12;
 
                 SpawnCountInit();
 
@@ -162,9 +162,9 @@ public class SpawnManager : MonoBehaviour
             case 4:
                 timer = 125f;
 
-                enemyNumber[0] = 8;
+                enemyNumber[0] = 15;
                 enemyNumber[1] = 5;
-                enemyNumber[2] = 13;
+                enemyNumber[2] = 10;
                 enemyNumber[3] = 3;
                 SpawnCountInit();
 
@@ -181,10 +181,10 @@ public class SpawnManager : MonoBehaviour
             case 5:
                 timer = 180f;
 
-                enemyNumber[0] = 5;
+                enemyNumber[0] = 13;
                 enemyNumber[1] = 3;
                 enemyNumber[2] = 10;
-                enemyNumber[3] = 6;
+                enemyNumber[3] = 5;
 
                 SpawnCountInit();
 
@@ -201,7 +201,7 @@ public class SpawnManager : MonoBehaviour
             case 6:
                 timer = 240f;
 
-                enemyNumber[0] = 8;
+                enemyNumber[0] = 10;
                 enemyNumber[1] = 3;
                 enemyNumber[2] = 10;
                 enemyNumber[3] = 5;
@@ -222,9 +222,10 @@ public class SpawnManager : MonoBehaviour
                 timer = 300f;
 
                 enemyNumber[0] = 8;
-                enemyNumber[1] = 5;
+                enemyNumber[1] = 4;
                 enemyNumber[2] = 12;
-                enemyNumber[3] = 8;
+                enemyNumber[3] = 0;
+                enemyNumber[4] = 8;
 
                 SpawnCountInit();
 
@@ -233,6 +234,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
                 shipsReady(3);
+                shipsReady(4);
 
                 random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
@@ -242,9 +244,10 @@ public class SpawnManager : MonoBehaviour
                 timer = 360f;
 
                 enemyNumber[0] = 8;
-                enemyNumber[1] = 5;
+                enemyNumber[1] = 4;
                 enemyNumber[2] = 8;
-                enemyNumber[3] = 12;
+                enemyNumber[3] = 0;
+                enemyNumber[4] = 12;
 
                 SpawnCountInit();
 
@@ -253,6 +256,7 @@ public class SpawnManager : MonoBehaviour
                 shipsReady(1);
                 shipsReady(2);
                 shipsReady(3);
+                shipsReady(4);
 
                 random = new System.Random();
                 ships = Shuffle.ShufflEnmey<List<GameObject>>(ships);
@@ -264,7 +268,7 @@ public class SpawnManager : MonoBehaviour
                 enemyNumber[0] = 3;
                 enemyNumber[1] = 5;
                 enemyNumber[2] = 8;
-                enemyNumber[3] = 8;
+                enemyNumber[3] = 3;
                 enemyNumber[4] = 10;
 
                 SpawnCountInit();
@@ -427,22 +431,22 @@ public class SpawnManager : MonoBehaviour
         switch (level)
         {
             case 1:
-                spawnDelay = Random.Range(1.1f, 1.7f);
+                spawnDelay = Random.Range(0.7f, 1.3f);
                 break;
             case 2:
-                spawnDelay = Random.Range(1.0f, 1.6f);
+                spawnDelay = Random.Range(0.8f, 1.4f);
                 break;
             case 3:
-                spawnDelay = Random.Range(2.3f, 2.9f);
+                spawnDelay = Random.Range(1.7f, 2.3f);
                 break;
             case 4:
-                spawnDelay = Random.Range(1.5f, 2.1f);
+                spawnDelay = Random.Range(1.3f, 1.9f);
                 break;
             case 5:
-                spawnDelay = Random.Range(2.2f, 2.8f);
+                spawnDelay = Random.Range(1.6f, 2.2f);
                 break;
             case 6:
-                spawnDelay = Random.Range(1.6f, 2.2f);
+                spawnDelay = Random.Range(1.8f, 2.4f);
                 break;
             case 7:
                 spawnDelay = Random.Range(1.5f, 2.1f);
@@ -451,7 +455,7 @@ public class SpawnManager : MonoBehaviour
                 spawnDelay = Random.Range(1.5f, 2.1f);
                 break;
             case 9:
-                spawnDelay = Random.Range(1.4f, 2.0f);
+                spawnDelay = Random.Range(1.7f, 2.3f);
                 break;
             case 10:
                 spawnDelay = Random.Range(1.9f, 2.5f);
