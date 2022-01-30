@@ -80,6 +80,7 @@ public class GamePlayManager : MonoBehaviour
     private void AngerUpdate()
     {
         angerSlider.gameObject.SetActive(true);
+        stressSlider.gameObject.SetActive(false);
         stressBlink.gameObject.SetActive(false);
 
         stressSlider.value = 0;
