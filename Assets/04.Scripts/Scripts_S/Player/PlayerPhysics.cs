@@ -26,7 +26,7 @@ public class PlayerPhysics : MonoBehaviour
     private void Update()
     {
         //Box Collider 위치 사이즈 조정 (모델 리소스 문제로 하드코딩)
-        if (playerController.state == PlayerController.State.IDLE)
+        if (playerController.state == PlayerController.State.IDLE || playerController.state == PlayerController.State.DAMAGE)
         {
             boxCollider.enabled = true;
             boxCollider.center = new Vector3(0.06f, 0.03f, boxCollider.center.z);
@@ -61,42 +61,44 @@ public class PlayerPhysics : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            //같은 배 부딪힐 경우 넘어가기
-            if (enemy == other.gameObject)
+            if(playerController.state != PlayerController.State.DAMAGE)
             {
-                return;
-            }
-
-            //배 부딪힐 경우 대미지
-            if ((playerController.state == PlayerController.State.IDLE || playerController.state == PlayerController.State.DIVE))
-            {
-                enemy = other.gameObject;
-
-                //배 충돌시 Anger Gage 올리기
-                if (enemy.CompareTag("Sub"))
+                //같은 배 부딪힐 경우 넘어가기
+                if (enemy == other.gameObject)
                 {
-                    GameManager.angerValue += 50;
+                    return;
                 }
-                else
-                {
-                    GameManager.angerValue += 10;
-                }
-                //대미지 효과
-                playerController.OnDamage();
-            }
 
-            // 공격할 경우만 Attakced 시키기
-            if ((playerController.state == PlayerController.State.ATTACK))
-            {
-                enemy = other.gameObject;
-                if (other.gameObject.CompareTag("Oil")) //기름 공격했을 경우 데미지 
+                //배 부딪힐 경우 대미지
+                if ((playerController.state == PlayerController.State.IDLE || playerController.state == PlayerController.State.DIVE))
                 {
+                    enemy = other.gameObject;
+
+                    //배 충돌시 Anger Gage 올리기
+                    if (enemy.CompareTag("Sub"))
+                    {
+                        GameManager.angerValue += 50;
+                    }
+                    else
+                    {
+                        GameManager.angerValue += 10;
+                    }
                     //대미지 효과
                     playerController.OnDamage();
-
                 }
 
-                other.gameObject.GetComponent<ObstacleAttacked>().Attacked(1);
+                // 공격할 경우만 Attakced 시키기
+                if ((playerController.state == PlayerController.State.ATTACK))
+                {
+                    enemy = other.gameObject;
+                    if (other.gameObject.CompareTag("Oil")) //기름 공격했을 경우 데미지 
+                    {
+                        //대미지 효과
+                        playerController.OnDamage();
+
+                    }
+                    other.gameObject.GetComponent<ObstacleAttacked>().Attacked(1);
+                }
             }
         }
         //아이템 부딪힐 경우

@@ -122,7 +122,6 @@ public class PlayerController : WhaleBase
         //animator.ResetTrigger("Attack");
 
         skin.color = Color.black;
-
         state = State.IDLE;
     }
 
