@@ -79,6 +79,7 @@ public class GamePlayManager : MonoBehaviour
     }
     private void AngerUpdate()
     {
+        angerSlider.gameObject.SetActive(true);
         stressBlink.gameObject.SetActive(false);
 
         stressSlider.value = 0;
@@ -98,8 +99,10 @@ public class GamePlayManager : MonoBehaviour
 
     private void StressUpdate()
     {
+        angerSlider.gameObject.SetActive(false);
         if (!stressWait)
         {
+            stressSlider.gameObject.SetActive(true);
             stressBlink.gameObject.SetActive(true);
 
             stressSlider.value += Time.deltaTime;
